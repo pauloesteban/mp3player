@@ -1,0 +1,1700 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.19)  24 OCT 2016 15:21
+entering extended mode
+**./Informe_PrototipadoDeBajoNivel.tex
+(Informe_PrototipadoDeBajoNivel.tex
+LaTeX2e <2016/03/31> patch level 3
+Babel <3.9r> and hyphenation patterns for 75 language(s) loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\book.cls"
+Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\bk12.clo"
+File: bk12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+Package: inputenc 2015/03/17 v1.2c Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\latin1.def"
+File: latin1.def 2015/03/17 v1.2c Input encoding file
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+Package: amsmath 2016/06/28 v2.15d AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+Package: amstext 2000/06/29 v2.01 AMS text
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks16
+\ex@=\dimen103
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen104
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count88
+LaTeX Info: Redefining \frac on input line 199.
+\uproot@=\count89
+\leftroot@=\count90
+LaTeX Info: Redefining \overline on input line 297.
+\classnum@=\count91
+\DOTSCASE@=\count92
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen105
+LaTeX Font Info:    Redeclaring font encoding OML on input line 634.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
+\macc@depth=\count93
+\c@MaxMatrixCols=\count94
+\dotsspace@=\muskip10
+\c@parentequation=\count95
+\dspbrk@lvl=\count96
+\tag@help=\toks17
+\row@=\count97
+\column@=\count98
+\maxfields@=\count99
+\andhelp@=\toks18
+\eqnshift@=\dimen106
+\alignsep@=\dimen107
+\tagshift@=\dimen108
+\tagwidth@=\dimen109
+\totwidth@=\dimen110
+\lineht@=\dimen111
+\@envbody=\toks19
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2739.
+LaTeX Info: Redefining \] on input line 2740.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
+Package: babel 2016/04/23 3.9r The Babel package
+
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg"
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\babel-spanish\spanish.ldf"
+Language: spanish.ldf 2016/03/03 v5.0p Spanish support from the babel system
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
+File: babel.def 2016/04/23 3.9r Babel common definitions
+\babel@savecnt=\count100
+\U@D=\dimen112
+)
+\es@quottoks=\toks21
+\es@quotdepth=\count101
+Package babel Info: Making " an active character on input line 561.
+Package babel Info: Making . an active character on input line 662.
+Package babel Info: Making < an active character on input line 707.
+Package babel Info: Making > an active character on input line 707.
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks22
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2016/07/10 v1.0t Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
+File: pdftex.def 2016/07/10 v0.06j Graphics/color for pdfTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count102
+))
+\Gin@req@height=\dimen113
+\Gin@req@width=\dimen114
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdfpages\pdfpages.sty"
+Package: pdfpages 2016/04/19 v0.5f Insert pages of external PDF documents (AM)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count103
+\calc@Bcount=\count104
+\calc@Adimen=\dimen115
+\calc@Bdimen=\dimen116
+\calc@Askip=\skip46
+\calc@Bskip=\skip47
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count105
+\calc@Cskip=\skip48
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\eso-pic\eso-pic.sty"
+Package: eso-pic 2015/07/21 v2.0g eso-pic (RN)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\atbegshi.sty"
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+))
+\AM@pagewidth=\dimen117
+\AM@pageheight=\dimen118
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdfpages\pppdftex.def"
+File: pppdftex.def 2016/04/19 v0.5f Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box28
+\AM@global@opts=\toks23
+\AM@toc@title=\toks24
+\c@AM@survey=\count106
+\AM@templatesizebox=\box29
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count107
+\Gm@cntv=\count108
+\c@Gm@tempcnt=\count109
+\Gm@bindingoffset=\dimen119
+\Gm@wd@mp=\dimen120
+\Gm@odd@mp=\dimen121
+\Gm@even@mp=\dimen122
+\Gm@layoutwidth=\dimen123
+\Gm@layoutheight=\dimen124
+\Gm@layouthoffset=\dimen125
+\Gm@layoutvoffset=\dimen126
+\Gm@dimlist=\toks25
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
+(Informe_PrototipadoDeBajoNivel.aux
+LaTeX Info: Redefining \. on input line 6.
+LaTeX Info: Redefining \% on input line 6.
+)
+\openout1 = `Informe_PrototipadoDeBajoNivel.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Info: Redefining \. on input line 15.
+LaTeX Info: Redefining \% on input line 15.
+
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count110
+\scratchdimen=\dimen127
+\scratchbox=\box30
+\nofMPsegments=\count111
+\nofMParguments=\count112
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count113
+\MPscratchDim=\dimen128
+\MPnumerator=\count114
+\makeMPintoPDFobject=\count115
+\everyMPtoPDFconversion=\toks27
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
+Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty"
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+)
+\AtBeginShipoutBox=\box31
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\pdflscape.sty"
+Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\lscape.sty"
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(56.9055pt, 483.69687pt, 56.9055pt)
+* v-part:(T,H,B)=(56.9055pt, 731.23584pt, 56.9055pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=483.69687pt
+* \textheight=731.23584pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-47.23828pt
+* \headheight=12.0pt
+* \headsep=19.8738pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=88.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+<PORTADA.pdf, id=1, 597.55246pt x 845.07718pt>
+File: PORTADA.pdf Graphic file (type pdf)
+ <use PORTADA.pdf>
+Package pdftex.def Info: PORTADA.pdf used on input line 16.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: PORTADA.pdf Graphic file (type pdf)
+
+<use PORTADA.pdf>
+Package pdftex.def Info: PORTADA.pdf used on input line 16.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+ <PORTADA.pdf, id=4, page=1, 597.55246pt x 845.07718pt>
+File: PORTADA.pdf Graphic file (type pdf)
+
+<use PORTADA.pdf, page 1>
+Package pdftex.def Info: PORTADA.pdf, page1 used on input line 16.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: PORTADA.pdf Graphic file (type pdf)
+ <use PORTADA.pdf, page 1>
+Package pdftex.def Info: PORTADA.pdf, page1 used on input line 16.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: PORTADA.pdf Graphic file (type pdf)
+ <use PORTADA.pdf, page 1>
+Package pdftex.def Info: PORTADA.pdf, page1 used on input line 16.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: PORTADA.pdf Graphic file (type pdf)
+
+<use PORTADA.pdf, page 1>
+Package pdftex.def Info: PORTADA.pdf, page1 used on input line 16.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: PORTADA.pdf Graphic file (type pdf)
+ <use PORTADA.pdf, page 1>
+Package pdftex.def Info: PORTADA.pdf, page1 used on input line 16.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+ [1
+
+ <./PORTADA.pdf>]
+[1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/logo
+.jpg, id=57, 356.83313pt x 588.69937pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/logo.jpg Graphic file (type jpg)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+logo.jpg>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/logo.jpg used on input line 38.
+(pdftex.def)             Requested size: 411.14528pt x 678.33745pt.
+
+Overfull \vbox (1.18266pt too high) has occurred while \output is active []
+
+
+[2 <C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/l
+ogo.jpg>] [3]
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/Inte
+rfaz_Principal.jpg, id=64, 398.23781pt x 570.63188pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Interfaz_Principal.jpg Graphic file (type jpg)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+Interfaz_Principal.jpg>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/Interfaz_Principal.jpg used on input line 52.
+(pdftex.def)             Requested size: 483.69687pt x 693.1137pt.
+
+Overfull \vbox (11.92615pt too high) has occurred while \output is active []
+
+
+[4 <C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/I
+nterfaz_Principal.jpg>]
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/Part
+es_Interfaz_Principal.jpg, id=68, 391.4625pt x 392.21532pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Partes_Interfaz_Principal.jpg Graphic file (type jpg)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+Partes_Interfaz_Principal.jpg>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/Partes_Interfaz_Principal.jpg used on input line 57.
+(pdftex.def)             Requested size: 241.84843pt x 242.31517pt.
+
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/nume
+ros/1.png, id=69, 274.02374pt x 255.20343pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/1.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/1.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/1.png used on input line 66.
+(pdftex.def)             Requested size: 48.37263pt x 45.05067pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--71
+
+ []
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 71.
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 71.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/nume
+ros/2.png, id=71, 284.56313pt x 255.20343pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/2.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/2.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/2.png used on input line 74.
+(pdftex.def)             Requested size: 48.37263pt x 43.38011pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
+
+ []
+
+
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/nume
+ros/3.png, id=72, 269.50688pt x 268.00125pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/3.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/3.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/3.png used on input line 80.
+(pdftex.def)             Requested size: 48.37263pt x 48.09909pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
+
+ []
+
+
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/nume
+ros/4.png, id=73, 277.78781pt x 257.46187pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/4.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/4.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/4.png used on input line 86.
+(pdftex.def)             Requested size: 48.37263pt x 44.83257pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
+
+ []
+
+
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/nume
+ros/5.png, id=74, 283.81032pt x 260.47313pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/5.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/5.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/5.png used on input line 92.
+(pdftex.def)             Requested size: 48.37263pt x 44.3951pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
+
+ []
+
+[5 <C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/P
+artes_Interfaz_Principal.jpg> <C:/Users/orlando/Desktop/H-M/RreproductorMP3_Bri
+to,Rosales,Huacon,Salazar/numeros/1.png> <C:/Users/orlando/Desktop/H-M/Rreprodu
+ctorMP3_Brito,Rosales,Huacon,Salazar/numeros/2.png> <C:/Users/orlando/Desktop/H
+-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/numeros/3.png> <C:/Users/orland
+o/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/numeros/4.png> <C:/U
+sers/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/numeros/5
+.png>]
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/Inte
+rfaz_Canciones.jpg, id=83, 380.17032pt x 576.65437pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Interfaz_Canciones.jpg Graphic file (type jpg)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+Interfaz_Canciones.jpg>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/Interfaz_Canciones.jpg used on input line 108.
+(pdftex.def)             Requested size: 459.51054pt x 697.02362pt.
+
+Overfull \vbox (15.83607pt too high) has occurred while \output is active []
+
+
+[6 <C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/I
+nterfaz_Canciones.jpg>]
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/Part
+es_Interfaz_Canciones.png, id=88, 376.40625pt x 421.575pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Partes_Interfaz_Canciones.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+Partes_Interfaz_Canciones.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/Partes_Interfaz_Canciones.png used on input line 115.
+(pdftex.def)             Requested size: 217.66211pt x 243.78676pt.
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/1.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/1.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/1.png used on input line 123.
+(pdftex.def)             Requested size: 48.37263pt x 45.05067pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/2.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/2.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/2.png used on input line 131.
+(pdftex.def)             Requested size: 48.37263pt x 43.38011pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 133--134
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 133--134
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/3.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/3.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/3.png used on input line 137.
+(pdftex.def)             Requested size: 48.37263pt x 48.09909pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/4.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/4.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/4.png used on input line 143.
+(pdftex.def)             Requested size: 48.37263pt x 44.83257pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--146
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--146
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/5.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/5.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/5.png used on input line 149.
+(pdftex.def)             Requested size: 48.37263pt x 44.3951pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 151--152
+
+ []
+
+
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/nume
+ros/6.png, id=89, 282.30469pt x 254.45062pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/6.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/6.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/6.png used on input line 155.
+(pdftex.def)             Requested size: 48.37263pt x 43.5977pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
+
+ []
+
+
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/nume
+ros/7.png, id=90, 278.54062pt x 264.99pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/7.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/7.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/7.png used on input line 161.
+(pdftex.def)             Requested size: 48.37263pt x 46.01811pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--164
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--164
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--164
+
+ []
+
+
+Underfull \vbox (badness 5316) has occurred while \output is active []
+
+ [7 <C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+Partes_Interfaz_Canciones.png>]
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/nume
+ros/8.png, id=95, 277.035pt x 261.97874pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/8.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/8.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/8.png used on input line 167.
+(pdftex.def)             Requested size: 48.37263pt x 45.74303pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+
+ []
+
+
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/Inte
+rfaz_Album.jpg, id=96, 405.76593pt x 572.89032pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Interfaz_Album.jpg Graphic file (type jpg)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+Interfaz_Album.jpg>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/Interfaz_Album.jpg used on input line 179.
+(pdftex.def)             Requested size: 483.69687pt x 682.9368pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8 <C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/6.png> <C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huac
+on,Salazar/numeros/7.png> <C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,R
+osales,Huacon,Salazar/numeros/8.png>]
+Overfull \vbox (1.74925pt too high) has occurred while \output is active []
+
+
+[9 <C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/I
+nterfaz_Album.jpg>]
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/Part
+es_Interfaz_Album.png, id=106, 390.70969pt x 387.69844pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Partes_Interfaz_Album.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+Partes_Interfaz_Album.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/Partes_Interfaz_Album.png used on input line 184.
+(pdftex.def)             Requested size: 241.84843pt x 239.98601pt.
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/1.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/1.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/1.png used on input line 191.
+(pdftex.def)             Requested size: 48.37263pt x 45.05067pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/2.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/2.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/2.png used on input line 199.
+(pdftex.def)             Requested size: 48.37263pt x 43.38011pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 201--202
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 201--202
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/3.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/3.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/3.png used on input line 205.
+(pdftex.def)             Requested size: 48.37263pt x 48.09909pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--208
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/4.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/4.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/4.png used on input line 211.
+(pdftex.def)             Requested size: 48.37263pt x 44.83257pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 213--214
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/5.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/5.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/5.png used on input line 217.
+(pdftex.def)             Requested size: 48.37263pt x 44.3951pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 219--220
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 219--220
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/6.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/6.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/6.png used on input line 223.
+(pdftex.def)             Requested size: 48.37263pt x 43.5977pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--226
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--226
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--226
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/7.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/7.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/7.png used on input line 229.
+(pdftex.def)             Requested size: 48.37263pt x 46.01811pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
+
+ []
+
+
+Underfull \vbox (badness 7963) has occurred while \output is active []
+
+ [10 <C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Partes_Interfaz_Album.png>] [11]
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/Inte
+rfaz_Artista.jpg, id=113, 397.485pt x 559.33969pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Interfaz_Artista.jpg Graphic file (type jpg)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+Interfaz_Artista.jpg>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/Interfaz_Artista.jpg used on input line 242.
+(pdftex.def)             Requested size: 483.69687pt x 680.67792pt.
+ [12 <C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Interfaz_Artista.jpg>]
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/Part
+es_Interfaz_Artista.png, id=118, 389.95688pt x 388.45125pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Partes_Interfaz_Artista.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+Partes_Interfaz_Artista.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/Partes_Interfaz_Artista.png used on input line 247.
+(pdftex.def)             Requested size: 241.84843pt x 240.91432pt.
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/1.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/1.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/1.png used on input line 253.
+(pdftex.def)             Requested size: 48.37263pt x 45.05067pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--258
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--258
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/2.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/2.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/2.png used on input line 261.
+(pdftex.def)             Requested size: 48.37263pt x 43.38011pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--264
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--264
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/3.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/3.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/3.png used on input line 267.
+(pdftex.def)             Requested size: 48.37263pt x 48.09909pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 269--270
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 269--270
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/4.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/4.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/4.png used on input line 273.
+(pdftex.def)             Requested size: 48.37263pt x 44.83257pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 275--276
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/5.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/5.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/5.png used on input line 279.
+(pdftex.def)             Requested size: 48.37263pt x 44.3951pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 281--282
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 281--282
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/6.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/6.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/6.png used on input line 285.
+(pdftex.def)             Requested size: 48.37263pt x 43.5977pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 287--288
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 287--288
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/7.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/7.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/7.png used on input line 291.
+(pdftex.def)             Requested size: 48.37263pt x 46.01811pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 293--294
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 293--294
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 293--294
+
+ []
+
+
+Underfull \vbox (badness 7238) has occurred while \output is active []
+
+ [13 <C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Partes_Interfaz_Artista.png>] [14]
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/Inte
+rfaz_Genero.jpg, id=125, 381.67593pt x 575.90157pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Interfaz_Genero.jpg Graphic file (type jpg)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+Interfaz_Genero.jpg>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/Interfaz_Genero.jpg used on input line 304.
+(pdftex.def)             Requested size: 454.67622pt x 686.07832pt.
+
+Overfull \vbox (4.89078pt too high) has occurred while \output is active []
+
+
+[15 <C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+Interfaz_Genero.jpg>]
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/Part
+es_Interfaz_Genero.png, id=129, 373.395pt x 385.44pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Partes_Interfaz_Genero.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+Partes_Interfaz_Genero.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/Partes_Interfaz_Genero.png used on input line 309.
+(pdftex.def)             Requested size: 241.84843pt x 249.65083pt.
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/1.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/1.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/1.png used on input line 315.
+(pdftex.def)             Requested size: 48.37263pt x 45.05067pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 319--320
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 319--320
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/2.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/2.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/2.png used on input line 323.
+(pdftex.def)             Requested size: 48.37263pt x 43.38011pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 325--326
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 325--326
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/3.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/3.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/3.png used on input line 329.
+(pdftex.def)             Requested size: 48.37263pt x 48.09909pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 331--332
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 331--332
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/4.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/4.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/4.png used on input line 335.
+(pdftex.def)             Requested size: 48.37263pt x 44.83257pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 337--338
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/5.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/5.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/5.png used on input line 341.
+(pdftex.def)             Requested size: 48.37263pt x 44.3951pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--344
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--344
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/6.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/6.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/6.png used on input line 347.
+(pdftex.def)             Requested size: 48.37263pt x 43.5977pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 349--350
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 349--350
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/7.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/7.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/7.png used on input line 353.
+(pdftex.def)             Requested size: 48.37263pt x 46.01811pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 355--356
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 355--356
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 355--356
+
+ []
+
+
+Underfull \vbox (badness 2512) has occurred while \output is active []
+
+ [16 <C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Partes_Interfaz_Genero.png>] [17]
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/Inte
+rfaz_Configuracion.jpg, id=136, 406.51875pt x 505.89pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Interfaz_Configuracion.jpg Graphic file (type jpg)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+Interfaz_Configuracion.jpg>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/Interfaz_Configuracion.jpg used on input line 365.
+(pdftex.def)             Requested size: 454.67622pt x 565.83644pt.
+ [18 <C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Interfaz_Configuracion.jpg>]
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/Part
+es_Interfaz_Configuracion.png, id=141, 341.77687pt x 339.51843pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Partes_Interfaz_Configuracion.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+Partes_Interfaz_Configuracion.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/Partes_Interfaz_Configuracion.png used on input line 370.
+(pdftex.def)             Requested size: 338.58632pt x 336.37294pt.
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/1.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/1.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/1.png used on input line 376.
+(pdftex.def)             Requested size: 48.37263pt x 45.05067pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 380--381
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/2.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/2.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/2.png used on input line 384.
+(pdftex.def)             Requested size: 48.37263pt x 43.38011pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--387
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--387
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--387
+
+ []
+
+[19 <C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+Partes_Interfaz_Configuracion.png>]
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/Inte
+rfaz_Reproduccion.jpg, id=145, 404.26031pt x 526.21594pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Interfaz_Reproduccion.jpg Graphic file (type jpg)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+Interfaz_Reproduccion.jpg>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/Interfaz_Reproduccion.jpg used on input line 398.
+(pdftex.def)             Requested size: 483.69687pt x 629.62527pt.
+ [20 <C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Interfaz_Reproduccion.jpg>]
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/Part
+es_Interfaz_Reproduccion.png, id=149, 364.36125pt x 362.10281pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Partes_Interfaz_Reproduccion.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+Partes_Interfaz_Reproduccion.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/Partes_Interfaz_Reproduccion.png used on input line 403.
+(pdftex.def)             Requested size: 241.84843pt x 240.3478pt.
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/1.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/1.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/1.png used on input line 409.
+(pdftex.def)             Requested size: 48.37263pt x 45.05067pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 413--414
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 413--414
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/2.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/2.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/2.png used on input line 417.
+(pdftex.def)             Requested size: 48.37263pt x 43.38011pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 419--420
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 419--420
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/3.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/3.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/3.png used on input line 423.
+(pdftex.def)             Requested size: 48.37263pt x 48.09909pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 425--426
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 425--426
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/4.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/4.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/4.png used on input line 429.
+(pdftex.def)             Requested size: 48.37263pt x 44.83257pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 431--432
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/5.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/5.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/5.png used on input line 435.
+(pdftex.def)             Requested size: 48.37263pt x 44.3951pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 437--438
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/6.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/6.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/6.png used on input line 441.
+(pdftex.def)             Requested size: 48.37263pt x 43.5977pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 443--444
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 443--444
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 443--444
+
+ []
+
+
+Underfull \vbox (badness 2932) has occurred while \output is active []
+
+ [21 <C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Partes_Interfaz_Reproduccion.png>] [22]
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/Inte
+rfaz_Letras.jpg, id=156, 395.22656pt x 563.85657pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Interfaz_Letras.jpg Graphic file (type jpg)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+Interfaz_Letras.jpg>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/Interfaz_Letras.jpg used on input line 456.
+(pdftex.def)             Requested size: 483.69687pt x 690.08076pt.
+
+Overfull \vbox (8.89322pt too high) has occurred while \output is active []
+
+
+[23 <C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+Interfaz_Letras.jpg>]
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/Part
+es_Interfaz_Letras.png, id=160, 387.69844pt x 392.21532pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Partes_Interfaz_Letras.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+Partes_Interfaz_Letras.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/Partes_Interfaz_Letras.png used on input line 461.
+(pdftex.def)             Requested size: 241.84843pt x 244.66716pt.
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/1.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/1.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/1.png used on input line 467.
+(pdftex.def)             Requested size: 48.37263pt x 45.05067pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 471--472
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 471--472
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/2.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/2.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/2.png used on input line 475.
+(pdftex.def)             Requested size: 48.37263pt x 43.38011pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 477--478
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 477--478
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/3.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/3.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/3.png used on input line 481.
+(pdftex.def)             Requested size: 48.37263pt x 48.09909pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 483--484
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 483--484
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/4.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/4.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/4.png used on input line 487.
+(pdftex.def)             Requested size: 48.37263pt x 44.83257pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 489--490
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/5.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/5.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/5.png used on input line 493.
+(pdftex.def)             Requested size: 48.37263pt x 44.3951pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 495--496
+
+ []
+
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/numeros/6.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+numeros/6.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/numeros/6.png used on input line 499.
+(pdftex.def)             Requested size: 48.37263pt x 43.5977pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 501--502
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 501--502
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [24 <C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/Partes_Interfaz_Letras.png>] [25]
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/tama
+no.png, id=168, 466.74374pt x 261.22594pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/tamano.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+tamano.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/tamano.png used on input line 513.
+(pdftex.def)             Requested size: 483.69687pt x 270.72786pt.
+
+<C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/tama
+no2.png, id=169, 466.74374pt x 261.22594pt>
+File: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/tamano2.png Graphic file (type png)
+
+<use C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar/
+tamano2.png>
+Package pdftex.def Info: C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Ros
+ales,Huacon,Salazar/tamano2.png used on input line 515.
+(pdftex.def)             Requested size: 483.69687pt x 270.72786pt.
+ <ENCUESTA.pdf, id=170, 597.55246pt x 845.07718pt>
+File: ENCUESTA.pdf Graphic file (type pdf)
+
+<use ENCUESTA.pdf>
+Package pdftex.def Info: ENCUESTA.pdf used on input line 522.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: ENCUESTA.pdf Graphic file (type pdf)
+ <use ENCUESTA.pdf>
+Package pdftex.def Info: ENCUESTA.pdf used on input line 522.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+
+<ENCUESTA.pdf, id=173, page=1, 597.55246pt x 845.07718pt>
+File: ENCUESTA.pdf Graphic file (type pdf)
+
+<use ENCUESTA.pdf, page 1>
+Package pdftex.def Info: ENCUESTA.pdf, page1 used on input line 522.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: ENCUESTA.pdf Graphic file (type pdf)
+ <use ENCUESTA.pdf, page 1>
+Package pdftex.def Info: ENCUESTA.pdf, page1 used on input line 522.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+ [26 <C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon,Salazar
+/tamano.png> <C:/Users/orlando/Desktop/H-M/RreproductorMP3_Brito,Rosales,Huacon
+,Salazar/tamano2.png>]
+File: ENCUESTA.pdf Graphic file (type pdf)
+
+<use ENCUESTA.pdf, page 1>
+Package pdftex.def Info: ENCUESTA.pdf, page1 used on input line 522.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: ENCUESTA.pdf Graphic file (type pdf)
+ <use ENCUESTA.pdf, page 1>
+Package pdftex.def Info: ENCUESTA.pdf, page1 used on input line 522.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: ENCUESTA.pdf Graphic file (type pdf)
+
+<use ENCUESTA.pdf, page 1>
+Package pdftex.def Info: ENCUESTA.pdf, page1 used on input line 522.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+ [27 <./ENCUESTA.pdf>]
+<ENCUESTA.pdf, id=213, page=2, 597.55246pt x 845.07718pt>
+File: ENCUESTA.pdf Graphic file (type pdf)
+
+<use ENCUESTA.pdf, page 2>
+Package pdftex.def Info: ENCUESTA.pdf, page2 used on input line 522.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: ENCUESTA.pdf Graphic file (type pdf)
+ <use ENCUESTA.pdf, page 2>
+Package pdftex.def Info: ENCUESTA.pdf, page2 used on input line 522.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: ENCUESTA.pdf Graphic file (type pdf)
+
+<use ENCUESTA.pdf, page 2>
+Package pdftex.def Info: ENCUESTA.pdf, page2 used on input line 522.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+ [28 <./ENCUESTA.pdf>]
+<ENCUESTA.pdf, id=217, page=3, 597.55246pt x 845.07718pt>
+File: ENCUESTA.pdf Graphic file (type pdf)
+
+<use ENCUESTA.pdf, page 3>
+Package pdftex.def Info: ENCUESTA.pdf, page3 used on input line 522.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: ENCUESTA.pdf Graphic file (type pdf)
+ <use ENCUESTA.pdf, page 3>
+Package pdftex.def Info: ENCUESTA.pdf, page3 used on input line 522.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: ENCUESTA.pdf Graphic file (type pdf)
+
+<use ENCUESTA.pdf, page 3>
+Package pdftex.def Info: ENCUESTA.pdf, page3 used on input line 522.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+ [29 <./ENCUESTA.pdf>]
+<ENCUESTA.pdf, id=243, page=4, 597.55246pt x 845.07718pt>
+File: ENCUESTA.pdf Graphic file (type pdf)
+
+<use ENCUESTA.pdf, page 4>
+Package pdftex.def Info: ENCUESTA.pdf, page4 used on input line 522.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: ENCUESTA.pdf Graphic file (type pdf)
+ <use ENCUESTA.pdf, page 4>
+Package pdftex.def Info: ENCUESTA.pdf, page4 used on input line 522.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: ENCUESTA.pdf Graphic file (type pdf)
+
+<use ENCUESTA.pdf, page 4>
+Package pdftex.def Info: ENCUESTA.pdf, page4 used on input line 522.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+ [30 <./ENCUESTA.pdf>]
+<ENCUESTA.pdf, id=267, page=5, 597.55246pt x 845.07718pt>
+File: ENCUESTA.pdf Graphic file (type pdf)
+
+<use ENCUESTA.pdf, page 5>
+Package pdftex.def Info: ENCUESTA.pdf, page5 used on input line 522.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: ENCUESTA.pdf Graphic file (type pdf)
+ <use ENCUESTA.pdf, page 5>
+Package pdftex.def Info: ENCUESTA.pdf, page5 used on input line 522.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: ENCUESTA.pdf Graphic file (type pdf)
+
+<use ENCUESTA.pdf, page 5>
+Package pdftex.def Info: ENCUESTA.pdf, page5 used on input line 522.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+ [31 <./ENCUESTA.pdf>]
+<ENCUESTA.pdf, id=271, page=6, 597.55246pt x 845.07718pt>
+File: ENCUESTA.pdf Graphic file (type pdf)
+
+<use ENCUESTA.pdf, page 6>
+Package pdftex.def Info: ENCUESTA.pdf, page6 used on input line 522.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: ENCUESTA.pdf Graphic file (type pdf)
+ <use ENCUESTA.pdf, page 6>
+Package pdftex.def Info: ENCUESTA.pdf, page6 used on input line 522.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: ENCUESTA.pdf Graphic file (type pdf)
+
+<use ENCUESTA.pdf, page 6>
+Package pdftex.def Info: ENCUESTA.pdf, page6 used on input line 522.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+ [32 <./ENCUESTA.pdf>]
+(Informe_PrototipadoDeBajoNivel.aux
+LaTeX Info: Redefining \. on input line 6.
+LaTeX Info: Redefining \% on input line 6.
+) ) 
+Here is how much of TeX's memory you used:
+ 5185 strings out of 493334
+ 79811 string characters out of 3139245
+ 150956 words of memory out of 3000000
+ 8591 multiletter control sequences out of 15000+200000
+ 10110 words of font info for 38 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 40i,18n,46p,743b,508s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+Output written on Informe_PrototipadoDeBajoNivel.pdf (33 pages, 7657123 bytes).
+
+PDF statistics:
+ 283 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 201 words of extra memory for PDF output out of 10000 (max. 10000000)
+
