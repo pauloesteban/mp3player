@@ -2,10 +2,10 @@
 GUI de un reproductor MP3
 
 ### Integrantes:
-BRITO CASANOVA ORLANDO
-HUACON SALAZAR LINDA
-ROSALES ZAMBRANO JOSHUA
-SALAZAR CAMPAÑA JESÚS
+- BRITO CASANOVA ORLANDO - Scrum Team
+- HUACON SALAZAR LINDA - Scrum Master
+- ROSALES ZAMBRANO JOSHUA - Product Owner
+- SALAZAR CAMPAÑA JESÚS - Scrum Team
 
 ### Académico:
 Paulo Chiliguano
