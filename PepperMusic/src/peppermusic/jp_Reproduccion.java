@@ -86,7 +86,6 @@ public class jp_Reproduccion extends javax.swing.JPanel {
         jLabel3.setToolTipText("");
         add(jLabel3);
         jLabel3.setBounds(20, 160, 230, 140);
-        jLabel3.getAccessibleContext().setAccessibleName("");
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Repro.png"))); // NOI18N
@@ -120,13 +119,25 @@ public class jp_Reproduccion extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(jtb_agrandar.isSelected()){
             
-            canc.venta.setSize(300, 150);
-            Shape forma = new RoundRectangle2D.Double(0,0,canc.venta.getBounds().width,canc.venta.getBounds().height,25,25);
+            canc.venta.setSize(300, 168);
+            Shape forma = new RoundRectangle2D.Double(0,0,canc.venta.getBounds().width,canc.venta.getBounds().height,100,100);
         AWTUtilities.setWindowShape(canc.venta, forma);
+        jLabel1.setIcon(new ImageIcon( getClass().getResource("/Recursos/fondo_mini.png")));
+        jLabel1.setSize(300,168);
+            jLabel1.repaint();
+            
+            jLabel1.revalidate();
+        
         }else{
             canc.venta.setSize(300, 336);
             Shape forma = new RoundRectangle2D.Double(0,0,canc.venta.getBounds().width,canc.venta.getBounds().height,125,125);
         AWTUtilities.setWindowShape(canc.venta, forma);
+         jLabel1.setIcon(new ImageIcon( getClass().getResource("/Recursos/Fondo_Repro.png")));
+         jLabel1.setLocation(0, 0);
+         jLabel1.setSize(300,336);
+            jLabel1.repaint();
+            
+            jLabel1.revalidate();
         }
         
     }//GEN-LAST:event_jtb_agrandarActionPerformed

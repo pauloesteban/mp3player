@@ -80,7 +80,6 @@ public class jp_Canciones extends javax.swing.JPanel {
         jb_Cerrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jb_Cerrar.setIconTextGap(-3);
         jb_Cerrar.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jb_Cerrar.setOpaque(false);
         jb_Cerrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_Cerrar.png"))); // NOI18N
         jb_Cerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,7 +102,7 @@ public class jp_Canciones extends javax.swing.JPanel {
         add(jb_Minimizar);
         jb_Minimizar.setBounds(193, 0, 30, 30);
 
-        jb_Regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/peppermusic/boton_regresar.png"))); // NOI18N
+        jb_Regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_regresar.png"))); // NOI18N
         jb_Regresar.setBorder(null);
         jb_Regresar.setBorderPainted(false);
         jb_Regresar.setContentAreaFilled(false);

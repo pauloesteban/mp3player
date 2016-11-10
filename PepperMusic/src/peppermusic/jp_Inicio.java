@@ -224,12 +224,14 @@ public class jp_Inicio extends javax.swing.JPanel {
 
     private void btConfiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfiActionPerformed
         // TODO add your handling code here:
+           jp_Configuracion p1 = new jp_Configuracion(venta);
 
-        Configuracion form2 = new Configuracion();
-        form2.setVisible(true);
-        Point p = venta.getLocation();
-        form2.setLocation(p.x,p.y);
-        venta.dispose();
+        p1.setSize(300, 336);
+        p1.setLocation(0, 0);
+        venta.jp_Principal.removeAll();
+        venta.jp_Principal.add(p1);
+        venta.jp_Principal.revalidate();
+        venta.jp_Principal.repaint();
     }//GEN-LAST:event_btConfiActionPerformed
 
     private void btCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCerrarActionPerformed

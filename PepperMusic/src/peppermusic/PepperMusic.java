@@ -17,7 +17,7 @@ public class PepperMusic {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        PepperMusicGUI form = new PepperMusicGUI();
+        PepperMusic_Frame form = new PepperMusic_Frame();
         form.setVisible(true);
       /*Configuracion form2 = new Configuracion();
         form2.setVisible(true);*/
