@@ -249,6 +249,7 @@ public class PepperMusicGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         jf_Canciones form2 = new jf_Canciones();
         form2.setVisible(true);
+        form2.setAlwaysOnTop( true );
         Point p = this.getLocation();
         form2.setLocation(p.x,p.y);
         this.dispose();
@@ -295,6 +296,7 @@ public class PepperMusicGUI extends javax.swing.JFrame {
         
         Configuracion form2 = new Configuracion();
         form2.setVisible(true);
+        form2.setAlwaysOnTop( true );
         Point p = this.getLocation();
         form2.setLocation(p.x,p.y);
         this.dispose();

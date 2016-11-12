@@ -215,6 +215,7 @@ int x,y;
         // TODO add your handling code here:
        PepperMusicGUI form2 = new PepperMusicGUI();
         form2.setVisible(true);
+        form2.setAlwaysOnTop( true );
         Point p = this.getLocation();
         form2.setLocation(p.x,p.y);
         this.dispose();
@@ -225,6 +226,7 @@ int x,y;
          if (evt.getClickCount() == 2) {
              jf_Reproduccion form2 = new jf_Reproduccion();
         form2.setVisible(true);
+        form2.setAlwaysOnTop( true );
         Point p = this.getLocation();
         form2.setLocation(p.x,p.y);
         this.dispose();
