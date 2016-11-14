@@ -23,6 +23,7 @@ public class jp_Inicio extends javax.swing.JPanel {
         venta = ventana;
         
         
+        
     }
 
     /**
