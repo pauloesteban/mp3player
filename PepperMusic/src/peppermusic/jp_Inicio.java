@@ -6,7 +6,7 @@
 package peppermusic;
 
 import static java.awt.Frame.ICONIFIED;
-import java.awt.Point;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,7 +21,8 @@ public class jp_Inicio extends javax.swing.JPanel {
     public jp_Inicio(PepperMusic_Frame ventana ) {
         initComponents();
         venta = ventana;
-        
+       
+       
         
         
     }
@@ -35,6 +36,7 @@ public class jp_Inicio extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        mensaje = new javax.swing.JOptionPane();
         btMinimizar = new javax.swing.JButton();
         btAlbum = new javax.swing.JButton();
         btGenero = new javax.swing.JButton();
@@ -193,6 +195,7 @@ public class jp_Inicio extends javax.swing.JPanel {
 
     private void btAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlbumActionPerformed
         // TODO add your handling code here:
+        //JOptionPane.showMessageDialog(null, "ERROR DE REPRODUCCIÓN");
     }//GEN-LAST:event_btAlbumActionPerformed
 
     private void btGeneroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btGeneroMouseExited
@@ -251,5 +254,6 @@ public class jp_Inicio extends javax.swing.JPanel {
     private javax.swing.JButton btGenero;
     private javax.swing.JButton btMinimizar;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JOptionPane mensaje;
     // End of variables declaration//GEN-END:variables
 }
