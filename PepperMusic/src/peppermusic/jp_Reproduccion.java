@@ -135,7 +135,7 @@ public class jp_Reproduccion extends javax.swing.JPanel {
         jLabel4.setBounds(28, 40, 130, 20);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Barra Ni.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Barra Nie.png"))); // NOI18N
         jLabel3.setToolTipText("");
         add(jLabel3);
         jLabel3.setBounds(30, 160, 230, 140);
@@ -161,7 +161,7 @@ public class jp_Reproduccion extends javax.swing.JPanel {
             jLabel3.repaint();
             jLabel3.revalidate();
         }else{
-            jLabel3.setIcon(new ImageIcon( getClass().getResource("/Recursos/Barra Ni.png")));
+            jLabel3.setIcon(new ImageIcon( getClass().getResource("/Recursos/Barra Nie.png")));
             jLabel3.repaint();
             jLabel3.revalidate();
         }

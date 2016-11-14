@@ -111,7 +111,7 @@ public class jp_Configuracion extends javax.swing.JPanel {
 
         jLabel3.setText("BAJOS");
         add(jLabel3);
-        jLabel3.setBounds(170, 260, 40, 14);
+        jLabel3.setBounds(40, 260, 40, 14);
 
         jLabel4.setText("MEDIOS");
         add(jLabel4);
@@ -119,7 +119,7 @@ public class jp_Configuracion extends javax.swing.JPanel {
 
         jLabel5.setText("GRAVES");
         add(jLabel5);
-        jLabel5.setBounds(40, 260, 60, 14);
+        jLabel5.setBounds(160, 260, 60, 14);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Celeste.png"))); // NOI18N
