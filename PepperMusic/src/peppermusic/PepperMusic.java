@@ -19,7 +19,11 @@ public class PepperMusic {
         
         PepperMusic_Frame form = new PepperMusic_Frame();
         form.setVisible(true);
+<<<<<<< HEAD
         
+=======
+        form.setAlwaysOnTop( true );
+>>>>>>> origin/master
       /*Configuracion form2 = new Configuracion();
         form2.setVisible(true);*/
       // jf_Reproduccion form3 = new jf_Reproduccion();
