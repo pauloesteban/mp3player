@@ -44,6 +44,9 @@ public class CustomButton extends JToggleButton {
     // figura que se adapte a ese nuevo tamaño
     if( figura == null || !figura.getBounds().equals(getBounds()) ) {
       figura = new Ellipse2D.Float( 0,0,this.getWidth(),this.getHeight() );
+      
+      
+      
       }
     return( figura.contains( x,y ) );
     }

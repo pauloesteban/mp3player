@@ -19,8 +19,9 @@ public class PepperMusic {
         
         PepperMusic_Frame form = new PepperMusic_Frame();
         form.setVisible(true);
+         form.setAlwaysOnTop( true );
 
-      form.setAlwaysOnTop( true );
+     
 
       /*Configuracion form2 = new Configuracion();
         form2.setVisible(true);*/

@@ -46,10 +46,10 @@ public class jp_Reproduccion extends javax.swing.JPanel {
 
         jtb_agrandar = new javax.swing.JToggleButton();
         karaoke = new javax.swing.JToggleButton();
-        START = new peppermusic.CustomButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        START = new peppermusic.CustomButton();
         jp_Progreso = new peppermusic.CustomPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -91,10 +91,35 @@ public class jp_Reproduccion extends javax.swing.JPanel {
         add(karaoke);
         karaoke.setBounds(260, 210, 27, 40);
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_avanzar.png"))); // NOI18N
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_avanzar2.png"))); // NOI18N
+        add(jButton1);
+        jButton1.setBounds(225, 108, 30, 30);
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_retroceder.png"))); // NOI18N
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_retroceder2.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        add(jButton2);
+        jButton2.setBounds(145, 108, 30, 30);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/queen_ii.png"))); // NOI18N
+        add(jLabel2);
+        jLabel2.setBounds(40, 60, 65, 65);
+
         START.setBorder(null);
         START.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_start.png"))); // NOI18N
         START.setBorderPainted(false);
         START.setContentAreaFilled(false);
+        START.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_star2.png"))); // NOI18N
+        START.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_stop2.png"))); // NOI18N
         START.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_stop.png"))); // NOI18N
         START.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,43 +127,22 @@ public class jp_Reproduccion extends javax.swing.JPanel {
             }
         });
         add(START);
-        START.setBounds(141, 46, 94, 94);
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_avanzar.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        add(jButton1);
-        jButton1.setBounds(238, 115, 30, 30);
-
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_retroceder.png"))); // NOI18N
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        add(jButton2);
-        jButton2.setBounds(108, 115, 30, 30);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/queen_ii.png"))); // NOI18N
-        add(jLabel2);
-        jLabel2.setBounds(40, 60, 65, 65);
+        START.setBounds(172, 52, 56, 56);
 
         jp_Progreso.setOpaque(false);
         jp_Progreso.setLayout(null);
         add(jp_Progreso);
-        jp_Progreso.setBounds(128, 32, 120, 120);
+        jp_Progreso.setBounds(160, 40, 80, 80);
 
         jLabel4.setText("Bohemian Rhapsody");
         add(jLabel4);
         jLabel4.setBounds(28, 40, 130, 20);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/imagen_barras.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Barra Nie.png"))); // NOI18N
         jLabel3.setToolTipText("");
         add(jLabel3);
-        jLabel3.setBounds(30, 170, 230, 140);
+        jLabel3.setBounds(30, 160, 230, 140);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Repro.png"))); // NOI18N
@@ -161,7 +165,7 @@ public class jp_Reproduccion extends javax.swing.JPanel {
             jLabel3.repaint();
             jLabel3.revalidate();
         }else{
-            jLabel3.setIcon(new ImageIcon( getClass().getResource("/Recursos/imagen_barras.png")));
+            jLabel3.setIcon(new ImageIcon( getClass().getResource("/Recursos/Barra Nie.png")));
             jLabel3.repaint();
             jLabel3.revalidate();
         }
@@ -176,9 +180,10 @@ public class jp_Reproduccion extends javax.swing.JPanel {
             Shape forma = new RoundRectangle2D.Double(0,0,canc.venta.getBounds().width,canc.venta.getBounds().height,110,110);
         AWTUtilities.setWindowShape(canc.venta, forma);
         jLabel1.setIcon(new ImageIcon( getClass().getResource("/Recursos/fondo_mini.png")));
+        
         jLabel1.setSize(300,168);
             jLabel1.repaint();
-            
+            canc.jtb_lista.setEnabled(false);
             jLabel1.revalidate();
         
         }else{
@@ -189,30 +194,28 @@ public class jp_Reproduccion extends javax.swing.JPanel {
          jLabel1.setLocation(0, 0);
          jLabel1.setSize(300,336);
             jLabel1.repaint();
-            
+            canc.jtb_lista.setEnabled(true);
             jLabel1.revalidate();
         }
         
     }//GEN-LAST:event_jtb_agrandarActionPerformed
 
-    private void STARTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_STARTActionPerformed
-        // TODO add your handling code here:
-        if(!START.isSelected()){
-             Barra.suspend();
-          
-        }else{
-            if(!Barra.t.isAlive())Barra.start();
-            else  Barra.resume();
-            
-        }
-        
-        
-     
-    }//GEN-LAST:event_STARTActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void STARTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_STARTActionPerformed
+        // TODO add your handling code here:
+        if(!START.isSelected()){
+            Barra.suspend();
+
+        }else{
+            if(!Barra.t.isAlive())Barra.start();
+            else  Barra.resume();
+
+        }
+
+    }//GEN-LAST:event_STARTActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

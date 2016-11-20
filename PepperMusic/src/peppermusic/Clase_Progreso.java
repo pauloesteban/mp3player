@@ -41,6 +41,7 @@ public class Clase_Progreso  implements Runnable{
             
         }
                reproduccion.START.setSelected(false);
+              
             }
             public void start(){
                 t = new Thread (this);

@@ -215,7 +215,7 @@ public class jp_Lista extends javax.swing.JPanel {
         jTabbedPane1.setBounds(30, 60, 240, 240);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondo_Canciones.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Celeste.png"))); // NOI18N
         add(jLabel2);
         jLabel2.setBounds(0, 0, 300, 336);
     }// </editor-fold>//GEN-END:initComponents
