@@ -11,7 +11,7 @@ GUI de un reproductor MP3
 Paulo Chiliguano
 
 ### TODO
-- Anclar el reproductor cuando está minimizado
-- Fondo de pantalla para visualización del ecualizador
-- En ecualizador ordenar por bajos, medios, graves y ganancia
+- Anclar el reproductor cuando está minimizado (COORREGIDO Y APROBADO)
+- Fondo de pantalla para visualización del ecualizador (CORREGIDO)
+- En ecualizador ordenar por bajos, medios, graves y ganancia (CORREGIDO Y APROBADO)
 
