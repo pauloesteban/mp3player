@@ -34,10 +34,10 @@ public class jp_Configuracion extends javax.swing.JPanel {
         jb_Regresar = new javax.swing.JButton();
         jb_Minimizar = new javax.swing.JButton();
         jb_Cerrar = new javax.swing.JButton();
-        jSlider1 = new javax.swing.JSlider();
-        jSlider2 = new javax.swing.JSlider();
-        jSlider3 = new javax.swing.JSlider();
         jSlider4 = new javax.swing.JSlider();
+        jSlider5 = new javax.swing.JSlider();
+        jSlider6 = new javax.swing.JSlider();
+        jSlider7 = new javax.swing.JSlider();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -89,21 +89,57 @@ public class jp_Configuracion extends javax.swing.JPanel {
         add(jb_Cerrar);
         jb_Cerrar.setBounds(230, 0, 30, 30);
 
-        jSlider1.setOrientation(javax.swing.JSlider.VERTICAL);
-        add(jSlider1);
-        jSlider1.setBounds(230, 50, 30, 200);
-
-        jSlider2.setOrientation(javax.swing.JSlider.VERTICAL);
-        add(jSlider2);
-        jSlider2.setBounds(170, 50, 30, 200);
-
-        jSlider3.setOrientation(javax.swing.JSlider.VERTICAL);
-        add(jSlider3);
-        jSlider3.setBounds(110, 50, 30, 200);
-
+        jSlider4.setMajorTickSpacing(20);
+        jSlider4.setMaximum(10);
+        jSlider4.setMinimum(-10);
+        jSlider4.setMinorTickSpacing(5);
         jSlider4.setOrientation(javax.swing.JSlider.VERTICAL);
+        jSlider4.setPaintLabels(true);
+        jSlider4.setPaintTicks(true);
+        jSlider4.setSnapToTicks(true);
+        jSlider4.setValue(0);
+        jSlider4.setOpaque(false);
         add(jSlider4);
-        jSlider4.setBounds(40, 50, 30, 200);
+        jSlider4.setBounds(210, 50, 50, 200);
+
+        jSlider5.setMajorTickSpacing(20);
+        jSlider5.setMaximum(10);
+        jSlider5.setMinimum(-10);
+        jSlider5.setMinorTickSpacing(5);
+        jSlider5.setOrientation(javax.swing.JSlider.VERTICAL);
+        jSlider5.setPaintLabels(true);
+        jSlider5.setPaintTicks(true);
+        jSlider5.setSnapToTicks(true);
+        jSlider5.setValue(0);
+        jSlider5.setOpaque(false);
+        add(jSlider5);
+        jSlider5.setBounds(150, 50, 50, 200);
+
+        jSlider6.setMajorTickSpacing(20);
+        jSlider6.setMaximum(10);
+        jSlider6.setMinimum(-10);
+        jSlider6.setMinorTickSpacing(5);
+        jSlider6.setOrientation(javax.swing.JSlider.VERTICAL);
+        jSlider6.setPaintLabels(true);
+        jSlider6.setPaintTicks(true);
+        jSlider6.setSnapToTicks(true);
+        jSlider6.setValue(0);
+        jSlider6.setOpaque(false);
+        add(jSlider6);
+        jSlider6.setBounds(90, 50, 50, 200);
+
+        jSlider7.setMajorTickSpacing(20);
+        jSlider7.setMaximum(10);
+        jSlider7.setMinimum(-10);
+        jSlider7.setMinorTickSpacing(5);
+        jSlider7.setOrientation(javax.swing.JSlider.VERTICAL);
+        jSlider7.setPaintLabels(true);
+        jSlider7.setPaintTicks(true);
+        jSlider7.setSnapToTicks(true);
+        jSlider7.setValue(0);
+        jSlider7.setOpaque(false);
+        add(jSlider7);
+        jSlider7.setBounds(30, 50, 50, 200);
 
         jLabel2.setText("GANANCIA");
         add(jLabel2);
@@ -156,10 +192,10 @@ public class jp_Configuracion extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JSlider jSlider1;
-    private javax.swing.JSlider jSlider2;
-    private javax.swing.JSlider jSlider3;
     private javax.swing.JSlider jSlider4;
+    private javax.swing.JSlider jSlider5;
+    private javax.swing.JSlider jSlider6;
+    private javax.swing.JSlider jSlider7;
     private javax.swing.JButton jb_Cerrar;
     private javax.swing.JButton jb_Minimizar;
     private javax.swing.JButton jb_Regresar;

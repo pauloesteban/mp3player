@@ -6,6 +6,7 @@
 package peppermusic;
 
 import com.sun.awt.AWTUtilities;
+import java.awt.Color;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
 import javax.swing.ImageIcon;
@@ -35,6 +36,7 @@ public class jp_Reproduccion extends javax.swing.JPanel {
         js_volumen.validate();
         jb_repetir.setToolTipText("REPETICIÓN DESACTIVADA");
        
+       
     }
 
     /**
@@ -50,7 +52,6 @@ public class jp_Reproduccion extends javax.swing.JPanel {
         karaoke = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         START = new peppermusic.CustomButton();
         jButton4 = new javax.swing.JButton();
         customButton1 = new peppermusic.CustomButton();
@@ -58,8 +59,10 @@ public class jp_Reproduccion extends javax.swing.JPanel {
         jtb_aleatorio = new peppermusic.CustomButton();
         jb_repetir = new javax.swing.JButton();
         jp_Progreso = new peppermusic.CustomPanel();
+        jlb_tiempo = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jlb_barras = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setOpaque(false);
@@ -121,10 +124,6 @@ public class jp_Reproduccion extends javax.swing.JPanel {
         });
         add(jButton2);
         jButton2.setBounds(150, 108, 30, 30);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/queen_ii.png"))); // NOI18N
-        add(jLabel2);
-        jLabel2.setBounds(50, 80, 70, 65);
 
         START.setBorder(null);
         START.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_start.png"))); // NOI18N
@@ -200,7 +199,7 @@ public class jp_Reproduccion extends javax.swing.JPanel {
         jtb_aleatorio.setContentAreaFilled(false);
         jtb_aleatorio.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_aleatorio_on.png"))); // NOI18N
         add(jtb_aleatorio);
-        jtb_aleatorio.setBounds(120, 115, 20, 20);
+        jtb_aleatorio.setBounds(30, 115, 20, 20);
 
         jb_repetir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_rep_off.png"))); // NOI18N
         jb_repetir.setBorder(null);
@@ -212,25 +211,34 @@ public class jp_Reproduccion extends javax.swing.JPanel {
             }
         });
         add(jb_repetir);
-        jb_repetir.setBounds(120, 88, 20, 20);
+        jb_repetir.setBounds(120, 115, 20, 20);
 
         jp_Progreso.setOpaque(false);
         jp_Progreso.setLayout(null);
         add(jp_Progreso);
         jp_Progreso.setBounds(160, 34, 80, 80);
 
+        jlb_tiempo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlb_tiempo.setText("0:50 - 3:04");
+        add(jlb_tiempo);
+        jlb_tiempo.setBounds(50, 120, 70, 14);
+
+        jPanel1.setOpaque(false);
+
+        jlb_barras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlb_barras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_barras.png"))); // NOI18N
+        jlb_barras.setToolTipText("");
+        jPanel1.add(jlb_barras);
+
+        add(jPanel1);
+        jPanel1.setBounds(30, 160, 230, 140);
+
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_nombre.png"))); // NOI18N
         add(jLabel5);
-        jLabel5.setBounds(30, 30, 120, 40);
-
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Barra Nie.png"))); // NOI18N
-        jLabel3.setToolTipText("");
-        add(jLabel3);
-        jLabel3.setBounds(30, 160, 230, 140);
+        jLabel5.setBounds(30, 50, 120, 60);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Repro.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Celeste1.png"))); // NOI18N
         add(jLabel1);
         jLabel1.setBounds(0, 0, 300, 336);
     }// </editor-fold>//GEN-END:initComponents
@@ -246,13 +254,13 @@ public class jp_Reproduccion extends javax.swing.JPanel {
     private void karaokeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_karaokeActionPerformed
         if(karaoke.isSelected()){
 
-           jLabel3.setIcon(new ImageIcon( getClass().getResource("/Recursos/imagen_letras.png")));
-            jLabel3.repaint();
-            jLabel3.revalidate();
+           jlb_barras.setIcon(new ImageIcon( getClass().getResource("/Recursos/imagen_letras.png")));
+            jlb_barras.repaint();
+            jlb_barras.revalidate();
         }else{
-            jLabel3.setIcon(new ImageIcon( getClass().getResource("/Recursos/Barra Nie.png")));
-            jLabel3.repaint();
-            jLabel3.revalidate();
+            jlb_barras.setIcon(new ImageIcon( getClass().getResource("/Recursos/repro_barras.png")));
+            jlb_barras.repaint();
+            jlb_barras.revalidate();
         }
 
     }//GEN-LAST:event_karaokeActionPerformed
@@ -266,7 +274,7 @@ public class jp_Reproduccion extends javax.swing.JPanel {
             Shape forma = new RoundRectangle2D.Double(0,0,canc.venta.getBounds().width,canc.venta.getBounds().height,110,110);
         AWTUtilities.setWindowShape(canc.venta, forma);
         jLabel1.setIcon(new ImageIcon( getClass().getResource("/Recursos/fondo_mini.png")));
-        
+        jlb_barras.setVisible(false);
         jLabel1.setSize(300,168);
             jLabel1.repaint();
             canc.jtb_lista.setEnabled(false);
@@ -281,6 +289,7 @@ public class jp_Reproduccion extends javax.swing.JPanel {
          jLabel1.setLocation(0, 0);
          jLabel1.setSize(300,336);
             jLabel1.repaint();
+            jlb_barras.setVisible(true);
             canc.jtb_lista.setEnabled(true);
             jLabel1.revalidate();
              jtb_agrandar.setLocation(238,315);
@@ -380,10 +389,11 @@ public class jp_Reproduccion extends javax.swing.JPanel {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jb_repetir;
+    private javax.swing.JLabel jlb_barras;
+    private javax.swing.JLabel jlb_tiempo;
     private peppermusic.CustomPanel jp_Progreso;
     private javax.swing.JSlider js_volumen;
     private javax.swing.JToggleButton jtb_agrandar;
