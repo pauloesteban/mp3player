@@ -69,6 +69,9 @@ public class jp_Reproduccion extends javax.swing.JPanel {
         setLayout(null);
 
         jtb_agrandar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_agrandar.png"))); // NOI18N
+        jtb_agrandar.setBorder(null);
+        jtb_agrandar.setBorderPainted(false);
+        jtb_agrandar.setContentAreaFilled(false);
         jtb_agrandar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_pequeño.png"))); // NOI18N
         jtb_agrandar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +79,7 @@ public class jp_Reproduccion extends javax.swing.JPanel {
             }
         });
         add(jtb_agrandar);
-        jtb_agrandar.setBounds(238, 315, 20, 20);
+        jtb_agrandar.setBounds(265, 23, 25, 25);
 
         karaoke.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/karaoke.png"))); // NOI18N
         karaoke.setBorder(null);
@@ -265,38 +268,6 @@ public class jp_Reproduccion extends javax.swing.JPanel {
 
     }//GEN-LAST:event_karaokeActionPerformed
 
-    private void jtb_agrandarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtb_agrandarActionPerformed
-        // TODO add your handling code here:
-        if(jtb_agrandar.isSelected()){
-            jtb_agrandar.setLocation(238,150);
-            
-            canc.venta.setSize(300, 168);
-            Shape forma = new RoundRectangle2D.Double(0,0,canc.venta.getBounds().width,canc.venta.getBounds().height,110,110);
-        AWTUtilities.setWindowShape(canc.venta, forma);
-        jLabel1.setIcon(new ImageIcon( getClass().getResource("/Recursos/fondo_mini.png")));
-        jlb_barras.setVisible(false);
-        jLabel1.setSize(300,168);
-            jLabel1.repaint();
-            canc.jtb_lista.setEnabled(false);
-            jLabel1.revalidate();
-        
-        }else{
-           
-            canc.venta.setSize(300, 336);
-            Shape forma = new RoundRectangle2D.Double(0,0,canc.venta.getBounds().width,canc.venta.getBounds().height,125,125);
-        AWTUtilities.setWindowShape(canc.venta, forma);
-         jLabel1.setIcon(new ImageIcon( getClass().getResource("/Recursos/Fondo_Repro.png")));
-         jLabel1.setLocation(0, 0);
-         jLabel1.setSize(300,336);
-            jLabel1.repaint();
-            jlb_barras.setVisible(true);
-            canc.jtb_lista.setEnabled(true);
-            jLabel1.revalidate();
-             jtb_agrandar.setLocation(238,315);
-        }
-        
-    }//GEN-LAST:event_jtb_agrandarActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -380,6 +351,38 @@ public class jp_Reproduccion extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_jb_repetirActionPerformed
+
+    private void jtb_agrandarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtb_agrandarActionPerformed
+        // TODO add your handling code here:
+        if(jtb_agrandar.isSelected()){
+           // jtb_agrandar.setLocation(238,150);
+
+            canc.venta.setSize(300, 168);
+            Shape forma = new RoundRectangle2D.Double(0,0,canc.venta.getBounds().width,canc.venta.getBounds().height,110,110);
+            AWTUtilities.setWindowShape(canc.venta, forma);
+            jLabel1.setIcon(new ImageIcon( getClass().getResource("/Recursos/fondo_mini.png")));
+            jlb_barras.setVisible(false);
+            jLabel1.setSize(300,168);
+            jLabel1.repaint();
+            canc.jtb_lista.setEnabled(false);
+            jLabel1.revalidate();
+
+        }else{
+
+            canc.venta.setSize(300, 336);
+            Shape forma = new RoundRectangle2D.Double(0,0,canc.venta.getBounds().width,canc.venta.getBounds().height,125,125);
+            AWTUtilities.setWindowShape(canc.venta, forma);
+            jLabel1.setIcon(new ImageIcon( getClass().getResource("/Recursos/Fondo_Repro.png")));
+            jLabel1.setLocation(0, 0);
+            jLabel1.setSize(300,336);
+            jLabel1.repaint();
+            jlb_barras.setVisible(true);
+            canc.jtb_lista.setEnabled(true);
+            jLabel1.revalidate();
+           // jtb_agrandar.setLocation(238,315);
+        }
+
+    }//GEN-LAST:event_jtb_agrandarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
