@@ -7,15 +7,15 @@ package peppermusic;
 
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import java.awt.PopupMenu;
 import java.awt.RenderingHints;
+import java.awt.Shape;
+import java.awt.event.MouseEvent;
 import java.awt.geom.Arc2D;
 import java.awt.geom.Ellipse2D;
-import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 /**
  *
@@ -57,14 +57,14 @@ public class CustomPanel extends JPanel{
      g2.setColor(new Color(12,32,32,53)); //http://colorizer.org/ colors hsb de esa pagina /100
     g2.draw(circle);
     g2.fill(circle);
-    
+   
     g2.setColor(Color.green); //http://colorizer.org/ colors hsb de esa pagina /100
     g2.draw(arc2);
     g2.fill(arc2);
     g2.setColor(Color.getHSBColor(1.26f,0.85f,0.8f)); //http://colorizer.org/ colors hsb de esa pagina /100
     g2.draw(arc);
     g2.fill(arc);
-   
+     
     
     
     /*  
@@ -73,4 +73,23 @@ public class CustomPanel extends JPanel{
     g2.draw(circle);
     g2.fill(circle);*/
     }
+     Shape figura;
+    @Override
+  public boolean contains( int x,int y ) {
+    // En caso de que el botón cambie de tamaño, hay que conseguir una nueva
+    // figura que se adapte a ese nuevo tamaño
+    if( figura == null || !figura.getBounds().equals(getBounds()) ) {
+      figura = new Ellipse2D.Float( 0,0,this.getWidth(),this.getHeight() );
+      
+      
+      
+      }
+    return( figura.contains( x,y ) );
+    }
+   public void mouseClicked(MouseEvent me){
+       
+
+       
+   }
+
 }

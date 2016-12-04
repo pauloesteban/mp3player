@@ -6,10 +6,10 @@
 package peppermusic;
 
 import com.sun.awt.AWTUtilities;
-import java.awt.Color;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,8 +30,8 @@ public class jp_Reproduccion extends javax.swing.JPanel {
         
         
         START.setSelected(true);
-        Barra = new Clase_Progreso(jp_Progreso,this);
-        Barra.start();
+      //  Barra = new Clase_Progreso(jp_Progreso,this);
+       // Barra.start();
       js_volumen.setVisible(false);
         js_volumen.validate();
         jb_repetir.setToolTipText("REPETICIÓN DESACTIVADA");
@@ -217,6 +217,11 @@ public class jp_Reproduccion extends javax.swing.JPanel {
         jb_repetir.setBounds(120, 115, 20, 20);
 
         jp_Progreso.setOpaque(false);
+        jp_Progreso.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jp_ProgresoMouseClicked(evt);
+            }
+        });
         jp_Progreso.setLayout(null);
         add(jp_Progreso);
         jp_Progreso.setBounds(160, 34, 80, 80);
@@ -274,6 +279,7 @@ public class jp_Reproduccion extends javax.swing.JPanel {
 
     private void STARTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_STARTActionPerformed
         // TODO add your handling code here:
+        /*
         if(!START.isSelected()){
             Barra.suspend();
 
@@ -281,7 +287,7 @@ public class jp_Reproduccion extends javax.swing.JPanel {
             if(!Barra.t.isAlive())Barra.start();
             else  Barra.resume();
 
-        }
+        }*/
 
     }//GEN-LAST:event_STARTActionPerformed
 
@@ -334,6 +340,7 @@ public class jp_Reproduccion extends javax.swing.JPanel {
             jb_repetir.setIcon(new ImageIcon( getClass().getResource("/Recursos/repro_rep_1.png")));
             jb_repetir.setToolTipText("REPETIR CANCIÓN");
             repetir++;
+                       
             return;
         }
         if(repetir==1){
@@ -383,6 +390,30 @@ public class jp_Reproduccion extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_jtb_agrandarActionPerformed
+  double valor;
+    private void jp_ProgresoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_ProgresoMouseClicked
+        // TODO add your handling code here:
+         
+      int x = evt.getX();
+      int y = evt.getY();
+     // JOptionPane.showMessageDialog(canc,x + "+"+y+"="+(x + y)); 
+       
+      if(x==40)return;//reiniciar cancion
+         
+         valor = Math.toDegrees( Math.atan(((double)y-40)/((double)x-40)));
+         int z;
+          
+         if(x>40)
+         { 
+             z = (int)Math.floor((valor+90)/3.6);
+         }else{
+             
+             z = (int)Math.floor((valor+270)/3.6);
+         }
+       // JOptionPane.showMessageDialog(canc,valor); 
+         jp_Progreso.ActualizarProgreso(z);
+         jp_Progreso.repaint();
+    }//GEN-LAST:event_jp_ProgresoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
