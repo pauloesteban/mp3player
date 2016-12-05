@@ -6,7 +6,9 @@
 
 package peppermusic;
 
+import java.awt.Component;
 import static java.awt.Frame.ICONIFIED;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,19 +18,27 @@ public class jp_Canciones extends javax.swing.JPanel {
 
     /** Creates new form jp_Canciones */
     PepperMusic_Frame venta;
+    jp_Reproduccion repro;
+    jp_Lista lista;
+    Component Component[];
     public jp_Canciones(PepperMusic_Frame ventana) {
         initComponents();
         venta=ventana;
-        
+        venta.NoRepro=false;
         jtb_lista.setSelected(true);
+        lista = new jp_Lista(this);
         
-        jp_Lista lista = new jp_Lista(this);
         lista.setSize(300, 336);
         lista.setLocation(0, 0);
+        
         jp_Cancion.removeAll();
+       
+      
+        
         jp_Cancion.add(lista);
         jp_Cancion.revalidate();
         jp_Cancion.repaint();
+        
         
     }
 
@@ -80,7 +90,6 @@ public class jp_Canciones extends javax.swing.JPanel {
         jb_Cerrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jb_Cerrar.setIconTextGap(-3);
         jb_Cerrar.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jb_Cerrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_Cerrar.png"))); // NOI18N
         jb_Cerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jb_CerrarActionPerformed(evt);
@@ -122,25 +131,32 @@ public class jp_Canciones extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtb_listaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtb_listaActionPerformed
-
+  
         if(jtb_lista.isSelected()==false){
 
             jtb_lista.setSelected(true);
 
         }else{
+            if(venta.EnRepro==true){venta.Barra.resume();venta.Barra.stop();}
             jtb_repro.setSelected(false);
             //codigo pantalla LISTA
-        jp_Lista lista = new jp_Lista(this);
+            lista = new jp_Lista(this);
+        
         lista.setSize(300, 336);
         lista.setLocation(0, 0);
+        
         jp_Cancion.removeAll();
+       
+      
+        
         jp_Cancion.add(lista);
         jp_Cancion.revalidate();
         jp_Cancion.repaint();
-           
+         
+        
 
+        
         }
-
     }//GEN-LAST:event_jtb_listaActionPerformed
 
     private void jtb_reproActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtb_reproActionPerformed
@@ -155,13 +171,37 @@ public class jp_Canciones extends javax.swing.JPanel {
             jtb_lista.setSelected(false);
 
             //codigo pantalla REPRODUCCIÓN
-        jp_Reproduccion repro = new jp_Reproduccion(this);
+            
+           /*        
+            Component = this.getComponents();
+            Component[5].setVisible(false);//activamos o desactivamos el JButton
+            */
+	
+       
+        
+        repro = new jp_Reproduccion(this);
         repro.setSize(300, 336);
         repro.setLocation(0, 0);
         jp_Cancion.removeAll();
-        jp_Cancion.add(repro);
-        jp_Cancion.revalidate();
-        jp_Cancion.repaint();
+         jp_Cancion.add(repro);
+         jp_Cancion.revalidate();
+       jp_Cancion.repaint();
+         
+        
+       
+       
+        
+    //  Component[6].setVisible(false);
+       //JOptionPane.showMessageDialog(venta, Component[5]);
+       
+      
+        //Component[6].setVisible(true);
+        
+         /*
+         {
+             Component = this.getComponents();
+             Component[6].setVisible(true);
+         }*/
 
         }
 
@@ -169,7 +209,10 @@ public class jp_Canciones extends javax.swing.JPanel {
 
     private void jb_CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_CerrarActionPerformed
         // TODO add your handling code here:
+       if(venta.EnRepro==true){ venta.Barra.resume();
+        venta.Barra.stop();}
         venta.dispose();
+        
     }//GEN-LAST:event_jb_CerrarActionPerformed
 
     private void jb_MinimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_MinimizarActionPerformed

@@ -52,8 +52,8 @@ public class CustomPanel extends JPanel{
      //circle.setFrameFromCenter(new Point(0,0), new Point(45,45));
     arc.setAngleStart(1);
     arc2.setAngleStart(1);
-    arc.setAngleExtent(-Progreso*3.6);
-    arc2.setAngleExtent(-Progreso*3.6);
+    arc.setAngleExtent(-Progreso*1.2);
+    arc2.setAngleExtent(-Progreso*1.2);
      g2.setColor(new Color(12,32,32,53)); //http://colorizer.org/ colors hsb de esa pagina /100
     g2.draw(circle);
     g2.fill(circle);

@@ -222,7 +222,7 @@ public class jp_Inicio extends javax.swing.JPanel {
         venta.jp_Principal.add(p1);
         venta.jp_Principal.revalidate();
         venta.jp_Principal.repaint();
-
+        
         //this.dispose();
     }//GEN-LAST:event_btCancionesActionPerformed
 

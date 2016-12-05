@@ -9,7 +9,9 @@ import com.sun.awt.AWTUtilities;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextPane;
 
 /**
  *
@@ -21,7 +23,7 @@ public class jp_Reproduccion extends javax.swing.JPanel {
      * Creates new form jp_Reproduccion
      */
     jp_Canciones canc;
-    Clase_Progreso Barra;
+   
     int repetir=0;
     
     public jp_Reproduccion(jp_Canciones can) {
@@ -30,8 +32,10 @@ public class jp_Reproduccion extends javax.swing.JPanel {
         
         
         START.setSelected(true);
-      //  Barra = new Clase_Progreso(jp_Progreso,this);
-       // Barra.start();
+        if(canc.venta.EnRepro==false){
+        canc.venta.Barra = new Clase_Progreso(jp_Progreso,this);
+        canc.venta.Barra.start();
+        }
       js_volumen.setVisible(false);
         js_volumen.validate();
         jb_repetir.setToolTipText("REPETICIÓN DESACTIVADA");
@@ -60,19 +64,20 @@ public class jp_Reproduccion extends javax.swing.JPanel {
         jb_repetir = new javax.swing.JButton();
         jp_Progreso = new peppermusic.CustomPanel();
         jlb_tiempo = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jlb_barras = new javax.swing.JLabel();
+        jp_Letras = new javax.swing.JPanel();
+        js_Letras = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setOpaque(false);
         setLayout(null);
 
-        jtb_agrandar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_agrandar.png"))); // NOI18N
+        jtb_agrandar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_pequeño.png"))); // NOI18N
         jtb_agrandar.setBorder(null);
         jtb_agrandar.setBorderPainted(false);
         jtb_agrandar.setContentAreaFilled(false);
-        jtb_agrandar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_pequeño.png"))); // NOI18N
+        jtb_agrandar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_agrandar.png"))); // NOI18N
         jtb_agrandar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtb_agrandarActionPerformed(evt);
@@ -81,11 +86,11 @@ public class jp_Reproduccion extends javax.swing.JPanel {
         add(jtb_agrandar);
         jtb_agrandar.setBounds(265, 23, 25, 25);
 
-        karaoke.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/karaoke.png"))); // NOI18N
+        karaoke.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/barramusical.png"))); // NOI18N
         karaoke.setBorder(null);
         karaoke.setBorderPainted(false);
         karaoke.setContentAreaFilled(false);
-        karaoke.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/barramusical.png"))); // NOI18N
+        karaoke.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/karaoke.png"))); // NOI18N
         karaoke.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 karaokeStateChanged(evt);
@@ -231,15 +236,33 @@ public class jp_Reproduccion extends javax.swing.JPanel {
         add(jlb_tiempo);
         jlb_tiempo.setBounds(50, 120, 70, 14);
 
-        jPanel1.setOpaque(false);
+        jp_Letras.setOpaque(false);
+        jp_Letras.setLayout(null);
 
-        jlb_barras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlb_barras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_barras.png"))); // NOI18N
-        jlb_barras.setToolTipText("");
-        jPanel1.add(jlb_barras);
+        js_Letras.setHorizontalScrollBar(null);
+        js_Letras.setMaximumSize(new java.awt.Dimension(230, 140));
+        js_Letras.setMinimumSize(new java.awt.Dimension(230, 140));
+        js_Letras.setOpaque(false);
+        js_Letras.setPreferredSize(new java.awt.Dimension(230, 140));
 
-        add(jPanel1);
-        jPanel1.setBounds(30, 160, 230, 140);
+        jTextArea1.setEditable(false);
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Monospaced", 1, 11)); // NOI18N
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Is this the real life? \nIs this just fantasy? \nCaught in a landside, \nNo escape from reality \nOpen your eyes, \nLook up to the skies and see, \nI'm just a poor boy, I need no sympathy, \nBecause I'm easy come, easy go, \nLittle high, little low, \nAny way the wind blows doesn't really matter to \nme, to me \n\nMamaaa, \nJust killed a man, \nPut a gun against his head, pulled my trigger, \nnow he's dead \nMamaaa, life had just begun, \nBut now I've gone and thrown it all away \nMama, oooh, \nDidn't mean to make you cry, \nIf I'm not back again this time tomorrow, \nCarry on, carry on as if nothing really matters \n\nToo late, my time has come, \nSends shivers down my spine, \nbody's aching all the time \nGoodbye, everybody, I've got to go, \nGotta leave you all behind and face the truth \nMama, oooh (anyway the wind blows) \nI don't want to die, \nI sometimes wish I'd never been born at all. \n\nI see a little silhouetto of a man, \nScaramouch, Scaramouch, will you do the Fandango! \nThunderbolts and lightning, very, very frightening me \nGalileo, Galileo \nGalileo, Galileo \nGalileo, Figaro - magnificoo \n\nI'm just a poor boy nobody loves me \nHe's just a poor boy from a poor family, \nSpare him his life from this monstrosity \nEasy come, easy go, will you let me go \nBismillah! No, we will not let you go \n(Let him go!) Bismillah! We will not let you go \n(Let him go!) Bismillah! We will not let you go \n(Let me go) Will not let you go \n(Let me go)(Never) Never let you go \n(Let me go) (Never) let you go (Let me go) Ah \nNo, no, no, no, no, no, no \nOh mama mia, mama mia, mama mia, let me go \nBeelzebub has a devil put aside for me, for me, \nfor meee \n\nSo you think you can stop me and spit in my eye \nSo you think you can love me and leave me to die \nOh, baby, can't do this to me, baby, \nJust gotta get out, just gotta get right outta here \n\nOoh yeah, ooh yeah \nNothing really matters, Anyone can see, \nNothing really matters, \nNothing really matters to me \n\nAny way the wind blows..");
+        jTextArea1.setWrapStyleWord(true);
+        jTextArea1.setAutoscrolls(false);
+        jTextArea1.setMaximumSize(new java.awt.Dimension(230, 140));
+        jTextArea1.setMinimumSize(new java.awt.Dimension(230, 140));
+        jTextArea1.setOpaque(false);
+        jTextArea1.setPreferredSize(new java.awt.Dimension(230, 1025));
+        js_Letras.setViewportView(jTextArea1);
+
+        jp_Letras.add(js_Letras);
+        js_Letras.setBounds(0, 0, 230, 140);
+
+        add(jp_Letras);
+        jp_Letras.setBounds(30, 160, 230, 140);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_nombre.png"))); // NOI18N
         add(jLabel5);
@@ -260,15 +283,30 @@ public class jp_Reproduccion extends javax.swing.JPanel {
     }//GEN-LAST:event_karaokeMouseClicked
 
     private void karaokeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_karaokeActionPerformed
-        if(karaoke.isSelected()){
-
+        if(!karaoke.isSelected()){
+            js_Letras.setLocation(0, 0);
+           
+           jp_Letras.removeAll();
+            jp_Letras.add(js_Letras);
+            jp_Letras.revalidate();
+            jp_Letras.repaint();
+           
+            /*
            jlb_barras.setIcon(new ImageIcon( getClass().getResource("/Recursos/imagen_letras.png")));
             jlb_barras.repaint();
             jlb_barras.revalidate();
+*/
         }else{
-            jlb_barras.setIcon(new ImageIcon( getClass().getResource("/Recursos/repro_barras.png")));
-            jlb_barras.repaint();
-            jlb_barras.revalidate();
+            
+           JLabel  jlb_barras = new JLabel();
+           jlb_barras.setSize(230, 140);
+           jlb_barras.setLocation(0, 0);
+           jlb_barras.setIcon(new ImageIcon( getClass().getResource("/Recursos/repro_barras.png")));
+           jp_Letras.removeAll();
+            jp_Letras.add(jlb_barras);
+            jp_Letras.revalidate();
+            jp_Letras.repaint();
+            
         }
 
     }//GEN-LAST:event_karaokeActionPerformed
@@ -279,15 +317,15 @@ public class jp_Reproduccion extends javax.swing.JPanel {
 
     private void STARTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_STARTActionPerformed
         // TODO add your handling code here:
-        /*
+        
         if(!START.isSelected()){
-            Barra.suspend();
+            canc.venta.Barra.suspend();
 
         }else{
-            if(!Barra.t.isAlive())Barra.start();
-            else  Barra.resume();
+            if(!canc.venta.Barra.t.isAlive())canc.venta.Barra.start();
+            else  canc.venta.Barra.resume();
 
-        }*/
+        }
 
     }//GEN-LAST:event_STARTActionPerformed
 
@@ -367,8 +405,8 @@ public class jp_Reproduccion extends javax.swing.JPanel {
             canc.venta.setSize(300, 168);
             Shape forma = new RoundRectangle2D.Double(0,0,canc.venta.getBounds().width,canc.venta.getBounds().height,110,110);
             AWTUtilities.setWindowShape(canc.venta, forma);
-            jLabel1.setIcon(new ImageIcon( getClass().getResource("/Recursos/fondo_mini.png")));
-            jlb_barras.setVisible(false);
+            jLabel1.setIcon(new ImageIcon( getClass().getResource("/Recursos/fondo_celeste2.png")));
+         //   jlb_barras.setVisible(false);
             jLabel1.setSize(300,168);
             jLabel1.repaint();
             canc.jtb_lista.setEnabled(false);
@@ -379,11 +417,11 @@ public class jp_Reproduccion extends javax.swing.JPanel {
             canc.venta.setSize(300, 336);
             Shape forma = new RoundRectangle2D.Double(0,0,canc.venta.getBounds().width,canc.venta.getBounds().height,125,125);
             AWTUtilities.setWindowShape(canc.venta, forma);
-            jLabel1.setIcon(new ImageIcon( getClass().getResource("/Recursos/Fondo_Repro.png")));
+            jLabel1.setIcon(new ImageIcon( getClass().getResource("/Recursos/Fondo_celeste1.png")));
             jLabel1.setLocation(0, 0);
             jLabel1.setSize(300,336);
             jLabel1.repaint();
-            jlb_barras.setVisible(true);
+//            jlb_barras.setVisible(true);
             canc.jtb_lista.setEnabled(true);
             jLabel1.revalidate();
            // jtb_agrandar.setLocation(238,315);
@@ -405,14 +443,16 @@ public class jp_Reproduccion extends javax.swing.JPanel {
           
          if(x>40)
          { 
-             z = (int)Math.floor((valor+90)/3.6);
+             z = (int)Math.floor((valor+90)/1.2);
+            
          }else{
              
-             z = (int)Math.floor((valor+270)/3.6);
+             z = (int)Math.floor((valor+270)/1.2);
          }
        // JOptionPane.showMessageDialog(canc,valor); 
-         jp_Progreso.ActualizarProgreso(z);
-         jp_Progreso.repaint();
+         //jp_Progreso.ActualizarProgreso(z);
+          canc.venta.Barra.n=z;
+         
     }//GEN-LAST:event_jp_ProgresoMouseClicked
 
 
@@ -424,11 +464,12 @@ public class jp_Reproduccion extends javax.swing.JPanel {
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton jb_repetir;
-    private javax.swing.JLabel jlb_barras;
     private javax.swing.JLabel jlb_tiempo;
+    private javax.swing.JPanel jp_Letras;
     private peppermusic.CustomPanel jp_Progreso;
+    private javax.swing.JScrollPane js_Letras;
     private javax.swing.JSlider js_volumen;
     private javax.swing.JToggleButton jtb_agrandar;
     private peppermusic.CustomButton jtb_aleatorio;

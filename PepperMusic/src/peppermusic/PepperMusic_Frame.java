@@ -16,12 +16,17 @@ import java.awt.geom.RoundRectangle2D;
  *
  * @author orlando
  */
+ 
 public class PepperMusic_Frame extends javax.swing.JFrame {
 
     /**
      * Creates new form PepperMusic_Frame
      */
+    public  boolean EnRepro = false;
+    public  boolean NoRepro = true;
+    public Clase_Progreso Barra;
     public PepperMusic_Frame() {
+        
           this.setUndecorated(true);
         initComponents();
           this.setSize(new Dimension(300, 336));
@@ -41,6 +46,7 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
             jp_Principal.revalidate();
             jp_Principal.repaint();
     }
+     
 
     /**
      * This method is called from within the constructor to initialize the form.
