@@ -6,6 +6,7 @@
 package peppermusic;
 
 import static java.awt.Frame.ICONIFIED;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,8 +19,10 @@ public class jp_Configuracion extends javax.swing.JPanel {
      */
     PepperMusic_Frame venta;
     public jp_Configuracion(PepperMusic_Frame ventana) {
+        
         initComponents();
         venta=ventana;
+        
     }
 
     /**
@@ -72,7 +75,7 @@ public class jp_Configuracion extends javax.swing.JPanel {
         add(jb_Minimizar);
         jb_Minimizar.setBounds(193, 0, 30, 30);
 
-        jb_Cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_Cerrar2.png"))); // NOI18N
+        jb_Cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/cerrar.png"))); // NOI18N
         jb_Cerrar.setAlignmentY(0.0F);
         jb_Cerrar.setBorder(null);
         jb_Cerrar.setBorderPainted(false);
@@ -80,7 +83,7 @@ public class jp_Configuracion extends javax.swing.JPanel {
         jb_Cerrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jb_Cerrar.setIconTextGap(-3);
         jb_Cerrar.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jb_Cerrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_Cerrar.png"))); // NOI18N
+        jb_Cerrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/cerrar3.png"))); // NOI18N
         jb_Cerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jb_CerrarActionPerformed(evt);
@@ -158,7 +161,7 @@ public class jp_Configuracion extends javax.swing.JPanel {
         jLabel5.setBounds(160, 260, 60, 14);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Celeste.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Celeste1.png"))); // NOI18N
         add(jLabel1);
         jLabel1.setBounds(0, 0, 300, 336);
     }// </editor-fold>//GEN-END:initComponents

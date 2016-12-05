@@ -12,11 +12,13 @@ import javax.swing.JOptionPane;
  *
  * @author orlando
  */
+ 
 public class jp_Inicio extends javax.swing.JPanel {
 
     /**
      * Creates new form jp_Inicio
      */
+    int indicador;
     PepperMusic_Frame venta;
     public jp_Inicio(PepperMusic_Frame ventana ) {
         initComponents();
@@ -62,7 +64,7 @@ public class jp_Inicio extends javax.swing.JPanel {
             }
         });
         add(btMinimizar);
-        btMinimizar.setBounds(160, 20, 60, 58);
+        btMinimizar.setBounds(180, 10, 40, 40);
 
         btAlbum.setBackground(new java.awt.Color(255, 255, 199));
         btAlbum.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/album.png"))); // NOI18N
@@ -147,23 +149,23 @@ public class jp_Inicio extends javax.swing.JPanel {
             }
         });
         add(btConfi);
-        btConfi.setBounds(210, 220, 65, 65);
+        btConfi.setBounds(220, 240, 50, 50);
 
-        btCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/cerrar.png"))); // NOI18N
+        btCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/cerrar2.png"))); // NOI18N
         btCerrar.setToolTipText("CERRAR");
         btCerrar.setBorder(null);
         btCerrar.setBorderPainted(false);
         btCerrar.setContentAreaFilled(false);
         btCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btCerrar.setPreferredSize(new java.awt.Dimension(70, 70));
-        btCerrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/cerrar2.png"))); // NOI18N
+        btCerrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_Cerrar2.png"))); // NOI18N
         btCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btCerrarActionPerformed(evt);
             }
         });
         add(btCerrar);
-        btCerrar.setBounds(220, 10, 60, 60);
+        btCerrar.setBounds(230, 10, 40, 40);
 
         btArtista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/artista.png"))); // NOI18N
         btArtista.setToolTipText("ARTISTA");
@@ -173,6 +175,11 @@ public class jp_Inicio extends javax.swing.JPanel {
         btArtista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btArtista.setPreferredSize(new java.awt.Dimension(70, 70));
         btArtista.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/artista3.png"))); // NOI18N
+        btArtista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btArtistaActionPerformed(evt);
+            }
+        });
         add(btArtista);
         btArtista.setBounds(100, 200, 65, 65);
 
@@ -196,6 +203,15 @@ public class jp_Inicio extends javax.swing.JPanel {
     private void btAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlbumActionPerformed
         // TODO add your handling code here:
         //JOptionPane.showMessageDialog(null, "ERROR DE REPRODUCCIÓN");
+        
+        jp_Canciones p1 = new jp_Canciones(venta,1);
+
+        p1.setSize(300, 336);
+        p1.setLocation(0, 0);
+        venta.jp_Principal.removeAll();
+        venta.jp_Principal.add(p1);
+        venta.jp_Principal.revalidate();
+        venta.jp_Principal.repaint();
     }//GEN-LAST:event_btAlbumActionPerformed
 
     private void btGeneroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btGeneroMouseExited
@@ -204,6 +220,14 @@ public class jp_Inicio extends javax.swing.JPanel {
 
     private void btGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGeneroActionPerformed
         // TODO add your handling code here:
+        jp_Canciones p1 = new jp_Canciones(venta,2);
+
+        p1.setSize(300, 336);
+        p1.setLocation(0, 0);
+        venta.jp_Principal.removeAll();
+        venta.jp_Principal.add(p1);
+        venta.jp_Principal.revalidate();
+        venta.jp_Principal.repaint();
     }//GEN-LAST:event_btGeneroActionPerformed
 
     private void btCancionesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCancionesMouseExited
@@ -214,7 +238,7 @@ public class jp_Inicio extends javax.swing.JPanel {
         // TODO add your handling code here:
         //en el constructor de cada jpanel clase debo de poner una variable PepperMusic_Frame a eso declararle una variable global
         
-        jp_Canciones p1 = new jp_Canciones(venta);
+        jp_Canciones p1 = new jp_Canciones(venta,0);
 
         p1.setSize(300, 336);
         p1.setLocation(0, 0);
@@ -228,14 +252,17 @@ public class jp_Inicio extends javax.swing.JPanel {
 
     private void btConfiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfiActionPerformed
         // TODO add your handling code here:
+        
            jp_Configuracion p1 = new jp_Configuracion(venta);
 
         p1.setSize(300, 336);
         p1.setLocation(0, 0);
+         
         venta.jp_Principal.removeAll();
         venta.jp_Principal.add(p1);
         venta.jp_Principal.revalidate();
         venta.jp_Principal.repaint();
+       
     }//GEN-LAST:event_btConfiActionPerformed
 
     private void btCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCerrarActionPerformed
@@ -243,6 +270,18 @@ public class jp_Inicio extends javax.swing.JPanel {
        
         venta.dispose();
     }//GEN-LAST:event_btCerrarActionPerformed
+
+    private void btArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btArtistaActionPerformed
+        // TODO add your handling code here:
+        jp_Canciones p1 = new jp_Canciones(venta,3);
+
+        p1.setSize(300, 336);
+        p1.setLocation(0, 0);
+        venta.jp_Principal.removeAll();
+        venta.jp_Principal.add(p1);
+        venta.jp_Principal.revalidate();
+        venta.jp_Principal.repaint();
+    }//GEN-LAST:event_btArtistaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

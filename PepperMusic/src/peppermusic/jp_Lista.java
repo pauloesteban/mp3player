@@ -40,6 +40,7 @@ public class jp_Lista extends javax.swing.JPanel {
         lista_Alegre = new javax.swing.JMenuItem();
         lista_Estudio = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        pop_letras = new javax.swing.JMenuItem();
         pop_Eliminar = new javax.swing.JMenuItem();
         jtx_buscar = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
@@ -85,6 +86,9 @@ public class jp_Lista extends javax.swing.JPanel {
 
         popup.add(pop_lista);
         popup.add(jSeparator1);
+
+        pop_letras.setText("AGREGAR LETRAS");
+        popup.add(pop_letras);
 
         pop_Eliminar.setText("ELIMINAR");
         popup.add(pop_Eliminar);
@@ -313,6 +317,7 @@ DefaultListModel modelo = new DefaultListModel();
     private javax.swing.JList<String> lst_canciones1;
     public javax.swing.JList<String> lst_tarde;
     private javax.swing.JMenuItem pop_Eliminar;
+    private javax.swing.JMenuItem pop_letras;
     private javax.swing.JMenu pop_lista;
     private javax.swing.JMenuItem pop_tarde;
     private javax.swing.JPopupMenu popup;

@@ -53,6 +53,11 @@
         </Menu>
         <Component class="javax.swing.JPopupMenu$Separator" name="jSeparator1">
         </Component>
+        <MenuItem class="javax.swing.JMenuItem" name="pop_letras">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="AGREGAR LETRAS"/>
+          </Properties>
+        </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="pop_Eliminar">
           <Properties>
             <Property name="text" type="java.lang.String" value="ELIMINAR"/>

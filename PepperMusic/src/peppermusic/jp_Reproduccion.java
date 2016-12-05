@@ -407,6 +407,7 @@ public class jp_Reproduccion extends javax.swing.JPanel {
             AWTUtilities.setWindowShape(canc.venta, forma);
             jLabel1.setIcon(new ImageIcon( getClass().getResource("/Recursos/fondo_celeste2.png")));
          //   jlb_barras.setVisible(false);
+         jp_Letras.setVisible(false);
             jLabel1.setSize(300,168);
             jLabel1.repaint();
             canc.jtb_lista.setEnabled(false);
@@ -421,6 +422,7 @@ public class jp_Reproduccion extends javax.swing.JPanel {
             jLabel1.setLocation(0, 0);
             jLabel1.setSize(300,336);
             jLabel1.repaint();
+            jp_Letras.setVisible(true);
 //            jlb_barras.setVisible(true);
             canc.jtb_lista.setEnabled(true);
             jLabel1.revalidate();

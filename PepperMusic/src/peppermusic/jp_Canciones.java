@@ -8,7 +8,7 @@ package peppermusic;
 
 import java.awt.Component;
 import static java.awt.Frame.ICONIFIED;
-import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -20,22 +20,40 @@ public class jp_Canciones extends javax.swing.JPanel {
     PepperMusic_Frame venta;
     jp_Reproduccion repro;
     jp_Lista lista;
+    JPanel lis;
+    jp_Lista_ALBUM lista2;
     Component Component[];
-    public jp_Canciones(PepperMusic_Frame ventana) {
+    int indicador;
+    public jp_Canciones(PepperMusic_Frame ventana,int indica) {
         initComponents();
         venta=ventana;
         venta.NoRepro=false;
+        indicador=indica;
         jtb_lista.setSelected(true);
-        lista = new jp_Lista(this);
+       switch(indicador)
+        {case 0:
+            lis = new jp_Lista(this);
+        break;
+        case 1:
+            lis = new jp_Lista_ALBUM(this);
+        break;
+        case 2:
+            lis = new jp_Lista_GENERO(this);
+        break;
+        case 3:
+            lis = new jp_Lista_ARTISTA(this);
+        break;
+        }
         
-        lista.setSize(300, 336);
-        lista.setLocation(0, 0);
+        
+        lis.setSize(300, 336);
+        lis.setLocation(0, 0);
         
         jp_Cancion.removeAll();
        
       
         
-        jp_Cancion.add(lista);
+        jp_Cancion.add(lis);
         jp_Cancion.revalidate();
         jp_Cancion.repaint();
         
@@ -82,7 +100,7 @@ public class jp_Canciones extends javax.swing.JPanel {
         add(jtb_repro);
         jtb_repro.setBounds(90, 0, 90, 25);
 
-        jb_Cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_Cerrar2.png"))); // NOI18N
+        jb_Cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/cerrar.png"))); // NOI18N
         jb_Cerrar.setAlignmentY(0.0F);
         jb_Cerrar.setBorder(null);
         jb_Cerrar.setBorderPainted(false);
@@ -90,6 +108,7 @@ public class jp_Canciones extends javax.swing.JPanel {
         jb_Cerrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jb_Cerrar.setIconTextGap(-3);
         jb_Cerrar.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        jb_Cerrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/cerrar3.png"))); // NOI18N
         jb_Cerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jb_CerrarActionPerformed(evt);
@@ -140,16 +159,16 @@ public class jp_Canciones extends javax.swing.JPanel {
             if(venta.EnRepro==true){venta.Barra.resume();venta.Barra.stop();}
             jtb_repro.setSelected(false);
             //codigo pantalla LISTA
-            lista = new jp_Lista(this);
+          
         
-        lista.setSize(300, 336);
-        lista.setLocation(0, 0);
+        lis.setSize(300, 336);
+        lis.setLocation(0, 0);
         
         jp_Cancion.removeAll();
        
       
         
-        jp_Cancion.add(lista);
+        jp_Cancion.add(lis);
         jp_Cancion.revalidate();
         jp_Cancion.repaint();
          
