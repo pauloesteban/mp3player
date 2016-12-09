@@ -2,16 +2,17 @@
 GUI de un reproductor MP3
 
 ### Integrantes:
-- BRITO CASANOVA ORLANDO - Scrum Team
-- HUACON SALAZAR LINDA - Scrum Master
-- ROSALES ZAMBRANO JOSHUA - Product Owner
-- SALAZAR CAMPAÑA JESÚS - Scrum Team
+- Orlando Brito - Product Owner
+- Erick Tirado
+- Alejandra Flores
+- Jaime Troya
+- Andrés Saltos
 
 ### Académico:
 Paulo Chiliguano
 
 ### TODO
-- Anclar el reproductor cuando está minimizado (COORREGIDO Y APROBADO)
-- Fondo de pantalla para visualización del ecualizador (CORREGIDO)
-- En ecualizador ordenar por bajos, medios, graves y ganancia (CORREGIDO Y APROBADO)
-
+- Reproducir al menos un archivo .mp3
+- Búsqueda de archivos .mp3 en computador local
+- Configuración de superposición de pantalla
+- Skins configurables
