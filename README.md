@@ -1,11 +1,11 @@
-# Reproductor MP3
+﻿# Reproductor MP3
 GUI de un reproductor MP3
 
 ### Integrantes:
 - Orlando Brito - Product Owner
 - Erick Tirado
 - Alejandra Flores
-- Jaime Troya
+- Jaime Troya   - ScrumMaster
 - Andrés Saltos
 
 ### Académico:
