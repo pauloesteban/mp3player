@@ -3,16 +3,16 @@ GUI de un reproductor MP3
 
 ### Integrantes:
 - Orlando Brito - Product Owner
-- Erick Tirado
-- Alejandra Flores
+- Erick Tirado - Scrum Team
+- Alejandra Flores - Scrum Team
 - Jaime Troya   - ScrumMaster
-- Andrés Saltos
+- Andrés Saltos - Scrum Team
 
 ### Académico:
 Paulo Chiliguano
 
 ### TODO
-- Reproducir al menos un archivo .mp3
-- Búsqueda de archivos .mp3 en computador local
-- Configuración de superposición de pantalla
-- Skins configurables
+- Reproducir al menos un archivo .mp3 (En proceso)
+- Búsqueda de archivos .mp3 en computador local (En proceso)
+- Configuración de superposición de pantalla (En proceso)
+- Skins configurables (En proceso)
