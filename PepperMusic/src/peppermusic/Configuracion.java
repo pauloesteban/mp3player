@@ -94,12 +94,12 @@ int x,y;
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        PepperMusicGUI form2 = new PepperMusicGUI();
-        form2.setVisible(true);
-        form2.setAlwaysOnTop( true );
-        Point p = this.getLocation();
-        form2.setLocation(p.x,p.y);
-        this.dispose();
+//        PepperMusicGUI form2 = new PepperMusicGUI();
+//        form2.setVisible(true);
+//        form2.setAlwaysOnTop( true );
+//        Point p = this.getLocation();
+//        form2.setLocation(p.x,p.y);
+//        this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

@@ -42,7 +42,7 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
             p1.setLocation(0, 0);
             
             jp_Principal.removeAll();
-            jp_Principal.add(p1);
+              jp_Principal.add(p1);
             jp_Principal.revalidate();
             jp_Principal.repaint();
     }

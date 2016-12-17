@@ -6,6 +6,8 @@
 package peppermusic;
 
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 
 /**
@@ -44,6 +46,7 @@ public class jp_Lista extends javax.swing.JPanel {
         pop_Eliminar = new javax.swing.JMenuItem();
         jtx_buscar = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
+        btnActualizarCanciones = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -98,19 +101,28 @@ public class jp_Lista extends javax.swing.JPanel {
 
         jtx_buscar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         add(jtx_buscar);
-        jtx_buscar.setBounds(35, 35, 170, 25);
+        jtx_buscar.setBounds(35, 35, 90, 25);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Boton 9.png"))); // NOI18N
         jButton2.setToolTipText("Buscar");
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         add(jButton2);
-        jButton2.setBounds(205, 35, 27, 25);
+        jButton2.setBounds(140, 30, 27, 25);
+
+        btnActualizarCanciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono de actualizar.png"))); // NOI18N
+        btnActualizarCanciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarCancionesActionPerformed(evt);
+            }
+        });
+        add(btnActualizarCanciones);
+        btnActualizarCanciones.setBounds(220, 30, 40, 39);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton 10.png"))); // NOI18N
         jButton1.setToolTipText("Buscar por voz");
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         add(jButton1);
-        jButton1.setBounds(238, 35, 32, 27);
+        jButton1.setBounds(180, 30, 32, 27);
 
         jPanel1.setAlignmentX(0.0F);
         jPanel1.setAlignmentY(0.0F);
@@ -123,11 +135,6 @@ public class jp_Lista extends javax.swing.JPanel {
         lst_canciones.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         lst_canciones.setFont(new java.awt.Font("Rockwell Condensed", 1, 12)); // NOI18N
         lst_canciones.setForeground(new java.awt.Color(255, 255, 255));
-        lst_canciones.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "39", "Bohemian Rhapsody", "Bombtrack", "Bullet in the Head", "Bulls on Parade", "Death On Two Legs (Dedicated To...)", "God Save The Queen", "Good Company", "I'm In Love With My Car", "Killing in the Name", "Lazing On A Sunday Afternoon", "Love of My Life", "People of the Sun", "Seaside Rendezvous", "Sweet Lady", "The Prophet's Song", "You're My Best Friend" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         lst_canciones.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         lst_canciones.setToolTipText("");
         lst_canciones.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -138,7 +145,7 @@ public class jp_Lista extends javax.swing.JPanel {
         jScrollPane2.setViewportView(lst_canciones);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(0, 0, 230, 210);
+        jScrollPane2.setBounds(0, 0, 230, 200);
 
         jTabbedPane1.addTab("", new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_canciones.png")), jPanel1, "Todas las Canciones"); // NOI18N
 
@@ -281,20 +288,54 @@ public class jp_Lista extends javax.swing.JPanel {
         // TODO add your handling code here:
        
     }//GEN-LAST:event_lst_tardeMouseClicked
-DefaultListModel modelo = new DefaultListModel();
+//DefaultListModel modelo = new DefaultListModel();
     private void pop_tardeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pop_tardeActionPerformed
         // TODO add your handling code here:
         
         
         
-           modelo.addElement((String)lst_canciones.getSelectedValue());
-           lst_tarde.setModel(modelo);
+//           modelo.addElement((String)lst_canciones.getSelectedValue());
+//           lst_tarde.setModel(modelo);
         
         
     }//GEN-LAST:event_pop_tardeActionPerformed
- 
+
+    private void btnActualizarCancionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarCancionesActionPerformed
+         buscar(new File("C:\\"));
+    }//GEN-LAST:event_btnActualizarCancionesActionPerformed
+     DefaultListModel modelo = new DefaultListModel();
+    public void buscar(File ruta){
+        File archivos[] =ruta.listFiles();
+       
+//        ArrayList<String>lista=new ArrayList<String>();
+        if (archivos!=null) {
+            for (int i = 0; i <archivos.length; i++) {
+                if(archivos[i].isDirectory()){
+                  buscar(archivos[i]);   
+                }
+                else{
+                    
+                    if (archivos[i].getName().endsWith("mp3")) {
+                        System.out.println(archivos[i].getName());
+                        //lista.add(archivos[i].getName());
+                        modelo.addElement(archivos[i].getName());
+                        
+                    }
+                     lst_canciones.setModel(modelo);
+                }
+            }
+            
+        }
+//        for (int i = 0; i <lista.size(); i++) {
+//            System.out.println("lista");
+//            System.out.println(lista.get(i));
+//            
+//        }
+//       lst_canciones.setModel(modelo);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizarCanciones;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

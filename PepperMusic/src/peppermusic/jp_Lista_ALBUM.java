@@ -90,6 +90,7 @@ public class jp_Lista_ALBUM extends javax.swing.JPanel {
         pop_Eliminar = new javax.swing.JMenuItem();
         jButton3 = new javax.swing.JButton();
         jtx_buscar = new javax.swing.JTextField();
+        btnActualizarBiblioteca = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -148,23 +149,31 @@ public class jp_Lista_ALBUM extends javax.swing.JPanel {
             }
         });
         add(jButton3);
-        jButton3.setBounds(140, 65, 30, 21);
+        jButton3.setBounds(140, 65, 30, 20);
 
         jtx_buscar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         add(jtx_buscar);
-        jtx_buscar.setBounds(35, 35, 170, 25);
+        jtx_buscar.setBounds(35, 35, 110, 25);
+
+        btnActualizarBiblioteca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarBibliotecaActionPerformed(evt);
+            }
+        });
+        add(btnActualizarBiblioteca);
+        btnActualizarBiblioteca.setBounds(210, 40, 30, 30);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Boton 9.png"))); // NOI18N
         jButton2.setToolTipText("Buscar");
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         add(jButton2);
-        jButton2.setBounds(205, 35, 27, 25);
+        jButton2.setBounds(150, 35, 20, 30);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton 10.png"))); // NOI18N
         jButton1.setToolTipText("Buscar por voz");
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         add(jButton1);
-        jButton1.setBounds(238, 35, 32, 27);
+        jButton1.setBounds(180, 40, 20, 27);
 
         jp_Album.setAlignmentX(0.0F);
         jp_Album.setAlignmentY(0.0F);
@@ -222,7 +231,7 @@ public class jp_Lista_ALBUM extends javax.swing.JPanel {
         jTabbedPane1.addTab("", new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_mastarde.png")), jPanel3, "Escuchar más tarde"); // NOI18N
 
         add(jTabbedPane1);
-        jTabbedPane1.setBounds(30, 60, 240, 240);
+        jTabbedPane1.setBounds(20, 60, 240, 240);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Celeste.png"))); // NOI18N
@@ -317,9 +326,15 @@ DefaultListModel modelo = new DefaultListModel();
         jp_Album.add(jScrollPane2);
         jScrollPane2.setBounds(0, 0, 230, 210);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void btnActualizarBibliotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarBibliotecaActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnActualizarBibliotecaActionPerformed
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizarBiblioteca;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -336,7 +351,7 @@ DefaultListModel modelo = new DefaultListModel();
     private javax.swing.JMenuItem lista_bailable;
     private javax.swing.JMenuItem lista_triste;
     private javax.swing.JList<String> lst_canciones;
-    private javax.swing.JList<String> lst_tarde;
+    public javax.swing.JList<String> lst_tarde;
     private javax.swing.JMenuItem pop_Eliminar;
     private javax.swing.JMenuItem pop_letras;
     private javax.swing.JMenu pop_lista;
