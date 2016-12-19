@@ -22,29 +22,46 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
     /**
      * Creates new form PepperMusic_Frame
      */
-    public  boolean EnRepro = false;
-    public  boolean NoRepro = true;
+    public  boolean EnRepro = false;  //Usada para saber cuando se está reproducciendo una cancion
+    public  boolean NoRepro = true;   // idica si se ha salido del jp_Reproduccion (para no dibujar el progreso)
     public Clase_Progreso Barra;
+    public jp_Reproduccion repro;
+    public long duracion;
+    public Reproductor mi_reproductor = new Reproductor();
+    //declarar la direccion de la cancion a reproduccir como variable global
+    
     public PepperMusic_Frame() {
-        
+       // repro = new jp_Reproduccion();
           this.setUndecorated(true);
-        initComponents();
+          initComponents();
           this.setSize(new Dimension(300, 336));
-        this.setMinimumSize(new Dimension(0, 0));
-         this.setLocationRelativeTo(null);
-        this.setResizable(false); // anula el boton maximizar
+          this.setMinimumSize(new Dimension(0, 0));
+          this.setLocationRelativeTo(null);
+          this.setResizable(false); // anula el boton maximizar
         Shape forma = new RoundRectangle2D.Double(0,0,this.getBounds().width,this.getBounds().height,125,125);
         AWTUtilities.setWindowShape(this, forma);
         
-         jp_Inicio p1 = new jp_Inicio(this);
-         
-          p1.setSize(300, 336);
-            p1.setLocation(0, 0);
-            
+        
+        //abrir Jp_Inicio que contiene el menú principal 
+             
             jp_Principal.removeAll();
-              jp_Principal.add(p1);
+            
+            jp_Inicio p0 = new jp_Inicio(this);
+            p0.setSize(300, 336);
+            p0.setLocation(0, 0);
+            jp_Principal.add(p0);
+            
+            jp_Reproduccion p1 = new jp_Reproduccion(this);
+            p1.setSize(300, 336);
+            p1.setLocation(0, 0);
+            p1.setVisible(false);
+            jp_Principal.add(p1);
+            
+            
             jp_Principal.revalidate();
             jp_Principal.repaint();
+            
+                       
     }
      
 

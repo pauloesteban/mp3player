@@ -14,16 +14,16 @@ import javax.swing.JPanel;
  * @author orlando
  */
 public class Clase_Progreso  implements Runnable{
-            CustomPanel progreso;
+           
    public   boolean suspended = false;
        public Thread t;
        public int n;
        public boolean fin;
      jp_Reproduccion reproduccion;
-             public  Clase_Progreso(CustomPanel progress,jp_Reproduccion repro){
-                 progreso=progress;
+             public  Clase_Progreso(){
+                 /*jp_Reproduccion repro
                  reproduccion=repro;
-                 fin=false;
+                 fin=false;*/
              }
     
            @Override
@@ -33,9 +33,15 @@ public class Clase_Progreso  implements Runnable{
                    for( n = 1; n<=300&&!fin;n++){
                         if(true) {//reproduccion.canc.venta.NoRepro== 
             try{
-                reproduccion.canc.venta.EnRepro=true;
-              progreso.ActualizarProgreso(n);
-                progreso.repaint();
+              //  reproduccion.canc.jtb_repro.setEnabled(true);
+              //  reproduccion.canc.venta.EnRepro=true;
+                
+              // if(reproduccion.canc.venta.NoRepro==false){
+                 
+             //   reproduccion.jp_Progreso.ActualizarProgreso(n);
+             //   reproduccion.jp_Progreso.repaint();
+              // } 
+              
                 Thread.sleep(50);
                 synchronized(this){
                     while(suspended)wait();
@@ -45,10 +51,14 @@ public class Clase_Progreso  implements Runnable{
                 Logger.getLogger(PepperMusic.class.getName()).log(Level.SEVERE,null, ex);
             }
             }
-             reproduccion.canc.venta.EnRepro=false;
+             
         }
-               reproduccion.START.setSelected(false);
-              fin=false;
+               //reproduccion.canc.venta.EnRepro=false;
+               //reproduccion.START.setSelected(false);
+              
+               
+               fin=false;
+              
             }
             public void start(){
                 t = new Thread (this);

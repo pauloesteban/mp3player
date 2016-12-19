@@ -8,39 +8,55 @@ package peppermusic;
 import com.sun.awt.AWTUtilities;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
+import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextPane;
+//import javazoom.jlgui.basicplayer.BasicPlayerException;
 
 /**
  *
  * @author orlando
  */
-public class jp_Reproduccion extends javax.swing.JPanel {
+public class jp_Reproduccion extends jp_Canciones {
     
     /**
      * Creates new form jp_Reproduccion
      */
-    jp_Canciones canc;
+   
    
     int repetir=0;
-    
-    public jp_Reproduccion(jp_Canciones can) {
+    //jp_Canciones can
+    PepperMusic_Frame peppermusic;
+    //ZPlayer mizplayer;   
+    File file; 
+    public jp_Reproduccion(PepperMusic_Frame venta) {
+        super(venta);
         initComponents();
-        canc =can;
         
-        
+        peppermusic = venta;    
+        super.setEnabled_Reproduccion(true);
+        super.setSelected_Lista(false);
+        super.setSelected_Reproduccion(true);
         START.setSelected(true);
+        /*
         if(canc.venta.EnRepro==false){
         canc.venta.Barra = new Clase_Progreso(jp_Progreso,this);
         canc.venta.Barra.start();
-        }
-      js_volumen.setVisible(false);
+        }*/
+        js_volumen.setVisible(false);
         js_volumen.validate();
         jb_repetir.setToolTipText("REPETICIÓN DESACTIVADA");
-       
-       
+        /*
+        try {
+            Reproductor mi_reproductor = new Reproductor();
+            mi_reproductor.AbrirFichero(getClass().getResource("/Recursos/BohemianRhapsody.mp3").getFile());
+            mi_reproductor.Play();
+          } catch (Exception ex) {
+            System.out.println("Error: " + ex.getMessage());
+          }
+       */
     }
 
     /**
@@ -317,18 +333,28 @@ public class jp_Reproduccion extends javax.swing.JPanel {
 
     private void STARTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_STARTActionPerformed
         // TODO add your handling code here:
-        
+       
         if(!START.isSelected()){
-            canc.venta.Barra.suspend();
-
+            try {
+                // peppermusic.Barra.suspend();
+                peppermusic.mi_reproductor.Pausa();
+                
+            } catch (Exception ex) {
+                Logger.getLogger(jp_Reproduccion.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }else{
-            if(!canc.venta.Barra.t.isAlive())canc.venta.Barra.start();
-            else  canc.venta.Barra.resume();
+            try {
+                // if(!peppermusic.Barra.t.isAlive())peppermusic.Barra.start();
+                peppermusic.mi_reproductor.Continuar();
+            } catch (Exception ex) {
+                Logger.getLogger(jp_Reproduccion.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
         }
-
+      
     }//GEN-LAST:event_STARTActionPerformed
 
+ 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -399,41 +425,43 @@ public class jp_Reproduccion extends javax.swing.JPanel {
 
     private void jtb_agrandarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtb_agrandarActionPerformed
         // TODO add your handling code here:
+        
         if(jtb_agrandar.isSelected()){
            // jtb_agrandar.setLocation(238,150);
-
-            canc.venta.setSize(300, 168);
-            Shape forma = new RoundRectangle2D.Double(0,0,canc.venta.getBounds().width,canc.venta.getBounds().height,110,110);
-            AWTUtilities.setWindowShape(canc.venta, forma);
-            jLabel1.setIcon(new ImageIcon( getClass().getResource("/Recursos/fondo_celeste2.png")));
+          
+            peppermusic.setSize(300, 168);
+            Shape forma = new RoundRectangle2D.Double(0,0,peppermusic.getBounds().width,peppermusic.getBounds().height,110,110);
+            AWTUtilities.setWindowShape(peppermusic, forma);
+            jLabel1.setIcon(new ImageIcon( getClass().getResource("/Recursos/Fondo_Celeste2.png")));
          //   jlb_barras.setVisible(false);
          jp_Letras.setVisible(false);
             jLabel1.setSize(300,168);
             jLabel1.repaint();
-            canc.jtb_lista.setEnabled(false);
+            super.setEnabled_Lista(false);
+            
             jLabel1.revalidate();
 
         }else{
 
-            canc.venta.setSize(300, 336);
-            Shape forma = new RoundRectangle2D.Double(0,0,canc.venta.getBounds().width,canc.venta.getBounds().height,125,125);
-            AWTUtilities.setWindowShape(canc.venta, forma);
-            jLabel1.setIcon(new ImageIcon( getClass().getResource("/Recursos/Fondo_celeste1.png")));
+            peppermusic.setSize(300, 336);
+            Shape forma = new RoundRectangle2D.Double(0,0,peppermusic.getBounds().width,peppermusic.getBounds().height,125,125);
+            AWTUtilities.setWindowShape(peppermusic, forma);
+            jLabel1.setIcon(new ImageIcon( getClass().getResource("/Recursos/Fondo_Celeste.png")));
             jLabel1.setLocation(0, 0);
             jLabel1.setSize(300,336);
             jLabel1.repaint();
             jp_Letras.setVisible(true);
 //            jlb_barras.setVisible(true);
-            canc.jtb_lista.setEnabled(true);
+            super.setEnabled_Lista(true);
             jLabel1.revalidate();
            // jtb_agrandar.setLocation(238,315);
         }
 
     }//GEN-LAST:event_jtb_agrandarActionPerformed
-  double valor;
+   double valor;
     private void jp_ProgresoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_ProgresoMouseClicked
         // TODO add your handling code here:
-         
+         /*
       int x = evt.getX();
       int y = evt.getY();
      // JOptionPane.showMessageDialog(canc,x + "+"+y+"="+(x + y)); 
@@ -454,7 +482,7 @@ public class jp_Reproduccion extends javax.swing.JPanel {
        // JOptionPane.showMessageDialog(canc,valor); 
          //jp_Progreso.ActualizarProgreso(z);
           canc.venta.Barra.n=z;
-         
+         */
     }//GEN-LAST:event_jp_ProgresoMouseClicked
 
 
@@ -470,7 +498,7 @@ public class jp_Reproduccion extends javax.swing.JPanel {
     private javax.swing.JButton jb_repetir;
     private javax.swing.JLabel jlb_tiempo;
     private javax.swing.JPanel jp_Letras;
-    private peppermusic.CustomPanel jp_Progreso;
+    public peppermusic.CustomPanel jp_Progreso;
     private javax.swing.JScrollPane js_Letras;
     private javax.swing.JSlider js_volumen;
     private javax.swing.JToggleButton jtb_agrandar;

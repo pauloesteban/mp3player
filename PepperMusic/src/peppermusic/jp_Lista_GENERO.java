@@ -14,7 +14,7 @@ import javax.swing.JViewport;
  *
  * @author orlando
  */
-public class jp_Lista_GENERO extends javax.swing.JPanel {
+public class jp_Lista_GENERO extends jp_Canciones {
 
     /**
      * Creates new form jp_Lista
@@ -35,13 +35,16 @@ public class jp_Lista_GENERO extends javax.swing.JPanel {
 "Bijou",
 "The Show Must Go On"
 };
-    
-    public jp_Lista_GENERO(jp_Canciones can) {
+    PepperMusic_Frame ventana;
+    public jp_Lista_GENERO(PepperMusic_Frame venta) {
+        super(venta);
         initComponents();
-        canc=can;
+        ventana=venta;
         guardar=lst_canciones;
         cancion=new JList(canciones);
-        
+         if(ventana.EnRepro==false)super.setEnabled_Reproduccion(false);
+        super.setSelected_Lista(true);
+        super.setSelected_Reproduccion(false);
         
         
 
@@ -256,16 +259,20 @@ DefaultListModel modelo = new DefaultListModel();
         jp_Album.add(jScrollPane2);
         jScrollPane2.setBounds(0, 0, 230, 210);
          }else{
-         jp_Reproduccion repro = new jp_Reproduccion(canc);
-            repro.setSize(300, 336);
-            repro.setLocation(0, 0);
-            canc.jp_Cancion.removeAll();
-            canc.jp_Cancion.add(repro);
-            canc.jp_Cancion.revalidate();
-            canc.jp_Cancion.repaint();
-            canc.jtb_repro.setSelected(true);
-            canc.jtb_lista.setSelected(false);
-         
+            ventana.jp_Principal.getComponent(2).setVisible(false);
+                 ventana.NoRepro = false;
+                 super.setEnabled_Reproduccion(true);
+                 ventana.jp_Principal.getComponent(1).setVisible(true);
+                 
+                 
+                 try {
+                     ventana.EnRepro=true;
+                     ventana.mi_reproductor.play(getClass().getResource("/Recursos/You're_My_Best_Friend.mp3").getFile());
+                     
+                     
+                 } catch (Exception ex) {
+                     System.out.println("Error: " + ex.getMessage());
+                 }
          
          }
             /*

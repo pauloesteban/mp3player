@@ -6,6 +6,8 @@
 package peppermusic;
 
 import static java.awt.Frame.ICONIFIED;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,11 +19,11 @@ public class jp_Configuracion extends javax.swing.JPanel {
     /**
      * Creates new form jp_Configuracion
      */
-    PepperMusic_Frame venta;
-    public jp_Configuracion(PepperMusic_Frame ventana) {
+    PepperMusic_Frame ventana;
+    public jp_Configuracion(PepperMusic_Frame venta) {
         
         initComponents();
-        venta=ventana;
+        ventana=venta;
         
     }
 
@@ -37,15 +39,6 @@ public class jp_Configuracion extends javax.swing.JPanel {
         jb_Regresar = new javax.swing.JButton();
         jb_Minimizar = new javax.swing.JButton();
         jb_Cerrar = new javax.swing.JButton();
-        jSlider4 = new javax.swing.JSlider();
-        jSlider5 = new javax.swing.JSlider();
-        jSlider6 = new javax.swing.JSlider();
-        jSlider7 = new javax.swing.JSlider();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
 
         setLayout(null);
 
@@ -91,114 +84,35 @@ public class jp_Configuracion extends javax.swing.JPanel {
         });
         add(jb_Cerrar);
         jb_Cerrar.setBounds(230, 0, 30, 30);
-
-        jSlider4.setMajorTickSpacing(20);
-        jSlider4.setMaximum(10);
-        jSlider4.setMinimum(-10);
-        jSlider4.setMinorTickSpacing(5);
-        jSlider4.setOrientation(javax.swing.JSlider.VERTICAL);
-        jSlider4.setPaintLabels(true);
-        jSlider4.setPaintTicks(true);
-        jSlider4.setSnapToTicks(true);
-        jSlider4.setValue(0);
-        jSlider4.setOpaque(false);
-        add(jSlider4);
-        jSlider4.setBounds(210, 50, 50, 200);
-
-        jSlider5.setMajorTickSpacing(20);
-        jSlider5.setMaximum(10);
-        jSlider5.setMinimum(-10);
-        jSlider5.setMinorTickSpacing(5);
-        jSlider5.setOrientation(javax.swing.JSlider.VERTICAL);
-        jSlider5.setPaintLabels(true);
-        jSlider5.setPaintTicks(true);
-        jSlider5.setSnapToTicks(true);
-        jSlider5.setValue(0);
-        jSlider5.setOpaque(false);
-        add(jSlider5);
-        jSlider5.setBounds(150, 50, 50, 200);
-
-        jSlider6.setMajorTickSpacing(20);
-        jSlider6.setMaximum(10);
-        jSlider6.setMinimum(-10);
-        jSlider6.setMinorTickSpacing(5);
-        jSlider6.setOrientation(javax.swing.JSlider.VERTICAL);
-        jSlider6.setPaintLabels(true);
-        jSlider6.setPaintTicks(true);
-        jSlider6.setSnapToTicks(true);
-        jSlider6.setValue(0);
-        jSlider6.setOpaque(false);
-        add(jSlider6);
-        jSlider6.setBounds(90, 50, 50, 200);
-
-        jSlider7.setMajorTickSpacing(20);
-        jSlider7.setMaximum(10);
-        jSlider7.setMinimum(-10);
-        jSlider7.setMinorTickSpacing(5);
-        jSlider7.setOrientation(javax.swing.JSlider.VERTICAL);
-        jSlider7.setPaintLabels(true);
-        jSlider7.setPaintTicks(true);
-        jSlider7.setSnapToTicks(true);
-        jSlider7.setValue(0);
-        jSlider7.setOpaque(false);
-        add(jSlider7);
-        jSlider7.setBounds(30, 50, 50, 200);
-
-        jLabel2.setText("GANANCIA");
-        add(jLabel2);
-        jLabel2.setBounds(220, 260, 70, 14);
-
-        jLabel3.setText("BAJOS");
-        add(jLabel3);
-        jLabel3.setBounds(40, 260, 40, 14);
-
-        jLabel4.setText("MEDIOS");
-        add(jLabel4);
-        jLabel4.setBounds(100, 260, 50, 14);
-
-        jLabel5.setText("GRAVES");
-        add(jLabel5);
-        jLabel5.setBounds(160, 260, 60, 14);
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Celeste1.png"))); // NOI18N
-        add(jLabel1);
-        jLabel1.setBounds(0, 0, 300, 336);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jb_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_RegresarActionPerformed
         // TODO add your handling code here:
-        jp_Inicio ini = new jp_Inicio(venta);
-        ini.setSize(300, 336);
-        ini.setLocation(0, 0);
-        venta.jp_Principal.removeAll();
-        venta.jp_Principal.add(ini);
-        venta.jp_Principal.revalidate();
-        venta.jp_Principal.repaint();
+       ventana.jp_Principal.getComponent(2).setVisible(false);
+         ventana.jp_Principal.getComponent(1).setVisible(false);
+         ventana.jp_Principal.getComponent(0).setVisible(true);
 
     }//GEN-LAST:event_jb_RegresarActionPerformed
 
     private void jb_MinimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_MinimizarActionPerformed
         // TODO add your handling code here:
-        venta.setExtendedState(ICONIFIED);
+        ventana.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_jb_MinimizarActionPerformed
 
     private void jb_CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_CerrarActionPerformed
         // TODO add your handling code here:
-        venta.dispose();
+        if(ventana.EnRepro==true){ try {
+           ventana.mi_reproductor.Stop();
+           
+           } catch (Exception ex) {
+               Logger.getLogger(jp_Canciones.class.getName()).log(Level.SEVERE, null, ex);
+               
+           }}
+        ventana.dispose();
     }//GEN-LAST:event_jb_CerrarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JSlider jSlider4;
-    private javax.swing.JSlider jSlider5;
-    private javax.swing.JSlider jSlider6;
-    private javax.swing.JSlider jSlider7;
     private javax.swing.JButton jb_Cerrar;
     private javax.swing.JButton jb_Minimizar;
     private javax.swing.JButton jb_Regresar;

@@ -6,7 +6,8 @@
 package peppermusic;
 
 import static java.awt.Frame.ICONIFIED;
-import javax.swing.JOptionPane;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,10 +20,10 @@ public class jp_Inicio extends javax.swing.JPanel {
      * Creates new form jp_Inicio
      */
     int indicador;
-    PepperMusic_Frame venta;
-    public jp_Inicio(PepperMusic_Frame ventana ) {
+    PepperMusic_Frame ventana;
+    public jp_Inicio(PepperMusic_Frame venta ) {
         initComponents();
-        venta = ventana;
+        ventana = venta;
        
        
         
@@ -56,6 +57,7 @@ public class jp_Inicio extends javax.swing.JPanel {
         btMinimizar.setBorderPainted(false);
         btMinimizar.setContentAreaFilled(false);
         btMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btMinimizar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btMinimizar.setPreferredSize(new java.awt.Dimension(70, 70));
         btMinimizar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/minimizar2.png"))); // NOI18N
         btMinimizar.addActionListener(new java.awt.event.ActionListener() {
@@ -151,7 +153,7 @@ public class jp_Inicio extends javax.swing.JPanel {
         add(btConfi);
         btConfi.setBounds(220, 240, 50, 50);
 
-        btCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/cerrar2.png"))); // NOI18N
+        btCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/cerrar.png"))); // NOI18N
         btCerrar.setToolTipText("CERRAR");
         btCerrar.setBorder(null);
         btCerrar.setBorderPainted(false);
@@ -193,7 +195,7 @@ public class jp_Inicio extends javax.swing.JPanel {
     private void btMinimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMinimizarActionPerformed
         // TODO add your handling code here:jFrame1.CROSSHAIR_CURSOR
        
-       venta.setExtendedState(ICONIFIED);
+       ventana.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_btMinimizarActionPerformed
 
     private void btAlbumMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btAlbumMouseExited
@@ -201,17 +203,20 @@ public class jp_Inicio extends javax.swing.JPanel {
     }//GEN-LAST:event_btAlbumMouseExited
 
     private void btAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlbumActionPerformed
-        // TODO add your handling code here:
-        //JOptionPane.showMessageDialog(null, "ERROR DE REPRODUCCIÓN");
+        ventana.jp_Principal.getComponent(0).setVisible(false);
+       
+        if(ventana.jp_Principal.getComponentCount()==3) ventana.jp_Principal.remove(2);
+              
+            jp_Lista_ALBUM p1 = new jp_Lista_ALBUM(ventana);
+            p1.setSize(300, 336);
+            p1.setLocation(0, 0);
+            p1.setVisible(true);
+            ventana.jp_Principal.add(p1);
+           ventana.jp_Principal.revalidate();
+           
         
-        jp_Canciones p1 = new jp_Canciones(venta,1);
-
-        p1.setSize(300, 336);
-        p1.setLocation(0, 0);
-        venta.jp_Principal.removeAll();
-        venta.jp_Principal.add(p1);
-        venta.jp_Principal.revalidate();
-        venta.jp_Principal.repaint();
+        
+        
     }//GEN-LAST:event_btAlbumActionPerformed
 
     private void btGeneroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btGeneroMouseExited
@@ -219,15 +224,16 @@ public class jp_Inicio extends javax.swing.JPanel {
     }//GEN-LAST:event_btGeneroMouseExited
 
     private void btGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGeneroActionPerformed
-        // TODO add your handling code here:
-        jp_Canciones p1 = new jp_Canciones(venta,2);
-
-        p1.setSize(300, 336);
-        p1.setLocation(0, 0);
-        venta.jp_Principal.removeAll();
-        venta.jp_Principal.add(p1);
-        venta.jp_Principal.revalidate();
-        venta.jp_Principal.repaint();
+         ventana.jp_Principal.getComponent(0).setVisible(false);
+       
+        if(ventana.jp_Principal.getComponentCount()==3) ventana.jp_Principal.remove(2);
+              
+            jp_Lista_ALBUM p1 = new jp_Lista_ALBUM(ventana);
+            p1.setSize(300, 336);
+            p1.setLocation(0, 0);
+            p1.setVisible(true);
+            ventana.jp_Principal.add(p1);
+           ventana.jp_Principal.revalidate();
     }//GEN-LAST:event_btGeneroActionPerformed
 
     private void btCancionesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCancionesMouseExited
@@ -235,52 +241,52 @@ public class jp_Inicio extends javax.swing.JPanel {
     }//GEN-LAST:event_btCancionesMouseExited
 
     private void btCancionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancionesActionPerformed
-        // TODO add your handling code here:
-        //en el constructor de cada jpanel clase debo de poner una variable PepperMusic_Frame a eso declararle una variable global
-        
-        jp_Canciones p1 = new jp_Canciones(venta,0);
-
-        p1.setSize(300, 336);
-        p1.setLocation(0, 0);
-        venta.jp_Principal.removeAll();
-        venta.jp_Principal.add(p1);
-        venta.jp_Principal.revalidate();
-        venta.jp_Principal.repaint();
-        
-        //this.dispose();
+         ventana.jp_Principal.getComponent(0).setVisible(false);
+       
+        if(ventana.jp_Principal.getComponentCount()==3) ventana.jp_Principal.remove(2);
+              
+            jp_Lista p1 = new jp_Lista(ventana);
+            p1.setSize(300, 336);
+            p1.setLocation(0, 0);
+            p1.setVisible(true);
+            ventana.jp_Principal.add(p1);
+           ventana.jp_Principal.revalidate();
     }//GEN-LAST:event_btCancionesActionPerformed
 
     private void btConfiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfiActionPerformed
-        // TODO add your handling code here:
-        
-           jp_Configuracion p1 = new jp_Configuracion(venta);
-
-        p1.setSize(300, 336);
-        p1.setLocation(0, 0);
-         
-        venta.jp_Principal.removeAll();
-        venta.jp_Principal.add(p1);
-        venta.jp_Principal.revalidate();
-        venta.jp_Principal.repaint();
-       
+         ventana.jp_Principal.getComponent(0).setVisible(false);
+        if(ventana.jp_Principal.getComponentCount()==3) ventana.jp_Principal.remove(2);
+            jp_Configuracion_Total p1 = new jp_Configuracion_Total(ventana);
+            p1.setSize(300, 336);
+            p1.setLocation(0, 0);
+            p1.setVisible(true);
+            ventana.jp_Principal.add(p1);
+           ventana.jp_Principal.revalidate();
     }//GEN-LAST:event_btConfiActionPerformed
 
     private void btCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCerrarActionPerformed
         // TODO add your handling code here:
-       
-        venta.dispose();
+       if(ventana.EnRepro==true){ try {
+           ventana.mi_reproductor.Stop();
+           
+           } catch (Exception ex) {
+               Logger.getLogger(jp_Canciones.class.getName()).log(Level.SEVERE, null, ex);
+               
+           }}
+        ventana.dispose();
     }//GEN-LAST:event_btCerrarActionPerformed
 
     private void btArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btArtistaActionPerformed
-        // TODO add your handling code here:
-        jp_Canciones p1 = new jp_Canciones(venta,3);
-
-        p1.setSize(300, 336);
-        p1.setLocation(0, 0);
-        venta.jp_Principal.removeAll();
-        venta.jp_Principal.add(p1);
-        venta.jp_Principal.revalidate();
-        venta.jp_Principal.repaint();
+         ventana.jp_Principal.getComponent(0).setVisible(false);
+       
+        if(ventana.jp_Principal.getComponentCount()==3) ventana.jp_Principal.remove(2);
+              
+            jp_Lista_ARTISTA p1 = new jp_Lista_ARTISTA(ventana);
+            p1.setSize(300, 336);
+            p1.setLocation(0, 0);
+            p1.setVisible(true);
+            ventana.jp_Principal.add(p1);
+           ventana.jp_Principal.revalidate();
     }//GEN-LAST:event_btArtistaActionPerformed
 
 

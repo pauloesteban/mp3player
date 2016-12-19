@@ -8,6 +8,8 @@ package peppermusic;
 
 import java.awt.Component;
 import static java.awt.Frame.ICONIFIED;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 /**
@@ -17,22 +19,30 @@ import javax.swing.JPanel;
 public class jp_Canciones extends javax.swing.JPanel {
 
     /** Creates new form jp_Canciones */
-    PepperMusic_Frame venta;
+    PepperMusic_Frame ventana;
     jp_Reproduccion repro;
     jp_Lista lista;
     JPanel lis;
     jp_Lista_ALBUM lista2;
     Component Component[];
     int indicador;
-    public jp_Canciones(PepperMusic_Frame ventana,int indica) {
+    public jp_Canciones(PepperMusic_Frame venta) {
+        
+        //int indica
         initComponents();
-        venta=ventana;
-        venta.NoRepro=false;
-        indicador=indica;
+        ventana=venta;
+      //  venta=ventana;
+       //if(ventana.EnRepro==false)  jtb_repro.setEnabled(false); else jtb_repro.setEnabled(true);
+       //jtb_lista.setSelected(true);
+        //indicador=indica;
+        /*
         jtb_lista.setSelected(true);
+        lis = new jp_Lista(this);
+        /*
        switch(indicador)
         {case 0:
-            lis = new jp_Lista(this);
+        lis = new jp_Lista(this);
+            
         break;
         case 1:
             lis = new jp_Lista_ALBUM(this);
@@ -44,8 +54,8 @@ public class jp_Canciones extends javax.swing.JPanel {
             lis = new jp_Lista_ARTISTA(this);
         break;
         }
-        
-        
+        */
+        /*
         lis.setSize(300, 336);
         lis.setLocation(0, 0);
         
@@ -57,9 +67,10 @@ public class jp_Canciones extends javax.swing.JPanel {
         jp_Cancion.revalidate();
         jp_Cancion.repaint();
         
-        
+        */
     }
-
+    
+      
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -149,6 +160,23 @@ public class jp_Canciones extends javax.swing.JPanel {
         jp_Cancion.setBounds(0, 0, 300, 340);
     }// </editor-fold>//GEN-END:initComponents
 
+   public void setEnabled_Reproduccion(boolean ena){
+        jtb_repro.setEnabled(ena);
+               
+    }
+   public void setEnabled_Lista(boolean ena){
+        jtb_lista.setEnabled(ena);
+               
+    }
+   
+    public void setSelected_Reproduccion(boolean ena){
+        jtb_repro.setSelected(ena);
+               
+    }
+    public void setSelected_Lista(boolean ena){
+        jtb_lista.setSelected(ena);
+               
+    }
     private void jtb_listaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtb_listaActionPerformed
   
         if(jtb_lista.isSelected()==false){
@@ -156,21 +184,14 @@ public class jp_Canciones extends javax.swing.JPanel {
             jtb_lista.setSelected(true);
 
         }else{
-            if(venta.EnRepro==true){venta.Barra.resume();venta.Barra.stop();}
-            jtb_repro.setSelected(false);
+            //if(ventana.EnRepro==true){ventana.Barra.resume();ventana.Barra.stop();}
+          // jtb_repro.setSelected(true);
             //codigo pantalla LISTA
-          
+          jtb_lista.setSelected(false);
+         ventana.jp_Principal.getComponent(1).setVisible(false);
+         ventana.NoRepro=true;
+         ventana.jp_Principal.getComponent(2).setVisible(true);
         
-        lis.setSize(300, 336);
-        lis.setLocation(0, 0);
-        
-        jp_Cancion.removeAll();
-       
-      
-        
-        jp_Cancion.add(lis);
-        jp_Cancion.revalidate();
-        jp_Cancion.repaint();
          
         
 
@@ -186,9 +207,11 @@ public class jp_Canciones extends javax.swing.JPanel {
             jtb_repro.setSelected(true);
 
         }else{
-
-            jtb_lista.setSelected(false);
-
+            jtb_repro.setSelected(false);    
+           // jtb_lista.setSelected(true);
+         ventana.jp_Principal.getComponent(2).setVisible(false);
+         ventana.NoRepro=false;
+         ventana.jp_Principal.getComponent(1).setVisible(true);    
             //codigo pantalla REPRODUCCIÓN
             
            /*        
@@ -196,7 +219,7 @@ public class jp_Canciones extends javax.swing.JPanel {
             Component[5].setVisible(false);//activamos o desactivamos el JButton
             */
 	
-       
+       /*
         
         repro = new jp_Reproduccion(this);
         repro.setSize(300, 336);
@@ -205,7 +228,7 @@ public class jp_Canciones extends javax.swing.JPanel {
          jp_Cancion.add(repro);
          jp_Cancion.revalidate();
        jp_Cancion.repaint();
-         
+         */
         
        
        
@@ -228,27 +251,40 @@ public class jp_Canciones extends javax.swing.JPanel {
 
     private void jb_CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_CerrarActionPerformed
         // TODO add your handling code here:
-       if(venta.EnRepro==true){ venta.Barra.resume();
-        venta.Barra.stop();}
-        venta.dispose();
+       if(ventana.EnRepro==true){ try {
+           ventana.mi_reproductor.Stop();
+           
+           } catch (Exception ex) {
+               Logger.getLogger(jp_Canciones.class.getName()).log(Level.SEVERE, null, ex);
+               
+           }}else{
+       // ventana.Barra.resume();
+        //ventana.Barra.stop();
+       
         
+        }
+       ventana.dispose();
     }//GEN-LAST:event_jb_CerrarActionPerformed
 
     private void jb_MinimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_MinimizarActionPerformed
         // TODO add your handling code here:
-         venta.setExtendedState(ICONIFIED);
+         ventana.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_jb_MinimizarActionPerformed
 
     private void jb_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_RegresarActionPerformed
         // TODO add your handling code here:
-     jp_Inicio ini = new jp_Inicio(venta);
+        /*
+     jp_Inicio ini = new jp_Inicio(ventana);
         ini.setSize(300, 336);
         ini.setLocation(0, 0);
-        venta.jp_Principal.removeAll();
-        venta.jp_Principal.add(ini);
-        venta.jp_Principal.revalidate();
-        venta.jp_Principal.repaint();
-     
+        ventana.jp_Principal.removeAll();
+        ventana.jp_Principal.add(ini);
+        ventana.jp_Principal.revalidate();
+        ventana.jp_Principal.repaint();
+     */
+         ventana.jp_Principal.getComponent(2).setVisible(false);
+         ventana.jp_Principal.getComponent(1).setVisible(false);
+         ventana.jp_Principal.getComponent(0).setVisible(true);
     }//GEN-LAST:event_jb_RegresarActionPerformed
 
 
