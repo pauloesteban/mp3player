@@ -12,7 +12,7 @@ GUI de un reproductor MP3
 Paulo Chiliguano
 
 ### TODO
-- Reproducir al menos un archivo .mp3 (En proceso)
-- Búsqueda de archivos .mp3 en computador local (En proceso)
-- Configuración de superposición de pantalla (En proceso)
+- Reproducir al menos un archivo .mp3 (Listo)
+- Búsqueda de archivos .mp3 en computador local (Listo)
+- Configuración de superposición de pantalla (Listo)
 - Skins configurables (En proceso)
