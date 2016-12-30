@@ -162,7 +162,7 @@ public class jp_Reproduccion extends jp_Canciones {
             }
         });
         add(START);
-        START.setBounds(172, 46, 56, 56);
+        START.setBounds(172, 47, 56, 56);
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_fin.png"))); // NOI18N
         jButton4.setBorder(null);
@@ -346,6 +346,7 @@ public class jp_Reproduccion extends jp_Canciones {
             try {
                 // if(!peppermusic.Barra.t.isAlive())peppermusic.Barra.start();
                 peppermusic.mi_reproductor.Continuar();
+          //      peppermusic.mi_reproductor.control.getTitle();
             } catch (Exception ex) {
                 Logger.getLogger(jp_Reproduccion.class.getName()).log(Level.SEVERE, null, ex);
             }

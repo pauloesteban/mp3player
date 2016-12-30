@@ -23,11 +23,13 @@ import javax.swing.JPanel;
  */
 public class CustomPanel extends JPanel{
     
-   int Progreso = 0;
-
-   public void ActualizarProgreso(int nuevo){
+   long Progreso = 1;
+   long duracion = 1;
+   public void ActualizarProgreso(long nuevo,long dura){
+    System.out.println("total de progreso=" + nuevo);
        Progreso = nuevo;
-   }
+       duracion = dura;
+   } 
     
      @Override
     public void paint(Graphics g){
@@ -52,8 +54,11 @@ public class CustomPanel extends JPanel{
      //circle.setFrameFromCenter(new Point(0,0), new Point(45,45));
     arc.setAngleStart(1);
     arc2.setAngleStart(1);
-    arc.setAngleExtent(-Progreso*1.2);
-    arc2.setAngleExtent(-Progreso*1.2);
+     
+     double l = ((double)Progreso/duracion);
+      arc.setAngleExtent(-l*360);
+     System.out.println("total de progreso="+l);
+      arc2.setAngleExtent(-l*360);
      g2.setColor(new Color(12,32,32,53)); //http://colorizer.org/ colors hsb de esa pagina /100
     g2.draw(circle);
     g2.fill(circle);

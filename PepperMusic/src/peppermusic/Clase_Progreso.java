@@ -32,7 +32,11 @@ public class Clase_Progreso  implements Runnable{
                 
                    for( n = 1; n<=300&&!fin;n++){
                         if(true) {//reproduccion.canc.venta.NoRepro== 
-            try{
+                     
+                            
+                            
+                            
+                            try{
               //  reproduccion.canc.jtb_repro.setEnabled(true);
               //  reproduccion.canc.venta.EnRepro=true;
                 

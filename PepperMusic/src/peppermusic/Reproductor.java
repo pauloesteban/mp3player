@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 package peppermusic;
-
 /**
  *
  * @author orlando
  */
+import java.awt.Component;
 import javazoom.jlgui.basicplayer.BasicPlayer;
 import java.io.File;
 import static java.lang.System.out;
@@ -17,12 +17,25 @@ import javazoom.jlgui.basicplayer.BasicController;
 import javazoom.jlgui.basicplayer.BasicPlayerEvent;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
 import javazoom.jlgui.basicplayer.BasicPlayerListener;
+import javazoom.jlgui.player.amp.tag.APEInfo;
+
 public class Reproductor  implements BasicPlayerListener{
     private BasicPlayer player;
+    PepperMusic_Frame ventana;
+    private APEInfo tas;
+    jp_Reproduccion repro;
     BasicController control ;
-    public Reproductor(){
+    public Reproductor(PepperMusic_Frame venta){
+        ventana = venta;
         player = new BasicPlayer();
+         
         control = (BasicController) player;
+        //repro = (jp_Reproduccion)ventana.jp_Principal.getComponent(1);
+        
+           // repro  = (jp_Reproduccion) component[1];
+        
+     //  control = (BasicController) tas;
+        
         player.addBasicPlayerListener(this);
     }
     
@@ -53,12 +66,12 @@ public class Reproductor  implements BasicPlayerListener{
       // It means that this object will be notified on BasicPlayer
       // events such as : opened(...), progress(...), stateUpdated(...)
      
-
+   // tes = tas.getTagInfo(filename);
   try
      { 
       // Open file, or URL or Stream (shoutcast, icecast) to play.
       control.open(new File(filename));
-
+       
       // control.open(new URL("http://yourshoutcastserver.com:8000"));
 
       // Start playback in a thread.
@@ -98,6 +111,11 @@ public class Reproductor  implements BasicPlayerListener{
     // Pay attention to properties. It's useful to get duration, 
     // bitrate, channels, even tag such as ID3v2.
     display("opened : "+properties.toString()); 
+    ventana.duracion = Long.valueOf( properties.get("duration").toString());
+       display("tiempo: "+(ventana.duracion/1000));
+     //
+    
+     //this.getArtist();
   }
 
   /**
@@ -112,13 +130,26 @@ public class Reproductor  implements BasicPlayerListener{
    * @param pcmdata PCM samples.
    * @param properties audio stream parameters.
   */
+  
   public void progress(int bytesread, long microseconds, byte[] pcmdata, Map properties)
   {
     // Pay attention to properties. It depends on underlying JavaSound SPI
     // MP3SPI provides mp3.equalizer.
     
     display("progress : "+properties.toString());
+    ventana.tiempo = Long.valueOf(properties.get("mp3.position.microseconds").toString());
+            //repro.jp_Progreso.ActualizarProgreso(50);
+            
+            display("ahora: "+ventana.tiempo/1000+" total: "+ventana.duracion/1000);
+             ventana.repro.jp_Progreso.ActualizarProgreso((ventana.tiempo/1000),(ventana.duracion/1000));
+              ventana.repro.jp_Progreso.repaint();
+             
+      //repro = ventana.jp_Principal.getComponent(1);
+    
+    //display("gola : "+tes.getArtist());
+   //display("long:"+UtilFeatures.getTimeLengthEstimation(map) / 1000);
   }
+  
 
   /**
    * Notification callback for basicplayer events such as opened, eom ...
@@ -145,6 +176,6 @@ public class Reproductor  implements BasicPlayerListener{
   {
      if (out != null) out.println(msg);
   }
-
+   
    
 }

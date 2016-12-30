@@ -26,8 +26,10 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
     public  boolean NoRepro = true;   // idica si se ha salido del jp_Reproduccion (para no dibujar el progreso)
     public Clase_Progreso Barra;
     public jp_Reproduccion repro;
+   
     public long duracion;
-    public Reproductor mi_reproductor = new Reproductor();
+    public long tiempo;
+    public Reproductor mi_reproductor = new Reproductor(this);
     //declarar la direccion de la cancion a reproduccir como variable global
     
     public PepperMusic_Frame() {
@@ -51,11 +53,11 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
             p0.setLocation(0, 0);
             jp_Principal.add(p0);
             
-            jp_Reproduccion p1 = new jp_Reproduccion(this);
-            p1.setSize(300, 336);
-            p1.setLocation(0, 0);
-            p1.setVisible(false);
-            jp_Principal.add(p1);
+            repro = new jp_Reproduccion(this);
+            repro.setSize(300, 336);
+            repro.setLocation(0, 0);
+            repro.setVisible(false);
+            jp_Principal.add(repro);
             
             
             jp_Principal.revalidate();
