@@ -340,7 +340,7 @@ public void display(String msg)
   }
     private void btnActualizarCancionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarCancionesActionPerformed
         
-        buscar(new File("C:\\Users\\Orlando\\Desktop"));
+        buscar(new File("C:\\Users\\ochoa\\Desktop"));
     }//GEN-LAST:event_btnActualizarCancionesActionPerformed
      DefaultListModel modelo = new DefaultListModel();
      
