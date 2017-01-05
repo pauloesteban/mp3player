@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javazoom.jlgui.basicplayer.BasicPlayerException;
 //import javazoom.jlgui.basicplayer.BasicPlayerException;
 
 /**
@@ -204,6 +205,11 @@ public class jp_Reproduccion extends jp_Canciones {
                 js_volumenComponentAdded(evt);
             }
         });
+        js_volumen.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                js_volumenStateChanged(evt);
+            }
+        });
         js_volumen.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 js_volumenMouseMoved(evt);
@@ -384,6 +390,7 @@ public class jp_Reproduccion extends jp_Canciones {
          try{ Thread.sleep(175); } catch(InterruptedException e ) { System.out.println("Thread Interrupted"); }
         js_volumen.setVisible(true);
         js_volumen.validate();
+        
     }//GEN-LAST:event_js_volumenMouseMoved
 
     private void js_volumenMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_js_volumenMouseExited
@@ -391,6 +398,10 @@ public class jp_Reproduccion extends jp_Canciones {
          try{ Thread.sleep(250); } catch(InterruptedException e ) { System.out.println("Thread Interrupted"); }
          js_volumen.setVisible(false);
         js_volumen.validate();
+        
+         
+
+    
     }//GEN-LAST:event_js_volumenMouseExited
 
     private void js_volumenComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_js_volumenComponentAdded
@@ -485,6 +496,18 @@ public class jp_Reproduccion extends jp_Canciones {
           canc.venta.Barra.n=z;
          */
     }//GEN-LAST:event_jp_ProgresoMouseClicked
+
+    private void js_volumenStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_js_volumenStateChanged
+        // TODO add your handling code here:
+           try { 
+            peppermusic.mi_reproductor.control.setGain((double)js_volumen.getValue()/100); 
+        } catch (BasicPlayerException ex) { 
+            Logger.getLogger(Reproductor.class.getName()).log(Level.SEVERE, null, ex); 
+        } 
+        
+
+    
+    }//GEN-LAST:event_js_volumenStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
