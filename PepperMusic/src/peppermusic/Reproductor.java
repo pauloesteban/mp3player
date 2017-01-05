@@ -8,7 +8,6 @@ package peppermusic;
  *
  * @author orlando
  */
-import java.awt.Component;
 import javazoom.jlgui.basicplayer.BasicPlayer;
 import java.io.File;
 import static java.lang.System.out;
@@ -18,6 +17,7 @@ import javazoom.jlgui.basicplayer.BasicPlayerEvent;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
 import javazoom.jlgui.basicplayer.BasicPlayerListener;
 import javazoom.jlgui.player.amp.tag.APEInfo;
+import static sun.security.krb5.Confounder.bytes;
 
 public class Reproductor  implements BasicPlayerListener{
     private BasicPlayer player;
@@ -108,14 +108,25 @@ public class Reproductor  implements BasicPlayerListener{
    */
   public void opened(Object stream, Map properties)
   {
-    // Pay attention to properties. It's useful to get duration, 
-    // bitrate, channels, even tag such as ID3v2.
-    display("opened : "+properties.toString()); 
-    ventana.duracion = Long.valueOf( properties.get("duration").toString());
-       display("tiempo: "+(ventana.duracion/1000));
-     //
-    
-     //this.getArtist();
+     //   try {
+            // Pay attention to properties. It's useful to get duration,
+            // bitrate, channels, even tag such as ID3v2.
+            display("opened : "+properties.toString());
+            ventana.duracion = Long.valueOf( properties.get("duration").toString());
+            display("tiempo: "+(ventana.duracion/1000));
+            ventana.bits_total=Long.valueOf( properties.get("audio.length.bytes").toString());
+            //
+           // control.seek(5000);
+            
+            //this.getArtist();
+       // } catch (BasicPlayerException ex) {
+       //     Logger.getLogger(Reproductor.class.getName()).log(Level.SEVERE, null, ex);
+       // }
+  }
+  public void seeked(long l) throws BasicPlayerException{
+      
+      control.seek(l);
+      
   }
 
   /**
@@ -136,14 +147,21 @@ public class Reproductor  implements BasicPlayerListener{
     // Pay attention to properties. It depends on underlying JavaSound SPI
     // MP3SPI provides mp3.equalizer.
     
-    display("progress : "+properties.toString());
+    //display("progress : "+properties.toString());
     ventana.tiempo = Long.valueOf(properties.get("mp3.position.microseconds").toString());
+   // display("bytes: "+ventana.bits_total);
             //repro.jp_Progreso.ActualizarProgreso(50);
             
-            display("ahora: "+ventana.tiempo/1000+" total: "+ventana.duracion/1000);
+          
              ventana.repro.jp_Progreso.ActualizarProgreso((ventana.tiempo/1000),(ventana.duracion/1000));
               ventana.repro.jp_Progreso.repaint();
-             
+              //if (ventana.audioInfo.containsKey("basicplayer.sourcedataline")) {
+            // Spectrum/time analyzer
+            if (ventana.espectrometro != null) {
+                ventana.espectrometro.writeDSP(pcmdata);
+                ventana.espectrometro.writeDSP(pcmdata);
+            }
+       // }
       //repro = ventana.jp_Principal.getComponent(1);
     
     //display("gola : "+tes.getArtist());

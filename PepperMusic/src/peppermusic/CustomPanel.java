@@ -26,7 +26,7 @@ public class CustomPanel extends JPanel{
    long Progreso = 1;
    long duracion = 1;
    public void ActualizarProgreso(long nuevo,long dura){
-    System.out.println("total de progreso=" + nuevo);
+    //System.out.println("total de progreso=" + nuevo);
        Progreso = nuevo;
        duracion = dura;
    } 
@@ -57,7 +57,7 @@ public class CustomPanel extends JPanel{
      
      double l = ((double)Progreso/duracion);
       arc.setAngleExtent(-l*360);
-     System.out.println("total de progreso="+l);
+    // System.out.println("total de progreso="+l);
       arc2.setAngleExtent(-l*360);
      g2.setColor(new Color(12,32,32,53)); //http://colorizer.org/ colors hsb de esa pagina /100
     g2.draw(circle);

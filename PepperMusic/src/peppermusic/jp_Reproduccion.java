@@ -6,9 +6,13 @@
 package peppermusic;
 
 import com.sun.awt.AWTUtilities;
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -32,6 +36,7 @@ public class jp_Reproduccion extends jp_Canciones {
     PepperMusic_Frame peppermusic;
     //ZPlayer mizplayer;   
     File file; 
+     
     public jp_Reproduccion(PepperMusic_Frame venta) {
         super(venta);
         initComponents();
@@ -308,7 +313,7 @@ public class jp_Reproduccion extends jp_Canciones {
         if(!karaoke.isSelected()){
             js_Letras.setLocation(0, 0);
            
-           jp_Letras.removeAll();
+            jp_Letras.removeAll();
             jp_Letras.add(js_Letras);
             jp_Letras.revalidate();
             jp_Letras.repaint();
@@ -320,19 +325,64 @@ public class jp_Reproduccion extends jp_Canciones {
 */
         }else{
             
-           JLabel  jlb_barras = new JLabel();
+           /*JLabel  jlb_barras = new JLabel();
            jlb_barras.setSize(230, 140);
            jlb_barras.setLocation(0, 0);
-           jlb_barras.setIcon(new ImageIcon( getClass().getResource("/Recursos/repro_barras.png")));
+            jlb_barras.setIcon(new ImageIcon( getClass().getResource("/Recursos/repro_barras.png")));
            jp_Letras.removeAll();
             jp_Letras.add(jlb_barras);
             jp_Letras.revalidate();
+            jp_Letras.repaint();*/
+           
+         ventana.espectrometro = new SpectrumTimeAnalyzer();
+       ventana.espectrometro.setDisplayMode(SpectrumTimeAnalyzer.DISPLAY_MODE_SPECTRUM_ANALYSER);
+        ventana.espectrometro.setSpectrumAnalyserBandCount(80);
+        ventana.espectrometro.setSpectrumAnalyserDecay(0.1f);
+        int fps = SpectrumTimeAnalyzer.DEFAULT_FPS;
+        ventana.espectrometro.setFps(fps);
+        ventana.espectrometro.setPeakDelay((int) (fps * SpectrumTimeAnalyzer.DEFAULT_SPECTRUM_ANALYSER_PEAK_DELAY_FPS_RATIO));
+        ventana.espectrometro.setBackground(Color.black);
+       ventana.espectrometro.setVisColor(getViscolor("viscolor.txt"));
+        
+            jp_Letras.removeAll();
+            jp_Letras.add(ventana.espectrometro, BorderLayout.CENTER);
+            jp_Letras.revalidate();
             jp_Letras.repaint();
+        System.out.println("asdddddddd");
             
         }
 
     }//GEN-LAST:event_karaokeActionPerformed
-
+public String getViscolor(String path) {
+        String viscolor = "";
+        File archivo = null;
+        FileReader fr = null;
+        BufferedReader br = null;
+        try {
+            archivo = new File(path);
+            if (!archivo.exists()) {
+                archivo = new File("viscolor.txt");
+            }
+            fr = new FileReader(archivo);
+            br = new BufferedReader(fr);
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                viscolor += (linea + "\n");
+            }
+        } catch (Exception e) {
+            System.out.println("archivo no leido");
+            e.printStackTrace();
+        } finally {
+            try {
+                if (null != fr) {
+                    fr.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+        return viscolor;
+    }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -473,7 +523,7 @@ public class jp_Reproduccion extends jp_Canciones {
    double valor;
     private void jp_ProgresoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_ProgresoMouseClicked
         // TODO add your handling code here:
-         /*
+         
       int x = evt.getX();
       int y = evt.getY();
      // JOptionPane.showMessageDialog(canc,x + "+"+y+"="+(x + y)); 
@@ -485,16 +535,24 @@ public class jp_Reproduccion extends jp_Canciones {
           
          if(x>40)
          { 
-             z = (int)Math.floor((valor+90)/1.2);
+             z = (int)Math.floor((valor+90)/3.6);
             
          }else{
              
-             z = (int)Math.floor((valor+270)/1.2);
+             z = (int)Math.floor((valor+270)/3.6);
          }
-       // JOptionPane.showMessageDialog(canc,valor); 
-         //jp_Progreso.ActualizarProgreso(z);
-          canc.venta.Barra.n=z;
-         */
+         
+       //  System.out.println("cambio; "+(ventana.bits_total*z/100));
+         
+        try {
+            peppermusic.mi_reproductor.seeked( ventana.bits_total*z/100);
+            // JOptionPane.showMessageDialog(canc,valor);
+            //jp_Progreso.ActualizarProgreso(z);
+            //     canc.venta.Barra.n=z;
+        } catch (BasicPlayerException ex) {
+            Logger.getLogger(jp_Reproduccion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
     }//GEN-LAST:event_jp_ProgresoMouseClicked
 
     private void js_volumenStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_js_volumenStateChanged

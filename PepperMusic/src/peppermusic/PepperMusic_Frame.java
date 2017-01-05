@@ -11,6 +11,7 @@ import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
+import java.util.Map;
 
 /**
  *
@@ -27,8 +28,9 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
     public Clase_Progreso Barra;
     public jp_Reproduccion repro;
    
-    public long duracion;
-    public long tiempo;
+    public long duracion,tiempo,bits_total;
+    public Map audioInfo = null;
+    public SpectrumTimeAnalyzer espectrometro;
     public Reproductor mi_reproductor = new Reproductor(this);
     //declarar la direccion de la cancion a reproduccir como variable global
     
