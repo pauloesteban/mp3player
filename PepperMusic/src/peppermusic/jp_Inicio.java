@@ -19,6 +19,7 @@ public class jp_Inicio extends javax.swing.JPanel {
     /**
      * Creates new form jp_Inicio
      */
+    int[] A={1,2,3};
     int indicador;
     PepperMusic_Frame ventana;
     public jp_Inicio(PepperMusic_Frame venta ) {
@@ -26,7 +27,7 @@ public class jp_Inicio extends javax.swing.JPanel {
         ventana = venta;
        
        
-        
+        if(A[1]==2)  System.out.println("hola"+A[1]);
         
     }
 
