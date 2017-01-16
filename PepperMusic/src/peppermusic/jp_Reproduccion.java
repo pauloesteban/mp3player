@@ -15,8 +15,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.sound.sampled.SourceDataLine;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javazoom.jlgui.basicplayer.BasicPlayerEvent;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
 //import javazoom.jlgui.basicplayer.BasicPlayerException;
 
@@ -40,7 +42,7 @@ public class jp_Reproduccion extends jp_Canciones {
     public jp_Reproduccion(PepperMusic_Frame venta) {
         super(venta);
         initComponents();
-        
+        ventana.NoRepro=false;
         peppermusic = venta;    
         super.setEnabled_Reproduccion(true);
         super.setSelected_Lista(false);
@@ -54,6 +56,9 @@ public class jp_Reproduccion extends jp_Canciones {
         js_volumen.setVisible(false);
         js_volumen.validate();
         jb_repetir.setToolTipText("REPETICIÓN DESACTIVADA");
+        
+        
+       
         /*
         try {
             Reproductor mi_reproductor = new Reproductor();
@@ -93,6 +98,19 @@ public class jp_Reproduccion extends jp_Canciones {
         jLabel1 = new javax.swing.JLabel();
 
         setOpaque(false);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                formComponentHidden(evt);
+            }
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
+        addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                formPropertyChange(evt);
+            }
+        });
         setLayout(null);
 
         jtb_agrandar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_pequeño.png"))); // NOI18N
@@ -271,6 +289,8 @@ public class jp_Reproduccion extends jp_Canciones {
         js_Letras.setMinimumSize(new java.awt.Dimension(230, 140));
         js_Letras.setOpaque(false);
         js_Letras.setPreferredSize(new java.awt.Dimension(230, 140));
+        jp_Letras.add(js_Letras);
+        js_Letras.setBounds(0, 0, 230, 140);
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
@@ -283,10 +303,8 @@ public class jp_Reproduccion extends jp_Canciones {
         jTextArea1.setMinimumSize(new java.awt.Dimension(230, 140));
         jTextArea1.setOpaque(false);
         jTextArea1.setPreferredSize(new java.awt.Dimension(230, 1025));
-        js_Letras.setViewportView(jTextArea1);
-
-        jp_Letras.add(js_Letras);
-        js_Letras.setBounds(0, 0, 230, 140);
+        jp_Letras.add(jTextArea1);
+        jTextArea1.setBounds(0, 0, 230, 1025);
 
         add(jp_Letras);
         jp_Letras.setBounds(30, 160, 230, 140);
@@ -334,21 +352,43 @@ public class jp_Reproduccion extends jp_Canciones {
             jp_Letras.revalidate();
             jp_Letras.repaint();*/
            
-         ventana.espectrometro = new SpectrumTimeAnalyzer();
-       ventana.espectrometro.setDisplayMode(SpectrumTimeAnalyzer.DISPLAY_MODE_SPECTRUM_ANALYSER);
-        ventana.espectrometro.setSpectrumAnalyserBandCount(80);
-        ventana.espectrometro.setSpectrumAnalyserDecay(0.1f);
+           jp_Letras.removeAll();
+       if(ventana.espectrometro==null){   
+       ventana.espectrometro = new SpectrumTimeAnalyzer();//DISPLAY_MODE_SPECTRUM_ANALYSER
+       ventana.espectrometro.setDisplayMode(SpectrumTimeAnalyzer.DISPLAY_MODE_SCOPE);
+      
+        ventana.espectrometro.setSpectrumAnalyserBandCount(20);
+        ventana.espectrometro.setSpectrumAnalyserDecay(0.2f);
+        
         int fps = SpectrumTimeAnalyzer.DEFAULT_FPS;
         ventana.espectrometro.setFps(fps);
         ventana.espectrometro.setPeakDelay((int) (fps * SpectrumTimeAnalyzer.DEFAULT_SPECTRUM_ANALYSER_PEAK_DELAY_FPS_RATIO));
-        ventana.espectrometro.setBackground(Color.black);
-       ventana.espectrometro.setVisColor(getViscolor("viscolor.txt"));
         
-            jp_Letras.removeAll();
+       //ventana.espectrometro.setVisColor(getViscolor("viscolor.txt"));
+       
+       }     
+          ventana.espectrometro.setBackground(new Color(0,255,120));
+          ventana.espectrometro.setOpaque(false);
+       ventana.espectrometro.setScopeColor(Color.RED);
+            ventana.espectrometro.repaint();
             jp_Letras.add(ventana.espectrometro, BorderLayout.CENTER);
+      
             jp_Letras.revalidate();
+            
             jp_Letras.repaint();
-        System.out.println("asdddddddd");
+            
+            
+            
+            if (ventana.audioInfo.containsKey("basicplayer.sourcedataline")) {
+                if (ventana.espectrometro != null) {
+                    ventana.espectrometro.setupDSP((SourceDataLine) ventana.audioInfo.get("basicplayer.sourcedataline"));
+                    ventana.espectrometro.startDSP((SourceDataLine) ventana.audioInfo.get("basicplayer.sourcedataline"));
+
+                   ventana.espectrometro.setupDSP((SourceDataLine) ventana.audioInfo.get("basicplayer.sourcedataline"));
+                    ventana.espectrometro.startDSP((SourceDataLine) ventana.audioInfo.get("basicplayer.sourcedataline"));
+                }
+            }
+        
             
         }
 
@@ -567,6 +607,88 @@ public String getViscolor(String path) {
     
     }//GEN-LAST:event_js_volumenStateChanged
 
+    private void formPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_formPropertyChange
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_formPropertyChange
+
+    private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
+        // TODO add your handling code here:
+        
+                   jp_Letras.removeAll();
+                   
+                   
+        
+    }//GEN-LAST:event_formComponentHidden
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        // TODO add your handling code here:
+        if(!karaoke.isSelected()){
+            js_Letras.setLocation(0, 0);
+           
+            jp_Letras.removeAll();
+            jp_Letras.add(js_Letras);
+            jp_Letras.revalidate();
+            jp_Letras.repaint();
+           
+            /*
+           jlb_barras.setIcon(new ImageIcon( getClass().getResource("/Recursos/imagen_letras.png")));
+            jlb_barras.repaint();
+            jlb_barras.revalidate();
+*/
+        }else{
+            
+           /*JLabel  jlb_barras = new JLabel();
+           jlb_barras.setSize(230, 140);
+           jlb_barras.setLocation(0, 0);
+            jlb_barras.setIcon(new ImageIcon( getClass().getResource("/Recursos/repro_barras.png")));
+           jp_Letras.removeAll();
+            jp_Letras.add(jlb_barras);
+            jp_Letras.revalidate();
+            jp_Letras.repaint();*/
+           
+           jp_Letras.removeAll();
+       if(ventana.espectrometro==null){   
+       ventana.espectrometro = new SpectrumTimeAnalyzer();//DISPLAY_MODE_SPECTRUM_ANALYSER
+       ventana.espectrometro.setDisplayMode(SpectrumTimeAnalyzer.DISPLAY_MODE_SCOPE);
+      
+        ventana.espectrometro.setSpectrumAnalyserBandCount(20);
+        ventana.espectrometro.setSpectrumAnalyserDecay(0.2f);
+        
+        int fps = SpectrumTimeAnalyzer.DEFAULT_FPS;
+        ventana.espectrometro.setFps(fps);
+        ventana.espectrometro.setPeakDelay((int) (fps * SpectrumTimeAnalyzer.DEFAULT_SPECTRUM_ANALYSER_PEAK_DELAY_FPS_RATIO));
+        
+       //ventana.espectrometro.setVisColor(getViscolor("viscolor.txt"));
+       
+       }     
+          ventana.espectrometro.setBackground(new Color(0,255,120));
+          ventana.espectrometro.setOpaque(false);
+       ventana.espectrometro.setScopeColor(Color.RED);
+            ventana.espectrometro.repaint();
+            jp_Letras.add(ventana.espectrometro, BorderLayout.CENTER);
+      
+            jp_Letras.revalidate();
+            
+            jp_Letras.repaint();
+            
+            
+            
+            if (ventana.audioInfo.containsKey("basicplayer.sourcedataline")) {
+                if (ventana.espectrometro != null) {
+                    ventana.espectrometro.setupDSP((SourceDataLine) ventana.audioInfo.get("basicplayer.sourcedataline"));
+                    ventana.espectrometro.startDSP((SourceDataLine) ventana.audioInfo.get("basicplayer.sourcedataline"));
+
+                   ventana.espectrometro.setupDSP((SourceDataLine) ventana.audioInfo.get("basicplayer.sourcedataline"));
+                    ventana.espectrometro.startDSP((SourceDataLine) ventana.audioInfo.get("basicplayer.sourcedataline"));
+                }
+            }
+        
+            
+        }
+        
+    }//GEN-LAST:event_formComponentShown
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public peppermusic.CustomButton START;
@@ -581,7 +703,7 @@ public String getViscolor(String path) {
     private javax.swing.JLabel jlb_tiempo;
     private javax.swing.JPanel jp_Letras;
     public peppermusic.CustomPanel jp_Progreso;
-    private javax.swing.JScrollPane js_Letras;
+    public javax.swing.JScrollPane js_Letras;
     private javax.swing.JSlider js_volumen;
     private javax.swing.JToggleButton jtb_agrandar;
     private peppermusic.CustomButton jtb_aleatorio;

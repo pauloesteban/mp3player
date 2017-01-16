@@ -8,10 +8,14 @@ package peppermusic;
  *
  * @author orlando
  */
+
 import javazoom.jlgui.basicplayer.BasicPlayer;
 import java.io.File;
+import java.io.InputStream;
 import static java.lang.System.out;
+import java.net.URL;
 import java.util.Map;
+import javax.sound.sampled.SourceDataLine;
 import javazoom.jlgui.basicplayer.BasicController;
 import javazoom.jlgui.basicplayer.BasicPlayerEvent;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
@@ -25,6 +29,7 @@ public class Reproductor  implements BasicPlayerListener{
     private APEInfo tas;
     jp_Reproduccion repro;
     BasicController control ;
+   
     public Reproductor(PepperMusic_Frame venta){
         ventana = venta;
         player = new BasicPlayer();
@@ -108,6 +113,7 @@ public class Reproductor  implements BasicPlayerListener{
    */
   public void opened(Object stream, Map properties)
   {
+       ventana.audioInfo = properties;
      //   try {
             // Pay attention to properties. It's useful to get duration,
             // bitrate, channels, even tag such as ID3v2.
@@ -141,13 +147,14 @@ public class Reproductor  implements BasicPlayerListener{
    * @param pcmdata PCM samples.
    * @param properties audio stream parameters.
   */
-  
+  private long secondsAmount = 0;
   public void progress(int bytesread, long microseconds, byte[] pcmdata, Map properties)
   {
     // Pay attention to properties. It depends on underlying JavaSound SPI
     // MP3SPI provides mp3.equalizer.
     
     //display("progress : "+properties.toString());
+      
     ventana.tiempo = Long.valueOf(properties.get("mp3.position.microseconds").toString());
    // display("bytes: "+ventana.bits_total);
             //repro.jp_Progreso.ActualizarProgreso(50);
@@ -157,11 +164,21 @@ public class Reproductor  implements BasicPlayerListener{
               ventana.repro.jp_Progreso.repaint();
               //if (ventana.audioInfo.containsKey("basicplayer.sourcedataline")) {
             // Spectrum/time analyzer
+            
+            if (ventana.audioInfo.containsKey("basicplayer.sourcedataline")) {
+            // Spectrum/time analyzer
+            
             if (ventana.espectrometro != null) {
+                
                 ventana.espectrometro.writeDSP(pcmdata);
                 ventana.espectrometro.writeDSP(pcmdata);
             }
-       // }
+            
+        }
+            
+            
+      
+        
       //repro = ventana.jp_Principal.getComponent(1);
     
     //display("gola : "+tes.getArtist());
@@ -174,10 +191,46 @@ public class Reproductor  implements BasicPlayerListener{
    * 
    * @param event
    */
-  public void stateUpdated(BasicPlayerEvent event)
+  @Override
+  public void stateUpdated(BasicPlayerEvent bpe)
   {
     // Notification of BasicPlayer states (opened, playing, end of media, ...)
-    display("stateUpdated : "+event.toString());
+    display("stateUpdated : "+bpe.toString());
+    if(!ventana.NoRepro){
+    int state = bpe.getCode();
+        Object obj = bpe.getDescription();
+        if (state == BasicPlayerEvent.EOM) {
+            if (player.getStatus() == BasicPlayer.PAUSED || player.getStatus() == BasicPlayer.PLAYING) {
+                //Avanzar Cursor
+            }
+        } else if (state == BasicPlayerEvent.PLAYING) {
+            
+            if (ventana.audioInfo.containsKey("basicplayer.sourcedataline")) {
+                if (ventana.espectrometro != null) {
+                    ventana.espectrometro.setupDSP((SourceDataLine) ventana.audioInfo.get("basicplayer.sourcedataline"));
+                    ventana.espectrometro.startDSP((SourceDataLine) ventana.audioInfo.get("basicplayer.sourcedataline"));
+
+                   ventana.espectrometro.setupDSP((SourceDataLine) ventana.audioInfo.get("basicplayer.sourcedataline"));
+                    ventana.espectrometro.startDSP((SourceDataLine) ventana.audioInfo.get("basicplayer.sourcedataline"));
+                }
+            }
+
+        } else if (state == BasicPlayerEvent.SEEKING) {
+        } else if (state == BasicPlayerEvent.SEEKED) {
+        } else if (state == BasicPlayerEvent.OPENING) {
+            if ((obj instanceof URL) || (obj instanceof InputStream)) {
+                //Titulo de un stream de audio
+            }
+        } else if (state == BasicPlayerEvent.STOPPED) {
+            if (ventana.espectrometro != null) {
+                ventana.espectrometro.stopDSP();
+                ventana.espectrometro.repaint();
+                ventana.espectrometro.stopDSP();
+                ventana.espectrometro.repaint();
+            }
+        }
+    
+    }
   }
 
   /**

@@ -192,6 +192,7 @@ public class jp_Canciones extends javax.swing.JPanel {
          ventana.NoRepro=true;
          ventana.jp_Principal.getComponent(2).setVisible(true);
         
+        
          
         
 
@@ -211,7 +212,11 @@ public class jp_Canciones extends javax.swing.JPanel {
            // jtb_lista.setSelected(true);
          ventana.jp_Principal.getComponent(2).setVisible(false);
          ventana.NoRepro=false;
-         ventana.jp_Principal.getComponent(1).setVisible(true);    
+         ventana.jp_Principal.getComponent(1).setVisible(true);  
+         if(ventana.espectrometro!=null){
+             ventana.espectrometro.setVisible(true);
+         }
+         
             //codigo pantalla REPRODUCCIÓN
             
            /*        

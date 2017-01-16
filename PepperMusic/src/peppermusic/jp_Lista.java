@@ -29,7 +29,7 @@ public class jp_Lista extends jp_Canciones {
          if(ventana.EnRepro==false)super.setEnabled_Reproduccion(false);
         super.setSelected_Lista(true);
         super.setSelected_Reproduccion(false);
-                   
+         ventana.NoRepro=true;          
     }
 
     /**

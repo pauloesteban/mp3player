@@ -30,7 +30,7 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
    
     public long duracion,tiempo,bits_total;
     public Map audioInfo = null;
-    public SpectrumTimeAnalyzer espectrometro;
+    public SpectrumTimeAnalyzer espectrometro =null;
     public Reproductor mi_reproductor = new Reproductor(this);
     //declarar la direccion de la cancion a reproduccir como variable global
     

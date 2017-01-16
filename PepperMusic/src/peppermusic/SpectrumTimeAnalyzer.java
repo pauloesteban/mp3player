@@ -577,6 +577,7 @@ public class SpectrumTimeAnalyzer extends JPanel implements KJDigitalSignalProce
      * @param pColor
      */
     public synchronized void setScopeColor(Color pColor) {
+        System.out.println("coooooooooooolor "+pColor);
         scopeColor = pColor;
     }
 
