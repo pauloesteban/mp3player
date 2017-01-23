@@ -8,17 +8,20 @@ package peppermusic;
 import com.sun.awt.AWTUtilities;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Point;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.sampled.SourceDataLine;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javazoom.jlgui.basicplayer.BasicPlayerEvent;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 import javazoom.jlgui.basicplayer.BasicPlayerException;
 //import javazoom.jlgui.basicplayer.BasicPlayerException;
 
@@ -68,6 +71,7 @@ public class jp_Reproduccion extends jp_Canciones {
             System.out.println("Error: " + ex.getMessage());
           }
        */
+        
     }
 
     /**
@@ -90,10 +94,15 @@ public class jp_Reproduccion extends jp_Canciones {
         jtb_aleatorio = new peppermusic.CustomButton();
         jb_repetir = new javax.swing.JButton();
         jp_Progreso = new peppermusic.CustomPanel();
-        jlb_tiempo = new javax.swing.JLabel();
         jp_Letras = new javax.swing.JPanel();
         js_Letras = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jtxt_letra = new javax.swing.JTextPane();
+        jp_Informacion = new javax.swing.JPanel();
+        jlb_album = new javax.swing.JLabel();
+        jlb_cancion = new javax.swing.JLabel();
+        jlb_artista = new javax.swing.JLabel();
+        jb_add_letras = new javax.swing.JButton();
+        jlb_tiempo = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -147,7 +156,7 @@ public class jp_Reproduccion extends jp_Canciones {
             }
         });
         add(karaoke);
-        karaoke.setBounds(260, 210, 27, 40);
+        karaoke.setBounds(230, 295, 35, 35);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_avanzar.png"))); // NOI18N
         jButton1.setBorderPainted(false);
@@ -252,7 +261,7 @@ public class jp_Reproduccion extends jp_Canciones {
         jtb_aleatorio.setContentAreaFilled(false);
         jtb_aleatorio.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_aleatorio_on.png"))); // NOI18N
         add(jtb_aleatorio);
-        jtb_aleatorio.setBounds(30, 115, 20, 20);
+        jtb_aleatorio.setBounds(30, 112, 20, 20);
 
         jb_repetir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_rep_off.png"))); // NOI18N
         jb_repetir.setBorder(null);
@@ -264,7 +273,7 @@ public class jp_Reproduccion extends jp_Canciones {
             }
         });
         add(jb_repetir);
-        jb_repetir.setBounds(120, 115, 20, 20);
+        jb_repetir.setBounds(130, 112, 20, 20);
 
         jp_Progreso.setOpaque(false);
         jp_Progreso.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -276,42 +285,82 @@ public class jp_Reproduccion extends jp_Canciones {
         add(jp_Progreso);
         jp_Progreso.setBounds(160, 34, 80, 80);
 
-        jlb_tiempo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlb_tiempo.setText("0:50 - 3:04");
-        add(jlb_tiempo);
-        jlb_tiempo.setBounds(50, 120, 70, 14);
-
         jp_Letras.setOpaque(false);
         jp_Letras.setLayout(null);
 
+        js_Letras.setBackground(new java.awt.Color(153, 255, 255));
+        js_Letras.setBorder(null);
+        js_Letras.setViewportBorder(javax.swing.BorderFactory.createCompoundBorder());
+        js_Letras.setAlignmentX(0.0F);
+        js_Letras.setAlignmentY(0.0F);
+        js_Letras.setAutoscrolls(true);
         js_Letras.setHorizontalScrollBar(null);
         js_Letras.setMaximumSize(new java.awt.Dimension(230, 140));
         js_Letras.setMinimumSize(new java.awt.Dimension(230, 140));
         js_Letras.setOpaque(false);
         js_Letras.setPreferredSize(new java.awt.Dimension(230, 140));
-        jp_Letras.add(js_Letras);
-        js_Letras.setBounds(0, 0, 230, 140);
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Monospaced", 1, 11)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Is this the real life? \nIs this just fantasy? \nCaught in a landside, \nNo escape from reality \nOpen your eyes, \nLook up to the skies and see, \nI'm just a poor boy, I need no sympathy, \nBecause I'm easy come, easy go, \nLittle high, little low, \nAny way the wind blows doesn't really matter to \nme, to me \n\nMamaaa, \nJust killed a man, \nPut a gun against his head, pulled my trigger, \nnow he's dead \nMamaaa, life had just begun, \nBut now I've gone and thrown it all away \nMama, oooh, \nDidn't mean to make you cry, \nIf I'm not back again this time tomorrow, \nCarry on, carry on as if nothing really matters \n\nToo late, my time has come, \nSends shivers down my spine, \nbody's aching all the time \nGoodbye, everybody, I've got to go, \nGotta leave you all behind and face the truth \nMama, oooh (anyway the wind blows) \nI don't want to die, \nI sometimes wish I'd never been born at all. \n\nI see a little silhouetto of a man, \nScaramouch, Scaramouch, will you do the Fandango! \nThunderbolts and lightning, very, very frightening me \nGalileo, Galileo \nGalileo, Galileo \nGalileo, Figaro - magnificoo \n\nI'm just a poor boy nobody loves me \nHe's just a poor boy from a poor family, \nSpare him his life from this monstrosity \nEasy come, easy go, will you let me go \nBismillah! No, we will not let you go \n(Let him go!) Bismillah! We will not let you go \n(Let him go!) Bismillah! We will not let you go \n(Let me go) Will not let you go \n(Let me go)(Never) Never let you go \n(Let me go) (Never) let you go (Let me go) Ah \nNo, no, no, no, no, no, no \nOh mama mia, mama mia, mama mia, let me go \nBeelzebub has a devil put aside for me, for me, \nfor meee \n\nSo you think you can stop me and spit in my eye \nSo you think you can love me and leave me to die \nOh, baby, can't do this to me, baby, \nJust gotta get out, just gotta get right outta here \n\nOoh yeah, ooh yeah \nNothing really matters, Anyone can see, \nNothing really matters, \nNothing really matters to me \n\nAny way the wind blows..");
-        jTextArea1.setWrapStyleWord(true);
-        jTextArea1.setAutoscrolls(false);
-        jTextArea1.setMaximumSize(new java.awt.Dimension(230, 140));
-        jTextArea1.setMinimumSize(new java.awt.Dimension(230, 140));
-        jTextArea1.setOpaque(false);
-        jTextArea1.setPreferredSize(new java.awt.Dimension(230, 1025));
-        jp_Letras.add(jTextArea1);
-        jTextArea1.setBounds(0, 0, 230, 1025);
+        jtxt_letra.setEditable(false);
+        jtxt_letra.setBackground(new java.awt.Color(153, 255, 255));
+        jtxt_letra.setOpaque(false);
+        js_Letras.setViewportView(jtxt_letra);
+
+        jp_Letras.add(js_Letras);
+        js_Letras.setBounds(0, 0, 248, 138);
 
         add(jp_Letras);
-        jp_Letras.setBounds(30, 160, 230, 140);
+        jp_Letras.setBounds(25, 155, 248, 138);
+
+        jp_Informacion.setOpaque(false);
+        jp_Informacion.setLayout(null);
+
+        jlb_album.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jlb_album.setForeground(new java.awt.Color(255, 255, 255));
+        jlb_album.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlb_album.setText("TOOOOOOOOOOODOS");
+        jp_Informacion.add(jlb_album);
+        jlb_album.setBounds(5, 40, 115, 20);
+
+        jlb_cancion.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        jlb_cancion.setForeground(new java.awt.Color(255, 255, 255));
+        jlb_cancion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlb_cancion.setText("COMO ESTAAAAAAAAN");
+        jp_Informacion.add(jlb_cancion);
+        jlb_cancion.setBounds(5, 22, 115, 20);
+
+        jlb_artista.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jlb_artista.setForeground(new java.awt.Color(255, 255, 255));
+        jlb_artista.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlb_artista.setText("HOLAAAAAAAAAAAAA");
+        jp_Informacion.add(jlb_artista);
+        jlb_artista.setBounds(5, 8, 115, 15);
+
+        add(jp_Informacion);
+        jp_Informacion.setBounds(30, 40, 120, 68);
+
+        jb_add_letras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_agregar_letras.png"))); // NOI18N
+        jb_add_letras.setText("jButton3");
+        jb_add_letras.setBorderPainted(false);
+        jb_add_letras.setContentAreaFilled(false);
+        jb_add_letras.setFocusPainted(false);
+        jb_add_letras.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jb_add_letras.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_agregar_letras2.png"))); // NOI18N
+        jb_add_letras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_add_letrasActionPerformed(evt);
+            }
+        });
+        add(jb_add_letras);
+        jb_add_letras.setBounds(190, 300, 30, 30);
+
+        jlb_tiempo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlb_tiempo.setText("00:27 - 04:58");
+        add(jlb_tiempo);
+        jlb_tiempo.setBounds(30, 110, 120, 20);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_nombre.png"))); // NOI18N
         add(jLabel5);
-        jLabel5.setBounds(30, 50, 120, 60);
+        jLabel5.setBounds(30, 40, 125, 68);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Celeste1.png"))); // NOI18N
@@ -332,6 +381,7 @@ public class jp_Reproduccion extends jp_Canciones {
             js_Letras.setLocation(0, 0);
            
             jp_Letras.removeAll();
+            
             jp_Letras.add(js_Letras);
             jp_Letras.revalidate();
             jp_Letras.repaint();
@@ -363,7 +413,7 @@ public class jp_Reproduccion extends jp_Canciones {
         int fps = SpectrumTimeAnalyzer.DEFAULT_FPS;
         ventana.espectrometro.setFps(fps);
         ventana.espectrometro.setPeakDelay((int) (fps * SpectrumTimeAnalyzer.DEFAULT_SPECTRUM_ANALYSER_PEAK_DELAY_FPS_RATIO));
-        
+        ventana.espectrometro.setSize(248,138);
        //ventana.espectrometro.setVisColor(getViscolor("viscolor.txt"));
        
        }     
@@ -536,7 +586,9 @@ public String getViscolor(String path) {
             AWTUtilities.setWindowShape(peppermusic, forma);
             jLabel1.setIcon(new ImageIcon( getClass().getResource("/Recursos/Fondo_Celeste2.png")));
          //   jlb_barras.setVisible(false);
-         jp_Letras.setVisible(false);
+            jp_Letras.setVisible(false);
+            jp_Letras.setLocation(300, 170);
+            jp_Letras.repaint();
             jLabel1.setSize(300,168);
             jLabel1.repaint();
             super.setEnabled_Lista(false);
@@ -553,6 +605,8 @@ public String getViscolor(String path) {
             jLabel1.setSize(300,336);
             jLabel1.repaint();
             jp_Letras.setVisible(true);
+            jp_Letras.setLocation(30, 160);
+            jp_Letras.repaint();
 //            jlb_barras.setVisible(true);
             super.setEnabled_Lista(true);
             jLabel1.revalidate();
@@ -620,17 +674,58 @@ public String getViscolor(String path) {
                    
         
     }//GEN-LAST:event_formComponentHidden
+public void leer_txt(String ruta){
+     
+     String codigo = new String(), path = ruta;
+			File archivo = new File(path);
+     if (archivo.exists()){
+			FileReader fr = null;
+			BufferedReader entrada = null;
+			try {
+				fr = new FileReader(path);
+				entrada = new BufferedReader(fr);
 
+				while(entrada.ready()){
+					codigo += entrada.readLine()+"\n";
+				}
+
+			}catch(IOException e) {
+				e.printStackTrace();
+			}finally{
+				try{                    
+					if(null != fr){   
+						fr.close();     
+					}                  
+				}catch (Exception e2){ 
+					e2.printStackTrace();
+				}
+			}
+            
+     }else{codigo="\n\n\n No hay letra, Porfavor Ingresela manualmente";}
+                      jtxt_letra.setText(codigo);
+                      StyledDocument doc = jtxt_letra.getStyledDocument();
+                       SimpleAttributeSet center = new SimpleAttributeSet();
+                      StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
+                       doc.setParagraphAttributes(0, doc.getLength(), center, false);
+                     
+                    
+                      
+ }
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
         if(!karaoke.isSelected()){
             js_Letras.setLocation(0, 0);
-           
+            leer_txt("C:\\PepperMusic_Datos\\Letras\\"+ventana.lista_completa.get(ventana.indice).nom_cancion+".txt");
             jp_Letras.removeAll();
+            
             jp_Letras.add(js_Letras);
             jp_Letras.revalidate();
             jp_Letras.repaint();
            
+            jlb_artista.setText(ventana.nom_artista);
+           jlb_cancion.setText(ventana.nom_cancion);
+            jlb_album.setText(ventana.nom_album);
+             js_Letras.getVerticalScrollBar().setValue(0); 
             /*
            jlb_barras.setIcon(new ImageIcon( getClass().getResource("/Recursos/imagen_letras.png")));
             jlb_barras.repaint();
@@ -658,7 +753,7 @@ public String getViscolor(String path) {
         int fps = SpectrumTimeAnalyzer.DEFAULT_FPS;
         ventana.espectrometro.setFps(fps);
         ventana.espectrometro.setPeakDelay((int) (fps * SpectrumTimeAnalyzer.DEFAULT_SPECTRUM_ANALYSER_PEAK_DELAY_FPS_RATIO));
-        
+       
        //ventana.espectrometro.setVisColor(getViscolor("viscolor.txt"));
        
        }     
@@ -686,8 +781,20 @@ public String getViscolor(String path) {
         
             
         }
-        
+        jlb_cancion.setText(ventana.nom_cancion);
+        jlb_artista.setText(ventana.nom_artista);
+        jlb_album.setText(ventana.nom_album);
+         
     }//GEN-LAST:event_formComponentShown
+
+    private void jb_add_letrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_add_letrasActionPerformed
+        // TODO add your handling code here:
+          Add_letra add= new Add_letra(ventana);
+          add.setVisible(true);
+          add.setAlwaysOnTop(true);
+          
+        
+    }//GEN-LAST:event_jb_add_letrasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -698,15 +805,20 @@ public String getViscolor(String path) {
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton jb_add_letras;
     private javax.swing.JButton jb_repetir;
-    private javax.swing.JLabel jlb_tiempo;
+    private javax.swing.JLabel jlb_album;
+    private javax.swing.JLabel jlb_artista;
+    private javax.swing.JLabel jlb_cancion;
+    public javax.swing.JLabel jlb_tiempo;
+    private javax.swing.JPanel jp_Informacion;
     private javax.swing.JPanel jp_Letras;
     public peppermusic.CustomPanel jp_Progreso;
     public javax.swing.JScrollPane js_Letras;
     private javax.swing.JSlider js_volumen;
     private javax.swing.JToggleButton jtb_agrandar;
     private peppermusic.CustomButton jtb_aleatorio;
+    private javax.swing.JTextPane jtxt_letra;
     private javax.swing.JToggleButton karaoke;
     // End of variables declaration//GEN-END:variables
 }

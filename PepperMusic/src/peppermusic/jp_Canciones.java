@@ -84,8 +84,8 @@ public class jp_Canciones extends javax.swing.JPanel {
         jtb_repro = new javax.swing.JToggleButton();
         jb_Cerrar = new javax.swing.JButton();
         jb_Minimizar = new javax.swing.JButton();
-        jb_Regresar = new javax.swing.JButton();
         jp_Cancion = new javax.swing.JPanel();
+        jb_Regresar = new javax.swing.JButton();
 
         setLayout(null);
 
@@ -141,6 +141,9 @@ public class jp_Canciones extends javax.swing.JPanel {
         add(jb_Minimizar);
         jb_Minimizar.setBounds(193, 0, 30, 30);
 
+        jp_Cancion.setOpaque(false);
+        jp_Cancion.setLayout(null);
+
         jb_Regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_regresar.png"))); // NOI18N
         jb_Regresar.setBorder(null);
         jb_Regresar.setBorderPainted(false);
@@ -151,11 +154,9 @@ public class jp_Canciones extends javax.swing.JPanel {
                 jb_RegresarActionPerformed(evt);
             }
         });
-        add(jb_Regresar);
-        jb_Regresar.setBounds(90, 302, 123, 30);
+        jp_Cancion.add(jb_Regresar);
+        jb_Regresar.setBounds(135, 300, 35, 35);
 
-        jp_Cancion.setOpaque(false);
-        jp_Cancion.setLayout(null);
         add(jp_Cancion);
         jp_Cancion.setBounds(0, 0, 300, 340);
     }// </editor-fold>//GEN-END:initComponents

@@ -152,7 +152,7 @@ public class jp_Inicio extends javax.swing.JPanel {
             }
         });
         add(btConfi);
-        btConfi.setBounds(220, 240, 50, 50);
+        btConfi.setBounds(210, 240, 50, 50);
 
         btCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/cerrar.png"))); // NOI18N
         btCerrar.setToolTipText("CERRAR");
@@ -240,28 +240,29 @@ public class jp_Inicio extends javax.swing.JPanel {
     private void btCancionesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCancionesMouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_btCancionesMouseExited
-
+ public jp_Lista p1 ;
     private void btCancionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancionesActionPerformed
          ventana.jp_Principal.getComponent(0).setVisible(false);
-       
+         if(p1==null) p1= new jp_Lista(ventana);
         if(ventana.jp_Principal.getComponentCount()==3) ventana.jp_Principal.remove(2);
               
-            jp_Lista p1 = new jp_Lista(ventana);
+            
             p1.setSize(300, 336);
             p1.setLocation(0, 0);
             p1.setVisible(true);
             ventana.jp_Principal.add(p1);
            ventana.jp_Principal.revalidate();
     }//GEN-LAST:event_btCancionesActionPerformed
-
+  jp_Configuracion_Total p2 ;
     private void btConfiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfiActionPerformed
          ventana.jp_Principal.getComponent(0).setVisible(false);
+         p2 = new jp_Configuracion_Total(ventana);
         if(ventana.jp_Principal.getComponentCount()==3) ventana.jp_Principal.remove(2);
-            jp_Configuracion_Total p1 = new jp_Configuracion_Total(ventana);
-            p1.setSize(300, 336);
-            p1.setLocation(0, 0);
-            p1.setVisible(true);
-            ventana.jp_Principal.add(p1);
+          
+            p2.setSize(300, 336);
+            p2.setLocation(0, 0);
+            p2.setVisible(true);
+            ventana.jp_Principal.add(p2);
            ventana.jp_Principal.revalidate();
     }//GEN-LAST:event_btConfiActionPerformed
 
@@ -279,14 +280,14 @@ public class jp_Inicio extends javax.swing.JPanel {
 
     private void btArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btArtistaActionPerformed
          ventana.jp_Principal.getComponent(0).setVisible(false);
-       
+        jp_Lista_ARTISTA p3 = new jp_Lista_ARTISTA(ventana);
         if(ventana.jp_Principal.getComponentCount()==3) ventana.jp_Principal.remove(2);
               
-            jp_Lista_ARTISTA p1 = new jp_Lista_ARTISTA(ventana);
-            p1.setSize(300, 336);
-            p1.setLocation(0, 0);
-            p1.setVisible(true);
-            ventana.jp_Principal.add(p1);
+           
+            p3.setSize(300, 336);
+            p3.setLocation(0, 0);
+            p3.setVisible(true);
+            ventana.jp_Principal.add(p3);
            ventana.jp_Principal.revalidate();
     }//GEN-LAST:event_btArtistaActionPerformed
 

@@ -11,33 +11,74 @@ import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.sound.sampled.AudioFileFormat;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import javazoom.jlgui.player.amp.tag.TagInfo;
+import javazoom.jlgui.player.amp.tag.TagInfoFactory;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.tritonus.share.sampled.file.TAudioFileFormat;
+import sun.security.krb5.Config;
 
 /**
  *
  * @author orlando
  */
+
  
 public class PepperMusic_Frame extends javax.swing.JFrame {
 
     /**
      * Creates new form PepperMusic_Frame
      */
+   // ListaDeReproduccion[] lista_completa;
+     List<ListaDeReproduccion> lista_completa=new ArrayList<ListaDeReproduccion>();
+    SeekAndDestroy inicial = new SeekAndDestroy(this);
+    
     public  boolean EnRepro = false;  //Usada para saber cuando se está reproducciendo una cancion
     public  boolean NoRepro = true;   // idica si se ha salido del jp_Reproduccion (para no dibujar el progreso)
     public Clase_Progreso Barra;
     public jp_Reproduccion repro;
-   
+    public jp_Inicio inicio;
+    public TagInfo informacion;
     public long duracion,tiempo,bits_total;
     public Map audioInfo = null;
     public SpectrumTimeAnalyzer espectrometro =null;
     public Reproductor mi_reproductor = new Reproductor(this);
     //declarar la direccion de la cancion a reproduccir como variable global
+    public String nom_cancion;
+    public String nom_artista;
+    public String nom_album;
+    public int  indice;
+    
+         private static Log log = LogFactory.getLog(TagInfoFactory.class);
+	private static TagInfoFactory instance = null;
+	private Class  MpegTagInfoClass = null;
+	private Class  VorbisTagInfoClass = null;
+	private Config conf = null;
     
     public PepperMusic_Frame() {
        // repro = new jp_Reproduccion();
           this.setUndecorated(true);
           initComponents();
+          //crea las carpetas en el directorio C
+          File letras = new File("C:\\PepperMusic_Datos\\Letras");
+          File configuracion = new File("C:\\PepperMusic_Datos\\Configuracion");
+      
+          if(!letras.exists())letras.mkdirs();
+          if(!configuracion.exists())configuracion.mkdirs();
+          
+          
+          
           this.setSize(new Dimension(300, 336));
           this.setMinimumSize(new Dimension(0, 0));
           this.setLocationRelativeTo(null);
@@ -50,10 +91,10 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
              
             jp_Principal.removeAll();
             
-            jp_Inicio p0 = new jp_Inicio(this);
-            p0.setSize(300, 336);
-            p0.setLocation(0, 0);
-            jp_Principal.add(p0);
+            inicio = new jp_Inicio(this);
+           inicio.setSize(300, 336);
+            inicio.setLocation(0, 0);
+            jp_Principal.add(inicio);
             
             repro = new jp_Reproduccion(this);
             repro.setSize(300, 336);
@@ -65,10 +106,39 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
             jp_Principal.revalidate();
             jp_Principal.repaint();
             
-                       
-    }
+            inicial.start();
+            
+   
+    
+ 
+ }
      
-
+public void Meta_Audio(String ruta,String propiedad){
+    //"mp3.id3tag.genre"
+    ///////////OBTENER DATOS DE LOS ARCHIVOS MP3     
+File file = new File(ruta);
+AudioFileFormat baseFileFormat = null;
+AudioFormat baseFormat = null;
+        try {
+            baseFileFormat = AudioSystem.getAudioFileFormat(file);
+        } catch (UnsupportedAudioFileException ex) {
+            Logger.getLogger(PepperMusic_Frame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(PepperMusic_Frame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+baseFormat = baseFileFormat.getFormat();
+// TAudioFileFormat properties
+if (baseFileFormat instanceof TAudioFileFormat)
+{
+    
+    Map properties = ((TAudioFileFormat)baseFileFormat).properties();
+    
+    String val = (String) properties.get(propiedad);
+    
+    
+   
+}
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -24,15 +24,18 @@ import javazoom.jlgui.player.amp.tag.APEInfo;
 import static sun.security.krb5.Confounder.bytes;
 
 public class Reproductor  implements BasicPlayerListener{
+    
     private BasicPlayer player;
     PepperMusic_Frame ventana;
     private APEInfo tas;
     jp_Reproduccion repro;
     BasicController control ;
-   
+     String dura_minu;
     public Reproductor(PepperMusic_Frame venta){
         ventana = venta;
         player = new BasicPlayer();
+         
+         
          
         control = (BasicController) player;
         //repro = (jp_Reproduccion)ventana.jp_Principal.getComponent(1);
@@ -63,6 +66,7 @@ public class Reproductor  implements BasicPlayerListener{
 
     public void play(String filename)
      {
+        
        // Instantiate BasicPlayer.
      
       // BasicPlayer is a BasicController.
@@ -128,13 +132,23 @@ public class Reproductor  implements BasicPlayerListener{
        // } catch (BasicPlayerException ex) {
        //     Logger.getLogger(Reproductor.class.getName()).log(Level.SEVERE, null, ex);
        // }
+         ventana.nom_album=ventana.audioInfo.get("album").toString();
+         if(!ventana.audioInfo.get("title").toString().isEmpty()&&sonEspacios(ventana.audioInfo.get("title").toString()))ventana.nom_cancion=ventana.audioInfo.get("title").toString();
+         ventana.nom_artista=ventana.audioInfo.get("author").toString();
+        System.out.println(ventana.nom_cancion);
+         long duri=ventana.duracion/1000000;
+         dura_minu= (((duri/60<10)?"0":"")+(duri/60)+":"+((duri%60<10)?"0":"")+(duri%60));
   }
   public void seeked(long l) throws BasicPlayerException{
       
       control.seek(l);
       
   }
-
+ public boolean sonEspacios(String cad)
+ {     cad = cad.trim();
+       if(cad.isEmpty())return false;
+       return true;
+ }
   /**
    * Progress callback while playing.
    * 
@@ -154,14 +168,21 @@ public class Reproductor  implements BasicPlayerListener{
     // MP3SPI provides mp3.equalizer.
     
     //display("progress : "+properties.toString());
-      
+     
+    // if(ventana.audioInfo.get("title").toString().isEmpty())System.out.println("_"+ventana.audioInfo.get("title").toString()+"_");else System.out.println("b"+ventana.audioInfo.get("title").toString()+"a");
     ventana.tiempo = Long.valueOf(properties.get("mp3.position.microseconds").toString());
    // display("bytes: "+ventana.bits_total);
             //repro.jp_Progreso.ActualizarProgreso(50);
-            
+           
           
-             ventana.repro.jp_Progreso.ActualizarProgreso((ventana.tiempo/1000),(ventana.duracion/1000));
-              ventana.repro.jp_Progreso.repaint();
+             long temp = ventana.tiempo/1000000;
+             long dura = ventana.duracion/1000000;
+             ventana.repro.jp_Progreso.ActualizarProgreso(temp,dura);
+             ventana.repro.jp_Progreso.repaint();
+              
+            ventana.repro.jlb_tiempo.setText((((temp/60<10)?"0":"")+temp/60)+":" +(((temp%60<10)? "0":"")+ temp%60)+ " - " + dura_minu);
+             
+           
               //if (ventana.audioInfo.containsKey("basicplayer.sourcedataline")) {
             // Spectrum/time analyzer
             

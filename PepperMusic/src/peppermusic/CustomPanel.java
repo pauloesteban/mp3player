@@ -56,9 +56,9 @@ public class CustomPanel extends JPanel{
     arc2.setAngleStart(1);
      
      double l = ((double)Progreso/duracion);
-      arc.setAngleExtent(-l*360);
+      arc.setAngleExtent((double)-l*360);
     // System.out.println("total de progreso="+l);
-      arc2.setAngleExtent(-l*360);
+      arc2.setAngleExtent((double)-l*360);
      g2.setColor(new Color(12,32,32,53)); //http://colorizer.org/ colors hsb de esa pagina /100
     g2.draw(circle);
     g2.fill(circle);
