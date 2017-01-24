@@ -44,7 +44,10 @@ public class Add_letra extends javax.swing.JFrame {
         Shape forma = new RoundRectangle2D.Double(0,0,this.getBounds().width,this.getBounds().height,125,125);
         AWTUtilities.setWindowShape(this, forma);
         
-        leer_txt("C:\\PepperMusic_Datos\\Letras\\"+ventana.lista_completa.get(ventana.indice).nom_cancion+".txt");
+         if(ventana.jp_Principal.getComponent(2)==ventana.inicio.p1)leer_txt("C:\\PepperMusic_Datos\\Letras\\"+ventana.lista_completa.get(ventana.indice).nom_cancion+".txt");
+             if(ventana.jp_Principal.getComponent(2)==ventana.inicio.p2)leer_txt("C:\\PepperMusic_Datos\\Letras\\"+ventana.Lista_album.get(ventana.indice_album).items_album().get(ventana.indice_cancion).nom_cancion+".txt");
+            if(ventana.jp_Principal.getComponent(2)==ventana.inicio.p3)leer_txt("C:\\PepperMusic_Datos\\Letras\\"+ventana.Lista_artista.get(ventana.indice_album).items_artista().get(ventana.indice_cancion).nom_cancion+".txt");
+             if(ventana.jp_Principal.getComponent(2)==ventana.inicio.p4)leer_txt("C:\\PepperMusic_Datos\\Letras\\"+ventana.Lista_genero.get(ventana.indice_album).items_genero().get(ventana.indice_cancion).nom_cancion+".txt");
         jlb_nombre.setText(ventana.nom_cancion);
     }
  public void leer_txt(String ruta){

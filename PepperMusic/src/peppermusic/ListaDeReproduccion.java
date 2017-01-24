@@ -10,13 +10,14 @@ package peppermusic;
  * @author orlando
  */
 public class ListaDeReproduccion  implements Comparable{
-    String nom_cancion, nom_artista, nom_album, ruta;
+    String nom_cancion, nom_artista, nom_album, nom_genero, ruta;
     
-    public ListaDeReproduccion(String nom_cancion, String nom_artista, String nom_album, String ruta){
+    public ListaDeReproduccion(String nom_cancion, String nom_artista, String nom_album, String nom_genero, String ruta){
         
         this.nom_cancion = nom_cancion;
         this.nom_artista = nom_artista;
         this.nom_album = nom_album;
+        this.nom_genero = nom_genero;
         this.ruta = ruta;
     }
   @Override 

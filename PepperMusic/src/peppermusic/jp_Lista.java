@@ -248,6 +248,7 @@ MouseEvent evt2;
           evt2 = evt;
         if (evt.getClickCount() == 2) {
             
+            //dar doble clic a un album, debe mostrarse las canciones dentro
               ventana.jp_Principal.getComponent(2).setVisible(false);
                  ventana.NoRepro = false;
                  super.setEnabled_Reproduccion(true);

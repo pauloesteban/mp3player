@@ -286,6 +286,11 @@ public class jp_Reproduccion extends jp_Canciones {
         jp_Progreso.setBounds(160, 34, 80, 80);
 
         jp_Letras.setOpaque(false);
+        jp_Letras.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jp_LetrasComponentShown(evt);
+            }
+        });
         jp_Letras.setLayout(null);
 
         js_Letras.setBackground(new java.awt.Color(153, 255, 255));
@@ -299,10 +304,20 @@ public class jp_Reproduccion extends jp_Canciones {
         js_Letras.setMinimumSize(new java.awt.Dimension(230, 140));
         js_Letras.setOpaque(false);
         js_Letras.setPreferredSize(new java.awt.Dimension(230, 140));
+        js_Letras.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                js_LetrasComponentShown(evt);
+            }
+        });
 
         jtxt_letra.setEditable(false);
         jtxt_letra.setBackground(new java.awt.Color(153, 255, 255));
         jtxt_letra.setOpaque(false);
+        jtxt_letra.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jtxt_letraComponentShown(evt);
+            }
+        });
         js_Letras.setViewportView(jtxt_letra);
 
         jp_Letras.add(js_Letras);
@@ -708,7 +723,7 @@ public void leer_txt(String ruta){
                       StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
                        doc.setParagraphAttributes(0, doc.getLength(), center, false);
                       jtxt_letra.revalidate();
-                      js_Letras.getVerticalScrollBar().setValue(0);
+                      
                     
                       
  }
@@ -716,16 +731,22 @@ public void leer_txt(String ruta){
         // TODO add your handling code here:
         if(!karaoke.isSelected()){
             js_Letras.setLocation(0, 0);
-            leer_txt("C:\\PepperMusic_Datos\\Letras\\"+ventana.lista_completa.get(ventana.indice).nom_cancion+".txt");
-            jp_Letras.removeAll();
+            js_Letras.setVisible(true);
+            if(ventana.jp_Principal.getComponent(2)==ventana.inicio.p1)leer_txt("C:\\PepperMusic_Datos\\Letras\\"+ventana.lista_completa.get(ventana.indice).nom_cancion+".txt");
+             if(ventana.jp_Principal.getComponent(2)==ventana.inicio.p2)leer_txt("C:\\PepperMusic_Datos\\Letras\\"+ventana.Lista_album.get(ventana.indice_album).items_album().get(ventana.indice_cancion).nom_cancion+".txt");
+            if(ventana.jp_Principal.getComponent(2)==ventana.inicio.p3)leer_txt("C:\\PepperMusic_Datos\\Letras\\"+ventana.Lista_artista.get(ventana.indice_album).items_artista().get(ventana.indice_cancion).nom_cancion+".txt");
+             if(ventana.jp_Principal.getComponent(2)==ventana.inicio.p4)leer_txt("C:\\PepperMusic_Datos\\Letras\\"+ventana.Lista_genero.get(ventana.indice_album).items_genero().get(ventana.indice_cancion).nom_cancion+".txt");
+             jp_Letras.removeAll();
             
             jp_Letras.add(js_Letras);
-            jp_Letras.revalidate();
-            jp_Letras.repaint();
+           //jp_Letras.revalidate();
+           //jp_Letras.repaint();
            
             jlb_artista.setText(ventana.nom_artista);
            jlb_cancion.setText(ventana.nom_cancion);
             jlb_album.setText(ventana.nom_album);
+             Clase_Progreso cal =new  Clase_Progreso(ventana);
+             cal.start();
             // js_Letras.getVerticalScrollBar().setValue(0); 
             /*
            jlb_barras.setIcon(new ImageIcon( getClass().getResource("/Recursos/imagen_letras.png")));
@@ -785,7 +806,9 @@ public void leer_txt(String ruta){
         jlb_cancion.setText(ventana.nom_cancion);
         jlb_artista.setText(ventana.nom_artista);
         jlb_album.setText(ventana.nom_album);
-        // js_Letras.getVerticalScrollBar().setValue(0);
+         js_Letras.getVerticalScrollBar().setValue(0);
+         
+         js_Letras.getVerticalScrollBar().setValue(0);
     }//GEN-LAST:event_formComponentShown
 
     private void jb_add_letrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_add_letrasActionPerformed
@@ -796,6 +819,21 @@ public void leer_txt(String ruta){
           
         
     }//GEN-LAST:event_jb_add_letrasActionPerformed
+
+    private void js_LetrasComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_js_LetrasComponentShown
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_js_LetrasComponentShown
+
+    private void jtxt_letraComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jtxt_letraComponentShown
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_jtxt_letraComponentShown
+
+    private void jp_LetrasComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jp_LetrasComponentShown
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jp_LetrasComponentShown
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -6,6 +6,7 @@
 package peppermusic;
 
 import java.awt.event.MouseEvent;
+import java.util.Iterator;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JViewport;
@@ -19,57 +20,21 @@ public class jp_Lista_GENERO extends jp_Canciones {
     /**
      * Creates new form jp_Lista
      */
-    JList cancion;
-    JList guardar;
+    
     jp_Canciones canc;
-    private final String canciones[] = { "Innuendo",
-"I'm Going Slightly Mad",
-"Headlong",
-"I Can't Live With You",
-"Don't Try So Hard",
-"Ride The Wild Wind",
-"All God's People",
-"These Are The Days Of Our Lives",
-"Delilah",
-"The Hitman",
-"Bijou",
-"The Show Must Go On"
-};
+   
     PepperMusic_Frame ventana;
     public jp_Lista_GENERO(PepperMusic_Frame venta) {
         super(venta);
         initComponents();
         ventana=venta;
-        guardar=lst_canciones;
-        cancion=new JList(canciones);
+        
+       
          if(ventana.EnRepro==false)super.setEnabled_Reproduccion(false);
         super.setSelected_Lista(true);
         super.setSelected_Reproduccion(false);
         
-        
-
-        cancion.setBackground(new java.awt.Color(0, 0, 0));
-        cancion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        cancion.setFont(new java.awt.Font("Rockwell Condensed", 1, 12)); // NOI18N
-        cancion.setForeground(new java.awt.Color(255, 255, 255));
-        cancion.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = canciones;
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        cancion.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        cancion.setToolTipText("");
-        cancion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lst_cancionesMouseClicked(evt);
-            }
-        });
-       /* jScrollPane2.setViewportView(cancion);
-
-        jp_Album.add(jScrollPane2);
-        jScrollPane2.setBounds(0, 0, 230, 210);
-        
-        */
+     
     }
 
     /**
@@ -91,10 +56,10 @@ public class jp_Lista_GENERO extends jp_Canciones {
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         pop_letras = new javax.swing.JMenuItem();
         pop_Eliminar = new javax.swing.JMenuItem();
+        btnActualizarCanciones = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jtx_buscar = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jp_Album = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -141,6 +106,19 @@ public class jp_Lista_GENERO extends jp_Canciones {
         setOpaque(false);
         setLayout(null);
 
+        btnActualizarCanciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_actualizar.png"))); // NOI18N
+        btnActualizarCanciones.setBorderPainted(false);
+        btnActualizarCanciones.setContentAreaFilled(false);
+        btnActualizarCanciones.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_actualizar2.png"))); // NOI18N
+        btnActualizarCanciones.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_actualizar2.png"))); // NOI18N
+        btnActualizarCanciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarCancionesActionPerformed(evt);
+            }
+        });
+        add(btnActualizarCanciones);
+        btnActualizarCanciones.setBounds(245, 55, 30, 30);
+
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/album_retroceder.png"))); // NOI18N
         jButton3.setBorder(null);
         jButton3.setBorderPainted(false);
@@ -161,13 +139,7 @@ public class jp_Lista_GENERO extends jp_Canciones {
         jButton2.setToolTipText("Buscar");
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         add(jButton2);
-        jButton2.setBounds(205, 35, 27, 25);
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton 10.png"))); // NOI18N
-        jButton1.setToolTipText("Buscar por voz");
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        add(jButton1);
-        jButton1.setBounds(238, 35, 32, 27);
+        jButton2.setBounds(215, 35, 27, 25);
 
         jp_Album.setAlignmentX(0.0F);
         jp_Album.setAlignmentY(0.0F);
@@ -180,11 +152,6 @@ public class jp_Lista_GENERO extends jp_Canciones {
         lst_canciones.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         lst_canciones.setFont(new java.awt.Font("Rockwell Condensed", 1, 12)); // NOI18N
         lst_canciones.setForeground(new java.awt.Color(255, 255, 255));
-        lst_canciones.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Rock", "Rock Progresivo", "Rock psicodélico", "Metal", "Thrash Metal", "Power ballads", "Stadium Rock", "Hardcore", "grindcore metal", " " };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         lst_canciones.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         lst_canciones.setToolTipText("");
         lst_canciones.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -236,13 +203,13 @@ DefaultListModel modelo = new DefaultListModel();
     private void pop_tardeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pop_tardeActionPerformed
         // TODO add your handling code here:
         
-        
+       /* 
          if( jScrollPane2.getViewport().getComponent(0)==cancion) modelo.addElement((String)cancion.getSelectedValue());
          else  modelo.addElement((String)lst_canciones.getSelectedValue());
          
          lst_tarde.setModel(modelo);
         
-        
+        */
     }//GEN-LAST:event_pop_tardeActionPerformed
 
     private void lst_tardeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lst_tardeMouseClicked
@@ -254,12 +221,46 @@ DefaultListModel modelo = new DefaultListModel();
         if (evt.getClickCount() == 2) {
 
             
+        DefaultListModel model_genero = new DefaultListModel();
          if( jScrollPane2.getViewport().getComponent(0)==lst_canciones){
-        jScrollPane2.setViewportView(cancion);
-        jp_Album.add(jScrollPane2);
-        jScrollPane2.setBounds(0, 0, 230, 210);
+              JList lista = new JList();
+           lista.setBackground(new java.awt.Color(0, 0, 0));
+        lista.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        lista.setFont(new java.awt.Font("Rockwell Condensed", 1, 12)); // NOI18N
+       lista.setForeground(new java.awt.Color(255, 255, 255));
+        
+        lista.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        lista.setToolTipText("");
+        lista.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ventana.indice_cancion = lista.locationToIndex(evt.getPoint());
+                lst_cancionesMouseClicked(evt);
+                
+            }
+        }); 
+              ventana.indice_album = lst_canciones.locationToIndex(evt.getPoint());
+            Iterator prueba = ventana.Lista_genero.get(ventana.indice_album).items_genero().iterator();
+         
+        while (prueba.hasNext()) {
+             ListaDeReproduccion elemento=( ListaDeReproduccion)prueba.next();
+             model_genero.addElement(elemento.nom_cancion);
+             
+          //  System.out.println(elemento.nom_cancion);
+            //System.out.println(elemento.nom_cancion+" "+elemento.nom_artista+" "+elemento.nom_album);    
+        }
+             
+        lista.setModel(model_genero );
+          jScrollPane2.setViewportView(lista);
+          jp_Album.add(jScrollPane2);
+          jScrollPane2.setBounds(0, 0, 230, 210);
+        
+       
+         
          }else{
-            ventana.jp_Principal.getComponent(2).setVisible(false);
+             
+             
+                 
+                 ventana.jp_Principal.getComponent(2).setVisible(false);
                  ventana.NoRepro = false;
                  super.setEnabled_Reproduccion(true);
                  ventana.jp_Principal.getComponent(1).setVisible(true);
@@ -267,13 +268,15 @@ DefaultListModel modelo = new DefaultListModel();
                  
                  try {
                      ventana.EnRepro=true;
-                     ventana.mi_reproductor.play(getClass().getResource("/Recursos/You're_My_Best_Friend.mp3").getFile());
+                     
+                    ventana.mi_reproductor.play(ventana.Lista_genero.get(ventana.indice_album).items_genero().get(ventana.indice_cancion).ruta);
                      
                      
                  } catch (Exception ex) {
                      System.out.println("Error: " + ex.getMessage());
                  }
-         
+                 
+        
          }
             /*
             jp_Reproduccion repro = new jp_Reproduccion(canc);
@@ -294,7 +297,7 @@ DefaultListModel modelo = new DefaultListModel();
         }
 
         if(evt.getButton()==MouseEvent.BUTTON3){
-
+/*
             boolean isPopUp = evt.isPopupTrigger();
 
             if ( !isPopUp) {
@@ -314,8 +317,8 @@ DefaultListModel modelo = new DefaultListModel();
 
                     popup.setVisible(true);
                 }
-            }
-        }
+           */ }
+        
     }//GEN-LAST:event_lst_cancionesMouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -324,10 +327,16 @@ DefaultListModel modelo = new DefaultListModel();
         jp_Album.add(jScrollPane2);
         jScrollPane2.setBounds(0, 0, 230, 210);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void btnActualizarCancionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarCancionesActionPerformed
+
+        if(!ventana.inicial.buscando)ventana.inicial.start();
+
+    }//GEN-LAST:event_btnActualizarCancionesActionPerformed
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnActualizarCanciones;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel2;
@@ -342,7 +351,7 @@ DefaultListModel modelo = new DefaultListModel();
     private javax.swing.JMenuItem lista_Estudio;
     private javax.swing.JMenuItem lista_bailable;
     private javax.swing.JMenuItem lista_triste;
-    private javax.swing.JList<String> lst_canciones;
+    public javax.swing.JList<String> lst_canciones;
     public javax.swing.JList<String> lst_tarde;
     private javax.swing.JMenuItem pop_Eliminar;
     private javax.swing.JMenuItem pop_letras;

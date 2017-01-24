@@ -86,6 +86,29 @@
     <Property name="useNullLayout" type="boolean" value="true"/>
   </Layout>
   <SubComponents>
+    <Component class="javax.swing.JButton" name="btnActualizarCanciones">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Recursos/boton_actualizar.png"/>
+        </Property>
+        <Property name="borderPainted" type="boolean" value="false"/>
+        <Property name="contentAreaFilled" type="boolean" value="false"/>
+        <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Recursos/boton_actualizar2.png"/>
+        </Property>
+        <Property name="rolloverSelectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Recursos/boton_actualizar2.png"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActualizarCancionesActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="245" y="55" width="30" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
     <Component class="javax.swing.JButton" name="jButton3">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -114,7 +137,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="35" y="35" width="170" height="25"/>
+          <AbsoluteConstraints x="35" y="35" width="180" height="25"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -128,21 +151,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="205" y="35" width="27" height="25"/>
-        </Constraint>
-      </Constraints>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Recursos/boton 10.png"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Buscar por voz"/>
-        <Property name="horizontalTextPosition" type="int" value="0"/>
-      </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="238" y="35" width="32" height="27"/>
+          <AbsoluteConstraints x="215" y="35" width="27" height="25"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -211,29 +220,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="21">
-                        <StringItem index="0" value="Freddie Mercury"/>
-                        <StringItem index="1" value="Queen"/>
-                        <StringItem index="2" value="Pink Floyd"/>
-                        <StringItem index="3" value="Rage Against The Machine"/>
-                        <StringItem index="4" value="Metallica"/>
-                        <StringItem index="5" value="HED PE"/>
-                        <StringItem index="6" value="Coldplay"/>
-                        <StringItem index="7" value="Sandro"/>
-                        <StringItem index="8" value="Camilo Sesto"/>
-                        <StringItem index="9" value="Leodan"/>
-                        <StringItem index="10" value="The beatles"/>
-                        <StringItem index="11" value="Led Zeppelin"/>
-                        <StringItem index="12" value="Guns and Roses"/>
-                        <StringItem index="13" value="Motorhead"/>
-                        <StringItem index="14" value="Pantera"/>
-                        <StringItem index="15" value="Slayer"/>
-                        <StringItem index="16" value="Ludovico Eanaudi"/>
-                        <StringItem index="17" value="Chopin"/>
-                        <StringItem index="18" value="C.P.E Bach"/>
-                        <StringItem index="19" value="J.S Bach"/>
-                        <StringItem index="20" value=" "/>
-                      </StringArray>
+                      <StringArray count="0"/>
                     </Property>
                     <Property name="selectionMode" type="int" value="0"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -243,6 +230,7 @@
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>
                 </Component>
               </SubComponents>

@@ -20,18 +20,20 @@ public class Clase_Progreso  implements Runnable{
        public int n;
        public boolean fin;
      jp_Reproduccion reproduccion;
-             public  Clase_Progreso(){
+     PepperMusic_Frame ventana;
+             public  Clase_Progreso(PepperMusic_Frame ventana){
                  /*jp_Reproduccion repro
                  reproduccion=repro;
                  fin=false;*/
+                 this.ventana = ventana;
              }
     
            @Override
            
             public void run(){
                 
-                   for( n = 1; n<=300&&!fin;n++){
-                        if(true) {//reproduccion.canc.venta.NoRepro== 
+                   
+                      
                      
                             
                             
@@ -46,22 +48,17 @@ public class Clase_Progreso  implements Runnable{
              //   reproduccion.jp_Progreso.repaint();
               // } 
               
-                Thread.sleep(50);
+                Thread.sleep(25);
                 synchronized(this){
-                    while(suspended)wait();
+                   ventana.repro.js_Letras.getVerticalScrollBar().setValue(0);
                 }
                
             }catch(InterruptedException ex){
                 Logger.getLogger(PepperMusic.class.getName()).log(Level.SEVERE,null, ex);
             }
-            }
+            
              
-        }
-               //reproduccion.canc.venta.EnRepro=false;
-               //reproduccion.START.setSelected(false);
-              
-               
-               fin=false;
+        
               
             }
             public void start(){

@@ -27,6 +27,10 @@ public class jp_Inicio extends javax.swing.JPanel {
         ventana = venta;
        
         p1= new jp_Lista(ventana);
+        p2 = new jp_Lista_ALBUM(ventana);
+        p3= new jp_Lista_ARTISTA(ventana);
+          p4 = new jp_Lista_GENERO(ventana);
+        p5 = new jp_Configuracion_Total(ventana);
        // if(A[1]==2)  System.out.println("hola"+A[1]);
         
     }
@@ -161,17 +165,17 @@ public class jp_Inicio extends javax.swing.JPanel {
     private void btAlbumMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btAlbumMouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_btAlbumMouseExited
-
+jp_Lista_ALBUM p2;
     private void btAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlbumActionPerformed
         ventana.jp_Principal.getComponent(0).setVisible(false);
        
         if(ventana.jp_Principal.getComponentCount()==3) ventana.jp_Principal.remove(2);
               
-            jp_Lista_ALBUM p1 = new jp_Lista_ALBUM(ventana);
-            p1.setSize(300, 336);
-            p1.setLocation(0, 0);
-            p1.setVisible(true);
-            ventana.jp_Principal.add(p1);
+         
+            p2.setSize(300, 336);
+            p2.setLocation(0, 0);
+            p2.setVisible(true);
+            ventana.jp_Principal.add(p2);
            ventana.jp_Principal.revalidate();
            
         
@@ -182,17 +186,17 @@ public class jp_Inicio extends javax.swing.JPanel {
     private void btGeneroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btGeneroMouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_btGeneroMouseExited
-
+jp_Lista_GENERO p4;
     private void btGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGeneroActionPerformed
          ventana.jp_Principal.getComponent(0).setVisible(false);
        
         if(ventana.jp_Principal.getComponentCount()==3) ventana.jp_Principal.remove(2);
               
-            jp_Lista_ALBUM p1 = new jp_Lista_ALBUM(ventana);
-            p1.setSize(300, 336);
-            p1.setLocation(0, 0);
-            p1.setVisible(true);
-            ventana.jp_Principal.add(p1);
+           
+            p4.setSize(300, 336);
+            p4.setLocation(0, 0);
+            p4.setVisible(true);
+            ventana.jp_Principal.add(p4);
            ventana.jp_Principal.revalidate();
     }//GEN-LAST:event_btGeneroActionPerformed
 
@@ -201,7 +205,8 @@ public class jp_Inicio extends javax.swing.JPanel {
     }//GEN-LAST:event_btCancionesMouseExited
  public jp_Lista p1 ;
     private void btCancionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancionesActionPerformed
-         ventana.jp_Principal.getComponent(0).setVisible(false);
+       
+        ventana.jp_Principal.getComponent(0).setVisible(false);
          if(p1==null) p1= new jp_Lista(ventana);
         if(ventana.jp_Principal.getComponentCount()==3) ventana.jp_Principal.remove(2);
               
@@ -212,22 +217,22 @@ public class jp_Inicio extends javax.swing.JPanel {
             ventana.jp_Principal.add(p1);
            ventana.jp_Principal.revalidate();
     }//GEN-LAST:event_btCancionesActionPerformed
-  jp_Configuracion_Total p2 ;
+  jp_Configuracion_Total p5 ;
     private void btConfiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfiActionPerformed
          ventana.jp_Principal.getComponent(0).setVisible(false);
-         p2 = new jp_Configuracion_Total(ventana);
+         
         if(ventana.jp_Principal.getComponentCount()==3) ventana.jp_Principal.remove(2);
           
-            p2.setSize(300, 336);
-            p2.setLocation(0, 0);
-            p2.setVisible(true);
-            ventana.jp_Principal.add(p2);
+            p5.setSize(300, 336);
+            p5.setLocation(0, 0);
+            p5.setVisible(true);
+            ventana.jp_Principal.add(p5);
            ventana.jp_Principal.revalidate();
     }//GEN-LAST:event_btConfiActionPerformed
-
+  jp_Lista_ARTISTA p3 ;
     private void btArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btArtistaActionPerformed
          ventana.jp_Principal.getComponent(0).setVisible(false);
-        jp_Lista_ARTISTA p3 = new jp_Lista_ARTISTA(ventana);
+      
         if(ventana.jp_Principal.getComponentCount()==3) ventana.jp_Principal.remove(2);
               
            

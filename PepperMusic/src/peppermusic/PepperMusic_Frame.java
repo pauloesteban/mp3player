@@ -14,7 +14,6 @@ import java.awt.geom.RoundRectangle2D;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +26,9 @@ import javazoom.jlgui.player.amp.tag.TagInfoFactory;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.tritonus.share.sampled.file.TAudioFileFormat;
+import peppermusic.contenedores.Contenedor_album;
+import peppermusic.contenedores.Contenedor_artista;
+import peppermusic.contenedores.Contenedor_genero;
 import sun.security.krb5.Config;
 
 /**
@@ -41,9 +43,12 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
      * Creates new form PepperMusic_Frame
      */
    // ListaDeReproduccion[] lista_completa;
-     List<ListaDeReproduccion> lista_completa=new ArrayList<ListaDeReproduccion>();
+     ArrayList<ListaDeReproduccion> lista_completa=new ArrayList<ListaDeReproduccion>();
+      ArrayList<Contenedor_album> Lista_album=new ArrayList<Contenedor_album>();
+      ArrayList<Contenedor_artista> Lista_artista=new ArrayList<Contenedor_artista>();
+      ArrayList<Contenedor_genero> Lista_genero=new ArrayList<Contenedor_genero>();
     SeekAndDestroy inicial = new SeekAndDestroy(this);
-    
+   
     public  boolean EnRepro = false;  //Usada para saber cuando se está reproducciendo una cancion
     public  boolean NoRepro = true;   // idica si se ha salido del jp_Reproduccion (para no dibujar el progreso)
     public Clase_Progreso Barra;
@@ -59,7 +64,9 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
     public String nom_artista;
     public String nom_album;
     public int  indice;
-    
+    public int indice_album;
+    public int indice_cancion;
+    public int modo;
          private static Log log = LogFactory.getLog(TagInfoFactory.class);
 	private static TagInfoFactory instance = null;
 	private Class  MpegTagInfoClass = null;
@@ -77,7 +84,7 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
           if(!letras.exists())letras.mkdirs();
           if(!configuracion.exists())configuracion.mkdirs();
           
-          
+           
           
           this.setSize(new Dimension(300, 336));
           this.setMinimumSize(new Dimension(0, 0));

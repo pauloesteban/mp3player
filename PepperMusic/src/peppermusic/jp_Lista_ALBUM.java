@@ -6,6 +6,7 @@
 package peppermusic;
 
 import java.awt.event.MouseEvent;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,50 +23,23 @@ public class jp_Lista_ALBUM extends jp_Canciones {
      * Creates new form jp_Lista
      */
     
-    JList cancion;
-    JList guardar;
+    
+   
     jp_Canciones canc;
-    private final String canciones[] = { "Mustapha",
-"Fat Bottomed Girls",
-"Jealousy",
-"Bicycle Race",
-"If You Can't Beat Them",
-"Let Me Entertain You",
-"Dead On Time",
-"In Only Seven Days",
-"Dreamer's Ball",
-"Fun It",
-"Leaving Home Ain't Easy",
-"Don't Stop Me Now",
-"More Of That Jazz" };
+   
     PepperMusic_Frame ventana;
     public jp_Lista_ALBUM(PepperMusic_Frame venta) {
         super(venta);
         initComponents();
         ventana=venta;
          
-        guardar=lst_canciones;
-        cancion=new JList(canciones);
+        
+       
         if(ventana.EnRepro==false)super.setEnabled_Reproduccion(false);
         super.setSelected_Lista(true);
         super.setSelected_Reproduccion(false);
 
-        cancion.setBackground(new java.awt.Color(0, 0, 0));
-        cancion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        cancion.setFont(new java.awt.Font("Rockwell Condensed", 1, 12)); // NOI18N
-        cancion.setForeground(new java.awt.Color(255, 255, 255));
-        cancion.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = canciones;
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        cancion.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        cancion.setToolTipText("");
-        cancion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lst_cancionesMouseClicked(evt);
-            }
-        });
+        
        /* jScrollPane2.setViewportView(cancion);
 
         jp_Album.add(jScrollPane2);
@@ -93,9 +67,9 @@ public class jp_Lista_ALBUM extends jp_Canciones {
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         pop_letras = new javax.swing.JMenuItem();
         pop_Eliminar = new javax.swing.JMenuItem();
+        btnActualizarCanciones = new javax.swing.JButton();
         jb_Regresar_Album = new javax.swing.JButton();
         jtx_buscar = new javax.swing.JTextField();
-        btnActualizarBiblioteca = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jp_Album = new javax.swing.JPanel();
@@ -141,12 +115,30 @@ public class jp_Lista_ALBUM extends jp_Canciones {
         popup.add(pop_Eliminar);
 
         setOpaque(false);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
         addVetoableChangeListener(new java.beans.VetoableChangeListener() {
             public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
                 formVetoableChange(evt);
             }
         });
         setLayout(null);
+
+        btnActualizarCanciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_actualizar.png"))); // NOI18N
+        btnActualizarCanciones.setBorderPainted(false);
+        btnActualizarCanciones.setContentAreaFilled(false);
+        btnActualizarCanciones.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_actualizar2.png"))); // NOI18N
+        btnActualizarCanciones.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_actualizar2.png"))); // NOI18N
+        btnActualizarCanciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarCancionesActionPerformed(evt);
+            }
+        });
+        add(btnActualizarCanciones);
+        btnActualizarCanciones.setBounds(245, 55, 30, 30);
 
         jb_Regresar_Album.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/album_retroceder.png"))); // NOI18N
         jb_Regresar_Album.setBorder(null);
@@ -163,14 +155,6 @@ public class jp_Lista_ALBUM extends jp_Canciones {
         jtx_buscar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         add(jtx_buscar);
         jtx_buscar.setBounds(35, 30, 180, 30);
-
-        btnActualizarBiblioteca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarBibliotecaActionPerformed(evt);
-            }
-        });
-        add(btnActualizarBiblioteca);
-        btnActualizarBiblioteca.setBounds(220, 65, 30, 25);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Boton 9.png"))); // NOI18N
         jButton2.setToolTipText("Buscar");
@@ -189,11 +173,6 @@ public class jp_Lista_ALBUM extends jp_Canciones {
         lst_canciones.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         lst_canciones.setFont(new java.awt.Font("Rockwell Condensed", 1, 12)); // NOI18N
         lst_canciones.setForeground(new java.awt.Color(255, 255, 255));
-        lst_canciones.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Queen", "Queen II", "Sheer Heart Attack", "A night at the Opera", "A day at the race", "News of the World", "Jazz", "The Game ", "Host space", "The works", "A Kind of Magic", "The miracle", "Innuendo", "Made in Heaven" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         lst_canciones.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         lst_canciones.setToolTipText("");
         lst_canciones.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -249,9 +228,9 @@ public class jp_Lista_ALBUM extends jp_Canciones {
 DefaultListModel modelo = new DefaultListModel();
     private void pop_tardeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pop_tardeActionPerformed
         // TODO add your handling code here:
-         if( jScrollPane2.getViewport().getComponent(0)==cancion) modelo.addElement((String)cancion.getSelectedValue());
+/*         if( jScrollPane2.getViewport().getComponent(0)==cancion) modelo.addElement((String)cancion.getSelectedValue());
          else  modelo.addElement((String)lst_canciones.getSelectedValue());
-           lst_tarde.setModel(modelo);
+           lst_tarde.setModel(modelo);*/
         
         
     }//GEN-LAST:event_pop_tardeActionPerformed
@@ -261,15 +240,47 @@ DefaultListModel modelo = new DefaultListModel();
     }//GEN-LAST:event_lst_tardeMouseClicked
 
  
- 
     private void lst_cancionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lst_cancionesMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() == 2) {
+           
             
+            
+        DefaultListModel model_album = new DefaultListModel();
          if( jScrollPane2.getViewport().getComponent(0)==lst_canciones){
-        jScrollPane2.setViewportView(cancion);
-        jp_Album.add(jScrollPane2);
-        jScrollPane2.setBounds(0, 0, 230, 210);
+              JList lista = new JList();
+           lista.setBackground(new java.awt.Color(0, 0, 0));
+        lista.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        lista.setFont(new java.awt.Font("Rockwell Condensed", 1, 12)); // NOI18N
+       lista.setForeground(new java.awt.Color(255, 255, 255));
+        
+        lista.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        lista.setToolTipText("");
+        lista.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ventana.indice_cancion = lista.locationToIndex(evt.getPoint());
+                lst_cancionesMouseClicked(evt);
+                
+            }
+        }); 
+              ventana.indice_album = lst_canciones.locationToIndex(evt.getPoint());
+            Iterator prueba = ventana.Lista_album.get(ventana.indice_album).items_album().iterator();
+         
+        while (prueba.hasNext()) {
+             ListaDeReproduccion elemento=( ListaDeReproduccion)prueba.next();
+             model_album.addElement(elemento.nom_cancion);
+             
+            System.out.println(elemento.nom_cancion);
+            //System.out.println(elemento.nom_cancion+" "+elemento.nom_artista+" "+elemento.nom_album);    
+        }
+             
+        lista.setModel(model_album );
+          jScrollPane2.setViewportView(lista);
+          jp_Album.add(jScrollPane2);
+          jScrollPane2.setBounds(0, 0, 230, 210);
+        
+       
+         
          }else{
              
              
@@ -282,7 +293,8 @@ DefaultListModel modelo = new DefaultListModel();
                  
                  try {
                      ventana.EnRepro=true;
-                     ventana.mi_reproductor.play(getClass().getResource("/Recursos/You're_My_Best_Friend.mp3").getFile());
+                     
+                    ventana.mi_reproductor.play(ventana.Lista_album.get(ventana.indice_album).items_album().get(ventana.indice_cancion).ruta);
                      
                      
                  } catch (Exception ex) {
@@ -292,7 +304,7 @@ DefaultListModel modelo = new DefaultListModel();
        }
         }
         if(evt.getButton()==MouseEvent.BUTTON3){
-
+/*
             boolean isPopUp = evt.isPopupTrigger();
 
             if ( !isPopUp) {
@@ -312,7 +324,7 @@ DefaultListModel modelo = new DefaultListModel();
 
                     popup.setVisible(true);
                 }
-            }
+            }*/
         }
     }//GEN-LAST:event_lst_cancionesMouseClicked
     
@@ -323,11 +335,6 @@ DefaultListModel modelo = new DefaultListModel();
         jScrollPane2.setBounds(0, 0, 230, 210);
     }//GEN-LAST:event_jb_Regresar_AlbumActionPerformed
 
-    private void btnActualizarBibliotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarBibliotecaActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnActualizarBibliotecaActionPerformed
-
     private void formVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_formVetoableChange
         // TODO add your handling code here:
          
@@ -336,14 +343,25 @@ DefaultListModel modelo = new DefaultListModel();
     private void jLabel2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabel2PropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel2PropertyChange
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        // TODO add your handling code here:
+       
+        
+    }//GEN-LAST:event_formComponentShown
+
+    private void btnActualizarCancionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarCancionesActionPerformed
+
+        if(!ventana.inicial.buscando)ventana.inicial.start();
+    }//GEN-LAST:event_btnActualizarCancionesActionPerformed
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnActualizarBiblioteca;
+    private javax.swing.JButton btnActualizarCanciones;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -354,7 +372,7 @@ DefaultListModel modelo = new DefaultListModel();
     private javax.swing.JMenuItem lista_Estudio;
     private javax.swing.JMenuItem lista_bailable;
     private javax.swing.JMenuItem lista_triste;
-    private javax.swing.JList<String> lst_canciones;
+    public javax.swing.JList<String> lst_canciones;
     public javax.swing.JList<String> lst_tarde;
     private javax.swing.JMenuItem pop_Eliminar;
     private javax.swing.JMenuItem pop_letras;
