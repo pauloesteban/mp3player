@@ -82,8 +82,6 @@ public class jp_Canciones extends javax.swing.JPanel {
 
         jtb_lista = new javax.swing.JToggleButton();
         jtb_repro = new javax.swing.JToggleButton();
-        jb_Cerrar = new javax.swing.JButton();
-        jb_Minimizar = new javax.swing.JButton();
         jp_Cancion = new javax.swing.JPanel();
         jb_Regresar = new javax.swing.JButton();
 
@@ -110,36 +108,6 @@ public class jp_Canciones extends javax.swing.JPanel {
         });
         add(jtb_repro);
         jtb_repro.setBounds(90, 0, 90, 25);
-
-        jb_Cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/cerrar.png"))); // NOI18N
-        jb_Cerrar.setAlignmentY(0.0F);
-        jb_Cerrar.setBorder(null);
-        jb_Cerrar.setBorderPainted(false);
-        jb_Cerrar.setContentAreaFilled(false);
-        jb_Cerrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jb_Cerrar.setIconTextGap(-3);
-        jb_Cerrar.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jb_Cerrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/cerrar3.png"))); // NOI18N
-        jb_Cerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_CerrarActionPerformed(evt);
-            }
-        });
-        add(jb_Cerrar);
-        jb_Cerrar.setBounds(230, 0, 30, 30);
-
-        jb_Minimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_minimizar.png"))); // NOI18N
-        jb_Minimizar.setBorder(null);
-        jb_Minimizar.setBorderPainted(false);
-        jb_Minimizar.setContentAreaFilled(false);
-        jb_Minimizar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_minimizar2.png"))); // NOI18N
-        jb_Minimizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_MinimizarActionPerformed(evt);
-            }
-        });
-        add(jb_Minimizar);
-        jb_Minimizar.setBounds(193, 0, 30, 30);
 
         jp_Cancion.setOpaque(false);
         jp_Cancion.setLayout(null);
@@ -255,28 +223,6 @@ public class jp_Canciones extends javax.swing.JPanel {
 
     }//GEN-LAST:event_jtb_reproActionPerformed
 
-    private void jb_CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_CerrarActionPerformed
-        // TODO add your handling code here:
-       if(ventana.EnRepro==true){ try {
-           ventana.mi_reproductor.Stop();
-           
-           } catch (Exception ex) {
-               Logger.getLogger(jp_Canciones.class.getName()).log(Level.SEVERE, null, ex);
-               
-           }}else{
-       // ventana.Barra.resume();
-        //ventana.Barra.stop();
-       
-        
-        }
-       ventana.dispose();
-    }//GEN-LAST:event_jb_CerrarActionPerformed
-
-    private void jb_MinimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_MinimizarActionPerformed
-        // TODO add your handling code here:
-         ventana.setExtendedState(ICONIFIED);
-    }//GEN-LAST:event_jb_MinimizarActionPerformed
-
     private void jb_RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_RegresarActionPerformed
         // TODO add your handling code here:
         /*
@@ -295,8 +241,6 @@ public class jp_Canciones extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jb_Cerrar;
-    private javax.swing.JButton jb_Minimizar;
     private javax.swing.JButton jb_Regresar;
     public javax.swing.JPanel jp_Cancion;
     public javax.swing.JToggleButton jtb_lista;

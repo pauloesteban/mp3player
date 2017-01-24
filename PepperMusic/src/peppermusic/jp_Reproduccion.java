@@ -133,7 +133,7 @@ public class jp_Reproduccion extends jp_Canciones {
             }
         });
         add(jtb_agrandar);
-        jtb_agrandar.setBounds(265, 23, 25, 25);
+        jtb_agrandar.setBounds(270, 60, 25, 25);
 
         karaoke.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/barramusical.png"))); // NOI18N
         karaoke.setBorder(null);
@@ -224,7 +224,7 @@ public class jp_Reproduccion extends jp_Canciones {
             }
         });
         add(customButton1);
-        customButton1.setBounds(250, 120, 25, 25);
+        customButton1.setBounds(250, 125, 25, 25);
 
         js_volumen.setOrientation(javax.swing.JSlider.VERTICAL);
         js_volumen.setPaintLabels(true);
@@ -253,7 +253,7 @@ public class jp_Reproduccion extends jp_Canciones {
             }
         });
         add(js_volumen);
-        js_volumen.setBounds(245, 36, 35, 90);
+        js_volumen.setBounds(245, 41, 35, 90);
 
         jtb_aleatorio.setBorder(null);
         jtb_aleatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_aleatorio_off.png"))); // NOI18N
@@ -577,7 +577,7 @@ public String getViscolor(String path) {
 
     private void jtb_agrandarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtb_agrandarActionPerformed
         // TODO add your handling code here:
-        
+       
         if(jtb_agrandar.isSelected()){
            // jtb_agrandar.setLocation(238,150);
           
@@ -707,7 +707,8 @@ public void leer_txt(String ruta){
                        SimpleAttributeSet center = new SimpleAttributeSet();
                       StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
                        doc.setParagraphAttributes(0, doc.getLength(), center, false);
-                     
+                      jtxt_letra.revalidate();
+                      js_Letras.getVerticalScrollBar().setValue(0);
                     
                       
  }
@@ -725,7 +726,7 @@ public void leer_txt(String ruta){
             jlb_artista.setText(ventana.nom_artista);
            jlb_cancion.setText(ventana.nom_cancion);
             jlb_album.setText(ventana.nom_album);
-             js_Letras.getVerticalScrollBar().setValue(0); 
+            // js_Letras.getVerticalScrollBar().setValue(0); 
             /*
            jlb_barras.setIcon(new ImageIcon( getClass().getResource("/Recursos/imagen_letras.png")));
             jlb_barras.repaint();
@@ -784,7 +785,7 @@ public void leer_txt(String ruta){
         jlb_cancion.setText(ventana.nom_cancion);
         jlb_artista.setText(ventana.nom_artista);
         jlb_album.setText(ventana.nom_album);
-         
+        // js_Letras.getVerticalScrollBar().setValue(0);
     }//GEN-LAST:event_formComponentShown
 
     private void jb_add_letrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_add_letrasActionPerformed

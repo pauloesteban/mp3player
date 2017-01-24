@@ -148,6 +148,9 @@ if (baseFileFormat instanceof TAudioFileFormat)
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jb_Cerrar = new javax.swing.JButton();
+        jb_Minimizar = new javax.swing.JButton();
+        jb_ayuda = new javax.swing.JButton();
         jp_Principal = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -164,21 +167,47 @@ if (baseFileFormat instanceof TAudioFileFormat)
         });
         getContentPane().setLayout(null);
 
+        jb_Cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/cerrar.png"))); // NOI18N
+        jb_Cerrar.setAlignmentY(0.0F);
+        jb_Cerrar.setBorder(null);
+        jb_Cerrar.setBorderPainted(false);
+        jb_Cerrar.setContentAreaFilled(false);
+        jb_Cerrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jb_Cerrar.setIconTextGap(-3);
+        jb_Cerrar.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        jb_Cerrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/cerrar3.png"))); // NOI18N
+        jb_Cerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_CerrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jb_Cerrar);
+        jb_Cerrar.setBounds(230, 0, 30, 30);
+
+        jb_Minimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_minimizar.png"))); // NOI18N
+        jb_Minimizar.setBorder(null);
+        jb_Minimizar.setBorderPainted(false);
+        jb_Minimizar.setContentAreaFilled(false);
+        jb_Minimizar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_minimizar2.png"))); // NOI18N
+        jb_Minimizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_MinimizarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jb_Minimizar);
+        jb_Minimizar.setBounds(193, 0, 30, 30);
+
+        jb_ayuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_ayuda.png"))); // NOI18N
+        jb_ayuda.setBorderPainted(false);
+        jb_ayuda.setContentAreaFilled(false);
+        jb_ayuda.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_ayuda2.png"))); // NOI18N
+        getContentPane().add(jb_ayuda);
+        jb_ayuda.setBounds(255, 20, 35, 35);
+
         jp_Principal.setAlignmentX(0.0F);
         jp_Principal.setAlignmentY(0.0F);
         jp_Principal.setOpaque(false);
-
-        javax.swing.GroupLayout jp_PrincipalLayout = new javax.swing.GroupLayout(jp_Principal);
-        jp_Principal.setLayout(jp_PrincipalLayout);
-        jp_PrincipalLayout.setHorizontalGroup(
-            jp_PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-        jp_PrincipalLayout.setVerticalGroup(
-            jp_PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 336, Short.MAX_VALUE)
-        );
-
+        jp_Principal.setLayout(null);
         getContentPane().add(jp_Principal);
         jp_Principal.setBounds(0, 0, 300, 336);
 
@@ -196,6 +225,27 @@ int x,y;
         Point p = MouseInfo.getPointerInfo().getLocation();
           this.setLocation(p.x-x,p.y-y);
     }//GEN-LAST:event_formMouseDragged
+
+    private void jb_CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_CerrarActionPerformed
+        // TODO add your handling code here:
+        if(this.EnRepro==true){ try {
+            this.mi_reproductor.Stop();
+
+        } catch (Exception ex) {
+            Logger.getLogger(jp_Canciones.class.getName()).log(Level.SEVERE, null, ex);
+
+        }}else{
+            // ventana.Barra.resume();
+            //ventana.Barra.stop();
+
+        }
+        this.dispose();
+    }//GEN-LAST:event_jb_CerrarActionPerformed
+
+    private void jb_MinimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_MinimizarActionPerformed
+        // TODO add your handling code here:
+        this.setExtendedState(ICONIFIED);
+    }//GEN-LAST:event_jb_MinimizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,6 +283,9 @@ int x,y;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jb_Cerrar;
+    private javax.swing.JButton jb_Minimizar;
+    private javax.swing.JButton jb_ayuda;
     public javax.swing.JPanel jp_Principal;
     // End of variables declaration//GEN-END:variables
 }

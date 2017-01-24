@@ -26,8 +26,8 @@ public class jp_Inicio extends javax.swing.JPanel {
         initComponents();
         ventana = venta;
        
-       
-        if(A[1]==2)  System.out.println("hola"+A[1]);
+        p1= new jp_Lista(ventana);
+       // if(A[1]==2)  System.out.println("hola"+A[1]);
         
     }
 
@@ -41,33 +41,14 @@ public class jp_Inicio extends javax.swing.JPanel {
     private void initComponents() {
 
         mensaje = new javax.swing.JOptionPane();
-        btMinimizar = new javax.swing.JButton();
         btAlbum = new javax.swing.JButton();
         btGenero = new javax.swing.JButton();
         btCanciones = new javax.swing.JButton();
         btConfi = new javax.swing.JButton();
-        btCerrar = new javax.swing.JButton();
         btArtista = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setLayout(null);
-
-        btMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/minimizar.png"))); // NOI18N
-        btMinimizar.setToolTipText("MINIMIZAR");
-        btMinimizar.setBorder(null);
-        btMinimizar.setBorderPainted(false);
-        btMinimizar.setContentAreaFilled(false);
-        btMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btMinimizar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btMinimizar.setPreferredSize(new java.awt.Dimension(70, 70));
-        btMinimizar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/minimizar2.png"))); // NOI18N
-        btMinimizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btMinimizarActionPerformed(evt);
-            }
-        });
-        add(btMinimizar);
-        btMinimizar.setBounds(180, 10, 40, 40);
 
         btAlbum.setBackground(new java.awt.Color(255, 255, 199));
         btAlbum.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/album.png"))); // NOI18N
@@ -154,22 +135,6 @@ public class jp_Inicio extends javax.swing.JPanel {
         add(btConfi);
         btConfi.setBounds(210, 240, 50, 50);
 
-        btCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/cerrar.png"))); // NOI18N
-        btCerrar.setToolTipText("CERRAR");
-        btCerrar.setBorder(null);
-        btCerrar.setBorderPainted(false);
-        btCerrar.setContentAreaFilled(false);
-        btCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btCerrar.setPreferredSize(new java.awt.Dimension(70, 70));
-        btCerrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_Cerrar2.png"))); // NOI18N
-        btCerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCerrarActionPerformed(evt);
-            }
-        });
-        add(btCerrar);
-        btCerrar.setBounds(230, 10, 40, 40);
-
         btArtista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/artista.png"))); // NOI18N
         btArtista.setToolTipText("ARTISTA");
         btArtista.setBorder(null);
@@ -192,12 +157,6 @@ public class jp_Inicio extends javax.swing.JPanel {
         add(jLabel2);
         jLabel2.setBounds(0, 0, 300, 336);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btMinimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMinimizarActionPerformed
-        // TODO add your handling code here:jFrame1.CROSSHAIR_CURSOR
-       
-       ventana.setExtendedState(ICONIFIED);
-    }//GEN-LAST:event_btMinimizarActionPerformed
 
     private void btAlbumMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btAlbumMouseExited
         // TODO add your handling code here:
@@ -266,18 +225,6 @@ public class jp_Inicio extends javax.swing.JPanel {
            ventana.jp_Principal.revalidate();
     }//GEN-LAST:event_btConfiActionPerformed
 
-    private void btCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCerrarActionPerformed
-        // TODO add your handling code here:
-       if(ventana.EnRepro==true){ try {
-           ventana.mi_reproductor.Stop();
-           
-           } catch (Exception ex) {
-               Logger.getLogger(jp_Canciones.class.getName()).log(Level.SEVERE, null, ex);
-               
-           }}
-        ventana.dispose();
-    }//GEN-LAST:event_btCerrarActionPerformed
-
     private void btArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btArtistaActionPerformed
          ventana.jp_Principal.getComponent(0).setVisible(false);
         jp_Lista_ARTISTA p3 = new jp_Lista_ARTISTA(ventana);
@@ -296,10 +243,8 @@ public class jp_Inicio extends javax.swing.JPanel {
     private javax.swing.JButton btAlbum;
     private javax.swing.JButton btArtista;
     private javax.swing.JButton btCanciones;
-    private javax.swing.JButton btCerrar;
     private javax.swing.JButton btConfi;
     private javax.swing.JButton btGenero;
-    private javax.swing.JButton btMinimizar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JOptionPane mensaje;
     // End of variables declaration//GEN-END:variables
