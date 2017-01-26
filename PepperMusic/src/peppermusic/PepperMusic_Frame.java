@@ -43,14 +43,14 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
      * Creates new form PepperMusic_Frame
      */
    // ListaDeReproduccion[] lista_completa;
-     ArrayList<ListaDeReproduccion> lista_completa=new ArrayList<ListaDeReproduccion>();
-      ArrayList<Contenedor_album> Lista_album=new ArrayList<Contenedor_album>();
-      ArrayList<Contenedor_artista> Lista_artista=new ArrayList<Contenedor_artista>();
-      ArrayList<Contenedor_genero> Lista_genero=new ArrayList<Contenedor_genero>();
+    ArrayList<ListaDeReproduccion> lista_completa = new ArrayList<>();
+    ArrayList<Contenedor_album> Lista_album = new ArrayList<>();
+    ArrayList<Contenedor_artista> Lista_artista = new ArrayList<>();
+    ArrayList<Contenedor_genero> Lista_genero = new ArrayList<>();
     SeekAndDestroy inicial = new SeekAndDestroy(this);
    
-    public  boolean EnRepro = false;  //Usada para saber cuando se está reproducciendo una cancion
-    public  boolean NoRepro = true;   // idica si se ha salido del jp_Reproduccion (para no dibujar el progreso)
+    public boolean EnRepro = false;  //Usada para saber cuando se está reproducciendo una cancion
+    public boolean NoRepro = true;   // idica si se ha salido del jp_Reproduccion (para no dibujar el progreso)
     public Clase_Progreso Barra;
     public jp_Reproduccion repro;
     public jp_Inicio inicio;
@@ -67,65 +67,60 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
     public int indice_album;
     public int indice_cancion;
     public int modo;
-         private static Log log = LogFactory.getLog(TagInfoFactory.class);
-	private static TagInfoFactory instance = null;
-	private Class  MpegTagInfoClass = null;
-	private Class  VorbisTagInfoClass = null;
-	private Config conf = null;
-    
+        
+    private static Log log = LogFactory.getLog(TagInfoFactory.class);
+    private static TagInfoFactory instance = null;
+    private Class  MpegTagInfoClass = null;
+    private Class  VorbisTagInfoClass = null;
+    private Config conf = null;
+
     public PepperMusic_Frame() {
        // repro = new jp_Reproduccion();
-          this.setUndecorated(true);
-          initComponents();
-          //crea las carpetas en el directorio C
-          File letras = new File("C:\\PepperMusic_Datos\\Letras");
-          File configuracion = new File("C:\\PepperMusic_Datos\\Configuracion");
+        this.setUndecorated(true);
+        initComponents();
+        //crea las carpetas en el directorio C
+        File letras = new File("C:\\PepperMusic_Datos\\Letras");
+        File configuracion = new File("C:\\PepperMusic_Datos\\Configuracion");
       
-          if(!letras.exists())letras.mkdirs();
-          if(!configuracion.exists())configuracion.mkdirs();
+        if(!letras.exists())letras.mkdirs();
+        if(!configuracion.exists())configuracion.mkdirs();
           
            
           
-          this.setSize(new Dimension(300, 336));
-          this.setMinimumSize(new Dimension(0, 0));
-          this.setLocationRelativeTo(null);
-          this.setResizable(false); // anula el boton maximizar
+        this.setSize(new Dimension(300, 336));
+        this.setMinimumSize(new Dimension(0, 0));
+        this.setLocationRelativeTo(null);
+        this.setResizable(false); // anula el boton maximizar
         Shape forma = new RoundRectangle2D.Double(0,0,this.getBounds().width,this.getBounds().height,125,125);
         AWTUtilities.setWindowShape(this, forma);
         
-        
         //abrir Jp_Inicio que contiene el menú principal 
-             
-            jp_Principal.removeAll();
+        jp_Principal.removeAll();
             
-            inicio = new jp_Inicio(this);
-           inicio.setSize(300, 336);
-            inicio.setLocation(0, 0);
-            jp_Principal.add(inicio);
-            
-            repro = new jp_Reproduccion(this);
-            repro.setSize(300, 336);
-            repro.setLocation(0, 0);
-            repro.setVisible(false);
-            jp_Principal.add(repro);
-            
-            
-            jp_Principal.revalidate();
-            jp_Principal.repaint();
-            
-            inicial.start();
-            
-   
-    
- 
+        inicio = new jp_Inicio(this);
+        inicio.setSize(300, 336);
+        inicio.setLocation(0, 0);
+        jp_Principal.add(inicio);
+
+        repro = new jp_Reproduccion(this);
+        repro.setSize(300, 336);
+        repro.setLocation(0, 0);
+        repro.setVisible(false);
+        jp_Principal.add(repro);
+
+
+        jp_Principal.revalidate();
+        jp_Principal.repaint();
+
+        inicial.start();
  }
      
 public void Meta_Audio(String ruta,String propiedad){
     //"mp3.id3tag.genre"
     ///////////OBTENER DATOS DE LOS ARCHIVOS MP3     
-File file = new File(ruta);
-AudioFileFormat baseFileFormat = null;
-AudioFormat baseFormat = null;
+    File file = new File(ruta);
+    AudioFileFormat baseFileFormat = null;
+    AudioFormat baseFormat = null;
         try {
             baseFileFormat = AudioSystem.getAudioFileFormat(file);
         } catch (UnsupportedAudioFileException ex) {
@@ -230,21 +225,20 @@ int x,y;
     private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
         // TODO add your handling code here:
         Point p = MouseInfo.getPointerInfo().getLocation();
-          this.setLocation(p.x-x,p.y-y);
+        this.setLocation(p.x-x,p.y-y);
     }//GEN-LAST:event_formMouseDragged
 
     private void jb_CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_CerrarActionPerformed
         // TODO add your handling code here:
-        if(this.EnRepro==true){ try {
-            this.mi_reproductor.Stop();
-
-        } catch (Exception ex) {
-            Logger.getLogger(jp_Canciones.class.getName()).log(Level.SEVERE, null, ex);
-
-        }}else{
+        if(this.EnRepro==true){ 
+            try {
+                this.mi_reproductor.Stop();
+            } catch (Exception ex) {
+                Logger.getLogger(jp_Canciones.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
             // ventana.Barra.resume();
             //ventana.Barra.stop();
-
         }
         this.dispose();
     }//GEN-LAST:event_jb_CerrarActionPerformed

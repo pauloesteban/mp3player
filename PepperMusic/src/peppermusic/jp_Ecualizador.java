@@ -132,14 +132,14 @@ public class jp_Ecualizador extends jp_Configuracion {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btConfiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfiActionPerformed
-ventana.jp_Principal.getComponent(2).setVisible(false);
+        ventana.jp_Principal.getComponent(2).setVisible(false);
         ventana.jp_Principal.remove(2);
-            jp_Configuracion_Total p1 = new jp_Configuracion_Total(ventana);
-            p1.setSize(300, 336);
-            p1.setLocation(0, 0);
-            p1.setVisible(true);
-            ventana.jp_Principal.add(p1);
-           ventana.jp_Principal.revalidate();
+        jp_Configuracion_Total p1 = new jp_Configuracion_Total(ventana);
+        p1.setSize(300, 336);
+        p1.setLocation(0, 0);
+        p1.setVisible(true);
+        ventana.jp_Principal.add(p1);
+        ventana.jp_Principal.revalidate();
     }//GEN-LAST:event_btConfiActionPerformed
 
 

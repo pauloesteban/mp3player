@@ -30,19 +30,18 @@ public class Reproductor  implements BasicPlayerListener{
     private APEInfo tas;
     jp_Reproduccion repro;
     BasicController control ;
-     String dura_minu;
+    String dura_minu;
+    public float[] equalizer; //Para pasar los parametros del ecualizador
+    float[] eq = new float[32]; 
     public Reproductor(PepperMusic_Frame venta){
         ventana = venta;
         player = new BasicPlayer();
-         
-         
-         
         control = (BasicController) player;
         //repro = (jp_Reproduccion)ventana.jp_Principal.getComponent(1);
         
-           // repro  = (jp_Reproduccion) component[1];
+        // repro  = (jp_Reproduccion) component[1];
         
-     //  control = (BasicController) tas;
+        //  control = (BasicController) tas;
         
         player.addBasicPlayerListener(this);
     }
@@ -106,105 +105,106 @@ public class Reproductor  implements BasicPlayerListener{
     }
   }
 
-  /**
-   * Open callback, stream is ready to play.
-   *
-   * properties map includes audio format dependant features such as
-   * bitrate, duration, frequency, channels, number of frames, vbr flag, ... 
-   *
-   * @param stream could be File, URL or InputStream
-   * @param properties audio stream properties.
-   */
-  public void opened(Object stream, Map properties)
-  {
-       ventana.audioInfo = properties;
-     //   try {
-            // Pay attention to properties. It's useful to get duration,
-            // bitrate, channels, even tag such as ID3v2.
-            display("opened : "+properties.toString());
-            ventana.duracion = Long.valueOf( properties.get("duration").toString());
-            display("tiempo: "+(ventana.duracion/1000));
-            ventana.bits_total=Long.valueOf( properties.get("audio.length.bytes").toString());
-            //
-           // control.seek(5000);
-            
-            //this.getArtist();
-       // } catch (BasicPlayerException ex) {
-       //     Logger.getLogger(Reproductor.class.getName()).log(Level.SEVERE, null, ex);
-       // }
-         ventana.nom_album=ventana.audioInfo.get("album").toString();
-         if(!ventana.audioInfo.get("title").toString().isEmpty()&&sonEspacios(ventana.audioInfo.get("title").toString()))ventana.nom_cancion=ventana.audioInfo.get("title").toString();
-         ventana.nom_artista=ventana.audioInfo.get("author").toString();
-        System.out.println(ventana.nom_cancion);
-         long duri=ventana.duracion/1000000;
-         dura_minu= (((duri/60<10)?"0":"")+(duri/60)+":"+((duri%60<10)?"0":"")+(duri%60));
-  }
-  public void seeked(long l) throws BasicPlayerException{
+    /**
+     * Open callback, stream is ready to play.
+     *
+     * properties map includes audio format dependant features such as
+     * bitrate, duration, frequency, channels, number of frames, vbr flag, ... 
+     *
+     * @param stream could be File, URL or InputStream
+     * @param properties audio stream properties.
+     */
+    public void opened(Object stream, Map properties)
+    {
+         ventana.audioInfo = properties;
+       //   try {
+              // Pay attention to properties. It's useful to get duration,
+              // bitrate, channels, even tag such as ID3v2.
+              display("opened : "+properties.toString());
+              ventana.duracion = Long.valueOf( properties.get("duration").toString());
+              display("tiempo: "+(ventana.duracion/1000));
+              ventana.bits_total=Long.valueOf( properties.get("audio.length.bytes").toString());
+              //
+             // control.seek(5000);
+
+              //this.getArtist();
+         // } catch (BasicPlayerException ex) {
+         //     Logger.getLogger(Reproductor.class.getName()).log(Level.SEVERE, null, ex);
+         // }
+           ventana.nom_album=ventana.audioInfo.get("album").toString();
+           if(!ventana.audioInfo.get("title").toString().isEmpty()&&sonEspacios(ventana.audioInfo.get("title").toString()))ventana.nom_cancion=ventana.audioInfo.get("title").toString();
+           ventana.nom_artista=ventana.audioInfo.get("author").toString();
+          System.out.println(ventana.nom_cancion);
+           long duri=ventana.duracion/1000000;
+           dura_minu= (((duri/60<10)?"0":"")+(duri/60)+":"+((duri%60<10)?"0":"")+(duri%60));
+    }
+    public void seeked(long l) throws BasicPlayerException{
       
       control.seek(l);
       
   }
- public boolean sonEspacios(String cad)
- {     cad = cad.trim();
-       if(cad.isEmpty())return false;
-       return true;
- }
-  /**
-   * Progress callback while playing.
-   * 
-   * This method is called severals time per seconds while playing.
-   * properties map includes audio format features such as
-   * instant bitrate, microseconds position, current frame number, ... 
-   * 
-   * @param bytesread from encoded stream.
-   * @param microseconds elapsed (<b>reseted after a seek !</b>).
-   * @param pcmdata PCM samples.
-   * @param properties audio stream parameters.
-  */
-  private long secondsAmount = 0;
-  public void progress(int bytesread, long microseconds, byte[] pcmdata, Map properties)
-  {
-    // Pay attention to properties. It depends on underlying JavaSound SPI
-    // MP3SPI provides mp3.equalizer.
-    
-    //display("progress : "+properties.toString());
-     
-    // if(ventana.audioInfo.get("title").toString().isEmpty())System.out.println("_"+ventana.audioInfo.get("title").toString()+"_");else System.out.println("b"+ventana.audioInfo.get("title").toString()+"a");
-    ventana.tiempo = Long.valueOf(properties.get("mp3.position.microseconds").toString());
-   // display("bytes: "+ventana.bits_total);
-            //repro.jp_Progreso.ActualizarProgreso(50);
+    public boolean sonEspacios(String cad)
+    {     cad = cad.trim();
+          if(cad.isEmpty())return false;
+          return true;
+    }
+    /**
+    * Progress callback while playing.
+    * 
+    * This method is called severals time per seconds while playing.
+    * properties map includes audio format features such as
+    * instant bitrate, microseconds position, current frame number, ... 
+    * 
+    * @param bytesread from encoded stream.
+    * @param microseconds elapsed (<b>reseted after a seek !</b>).
+    * @param pcmdata PCM samples.
+    * @param properties audio stream parameters.
+    */
+    private long secondsAmount = 0;
+      @Override
+    public void progress(int bytesread, long microseconds, byte[] pcmdata, Map properties)
+    {
+        // Pay attention to properties. It depends on underlying JavaSound SPI
+        // MP3SPI provides mp3.equalizer.
+
+        //display("progress : "+properties.toString());
+
+        // if(ventana.audioInfo.get("title").toString().isEmpty())System.out.println("_"+ventana.audioInfo.get("title").toString()+"_");else System.out.println("b"+ventana.audioInfo.get("title").toString()+"a");
+        ventana.tiempo = Long.valueOf(properties.get("mp3.position.microseconds").toString());
+        // display("bytes: "+ventana.bits_total);
+                //repro.jp_Progreso.ActualizarProgreso(50);
            
           
-             long temp = ventana.tiempo/1000000;
-             long dura = ventana.duracion/1000000;
-             ventana.repro.jp_Progreso.ActualizarProgreso(temp,dura);
-             ventana.repro.jp_Progreso.repaint();
-              
-            ventana.repro.jlb_tiempo.setText((((temp/60<10)?"0":"")+temp/60)+":" +(((temp%60<10)? "0":"")+ temp%60)+ " - " + dura_minu);
-             
-           
-              //if (ventana.audioInfo.containsKey("basicplayer.sourcedataline")) {
-            // Spectrum/time analyzer
-            
-            if (ventana.audioInfo.containsKey("basicplayer.sourcedataline")) {
-            // Spectrum/time analyzer
-            
+        long temp = ventana.tiempo/1000000;
+        long dura = ventana.duracion/1000000;
+        ventana.repro.jp_Progreso.ActualizarProgreso(temp,dura);
+        ventana.repro.jp_Progreso.repaint();
+
+        ventana.repro.jlb_tiempo.setText((((temp/60<10)?"0":"")+temp/60)+":" +(((temp%60<10)? "0":"")+ temp%60)+ " - " + dura_minu);
+
+
+         //if (ventana.audioInfo.containsKey("basicplayer.sourcedataline")) {
+        // Spectrum/time analyzer
+
+        if (ventana.audioInfo.containsKey("basicplayer.sourcedataline")) {
+        // Spectrum/time analyzer
             if (ventana.espectrometro != null) {
-                
                 ventana.espectrometro.writeDSP(pcmdata);
                 ventana.espectrometro.writeDSP(pcmdata);
             }
-            
-        }
-            
-            
-      
         
-      //repro = ventana.jp_Principal.getComponent(1);
-    
+        }
+        //Para el Ecualizador
+        equalizer = (float[]) properties.get("mp3.equalizer");
+        System.arraycopy(eq, 0, equalizer, 0, equalizer.length);
+//        display("Propiedades: "+properties.toString());
+        
+        
+        
+    //repro = ventana.jp_Principal.getComponent(1);
     //display("gola : "+tes.getArtist());
-   //display("long:"+UtilFeatures.getTimeLengthEstimation(map) / 1000);
-  }
+    //display("long:"+UtilFeatures.getTimeLengthEstimation(map) / 1000);
+    }
   
 
   /**

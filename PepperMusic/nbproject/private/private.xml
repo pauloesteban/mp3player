@@ -3,15 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/orlando/Desktop/mp3player/PepperMusic/src/peppermusic/Add_letra.java</file>
-            <file>file:/C:/Users/orlando/Desktop/mp3player/PepperMusic/src/peppermusic/jp_Lista_ARTISTA.java</file>
-            <file>file:/C:/Users/orlando/Desktop/mp3player/PepperMusic/src/peppermusic/jp_Lista_ALBUM.java</file>
-            <file>file:/C:/Users/orlando/Desktop/mp3player/PepperMusic/src/peppermusic/PepperMusic_Frame.java</file>
-            <file>file:/C:/Users/orlando/Desktop/mp3player/PepperMusic/src/peppermusic/jp_Inicio.java</file>
-            <file>file:/C:/Users/orlando/Desktop/mp3player/PepperMusic/src/peppermusic/jp_Lista.java</file>
-            <file>file:/C:/Users/orlando/Desktop/mp3player/PepperMusic/src/peppermusic/SeekAndDestroy.java</file>
-            <file>file:/C:/Users/orlando/Desktop/mp3player/PepperMusic/src/peppermusic/jp_Reproduccion.java</file>
-            <file>file:/C:/Users/orlando/Desktop/mp3player/PepperMusic/src/peppermusic/jp_Lista_GENERO.java</file>
+            <file>file:/C:/Users/Desarrollo/Documents/GitHub/mp3player/PepperMusic/src/peppermusic/jp_Ecualizador.java</file>
+            <file>file:/C:/Users/Desarrollo/Documents/GitHub/mp3player/PepperMusic/src/peppermusic/jp_Reproduccion.java</file>
+            <file>file:/C:/Users/Desarrollo/Documents/GitHub/mp3player/PepperMusic/src/peppermusic/PepperMusic_Frame.java</file>
+            <file>file:/C:/Users/Desarrollo/Documents/GitHub/mp3player/PepperMusic/src/peppermusic/Reproductor.java</file>
+            <file>file:/C:/Users/Desarrollo/Documents/GitHub/mp3player/PepperMusic/src/peppermusic/PepperMusic.java</file>
+            <file>file:/C:/Users/Desarrollo/Documents/GitHub/mp3player/PepperMusic/src/peppermusic/VistaEcualizador.java</file>
         </group>
     </open-files>
 </project-private>
