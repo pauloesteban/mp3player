@@ -8,7 +8,6 @@ package peppermusic;
 import com.sun.awt.AWTUtilities;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Point;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
 import java.io.BufferedReader;
@@ -19,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.sampled.SourceDataLine;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
@@ -104,6 +104,7 @@ public class jp_Reproduccion extends jp_Canciones {
         jb_add_letras = new javax.swing.JButton();
         jlb_tiempo = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setOpaque(false);
@@ -377,6 +378,17 @@ public class jp_Reproduccion extends jp_Canciones {
         add(jLabel5);
         jLabel5.setBounds(30, 40, 125, 68);
 
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/ecupeq.png"))); // NOI18N
+        jButton3.setBorderPainted(false);
+        jButton3.setContentAreaFilled(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        add(jButton3);
+        jButton3.setBounds(20, 290, 40, 40);
+
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Celeste1.png"))); // NOI18N
         add(jLabel1);
@@ -458,7 +470,7 @@ public class jp_Reproduccion extends jp_Canciones {
         }
 
     }//GEN-LAST:event_karaokeActionPerformed
-public String getViscolor(String path) {
+    public String getViscolor(String path) {
         String viscolor = "";
         File archivo = null;
         FileReader fr = null;
@@ -689,7 +701,7 @@ public String getViscolor(String path) {
                    
         
     }//GEN-LAST:event_formComponentHidden
-public void leer_txt(String ruta){
+    public void leer_txt(String ruta){
      
      String codigo = new String(), path = ruta;
 			File archivo = new File(path);
@@ -808,16 +820,16 @@ public void leer_txt(String ruta){
         jlb_cancion.setText(ventana.nom_cancion);
         jlb_artista.setText(ventana.nom_artista);
         jlb_album.setText(ventana.nom_album);
-         js_Letras.getVerticalScrollBar().setValue(0);
-         
-         js_Letras.getVerticalScrollBar().setValue(0);
+        js_Letras.getVerticalScrollBar().setValue(0);
+
+        js_Letras.getVerticalScrollBar().setValue(0);
     }//GEN-LAST:event_formComponentShown
 
     private void jb_add_letrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_add_letrasActionPerformed
         // TODO add your handling code here:
-          Add_letra add= new Add_letra(ventana);
-          add.setVisible(true);
-          add.setAlwaysOnTop(true);
+        Add_letra add= new Add_letra(ventana);
+        add.setVisible(true);
+        add.setAlwaysOnTop(true);
           
         
     }//GEN-LAST:event_jb_add_letrasActionPerformed
@@ -837,12 +849,28 @@ public void leer_txt(String ruta){
         
     }//GEN-LAST:event_jp_LetrasComponentShown
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        try {
+            VistaEcualizador ecu = new VistaEcualizador(peppermusic);
+            ControlEcualizador control = new ControlEcualizador(ecu);
+            ecu.setState(control.getState());
+            ecu.setControl(control);
+            ecu.setLocationRelativeTo(null);
+            ecu.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(ventana, "Error al abrir ecualizador. Contactar al desarrollador 0996408107"+e.getMessage());
+        }
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public peppermusic.CustomButton START;
     private peppermusic.CustomButton customButton1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
