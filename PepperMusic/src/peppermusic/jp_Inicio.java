@@ -8,6 +8,7 @@ package peppermusic;
 import static java.awt.Frame.ICONIFIED;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -32,6 +33,27 @@ public class jp_Inicio extends javax.swing.JPanel {
           p4 = new jp_Lista_GENERO(ventana);
         p5 = new jp_Configuracion_Total(ventana);
        // if(A[1]==2)  System.out.println("hola"+A[1]);
+       
+       //imagen de fondo
+       if (ventana.skin == 0){
+            
+              fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/fondo_principal.png")));
+             
+         }
+          if (ventana.skin == 1){
+             
+               fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/clasica1.png")));
+          }
+           if (ventana.skin == 2){
+              
+                fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/rock1.png")));
+           }
+            if (ventana.skin == 3){
+                
+                fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/urbano1.png")));
+            }
+            fondo1.revalidate();
+            fondo1.repaint();
         
     }
 
@@ -50,8 +72,13 @@ public class jp_Inicio extends javax.swing.JPanel {
         btCanciones = new javax.swing.JButton();
         btConfi = new javax.swing.JButton();
         btArtista = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        fondo1 = new javax.swing.JLabel();
 
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
         setLayout(null);
 
         btAlbum.setBackground(new java.awt.Color(255, 255, 199));
@@ -155,11 +182,11 @@ public class jp_Inicio extends javax.swing.JPanel {
         add(btArtista);
         btArtista.setBounds(100, 200, 65, 65);
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondo_principal.png"))); // NOI18N
-        jLabel2.setAlignmentY(0.0F);
-        add(jLabel2);
-        jLabel2.setBounds(0, 0, 300, 336);
+        fondo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondo_principal.png"))); // NOI18N
+        fondo1.setAlignmentY(0.0F);
+        add(fondo1);
+        fondo1.setBounds(0, 0, 300, 336);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btAlbumMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btAlbumMouseExited
@@ -243,6 +270,11 @@ jp_Lista_GENERO p4;
            ventana.jp_Principal.revalidate();
     }//GEN-LAST:event_btArtistaActionPerformed
 
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_formComponentShown
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAlbum;
@@ -250,7 +282,7 @@ jp_Lista_GENERO p4;
     private javax.swing.JButton btCanciones;
     private javax.swing.JButton btConfi;
     private javax.swing.JButton btGenero;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel fondo1;
     private javax.swing.JOptionPane mensaje;
     // End of variables declaration//GEN-END:variables
 }

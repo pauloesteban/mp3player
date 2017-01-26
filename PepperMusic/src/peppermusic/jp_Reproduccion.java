@@ -60,7 +60,23 @@ public class jp_Reproduccion extends jp_Canciones {
         js_volumen.validate();
         jb_repetir.setToolTipText("REPETICIÓN DESACTIVADA");
         
-        
+        if (ventana.skin == 0){
+            
+              fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/Fondo_Celeste.png")));
+             
+         }
+          if (ventana.skin == 1){
+             
+               fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/clasica2.png")));
+          }
+           if (ventana.skin == 2){
+              
+                fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/rock2.png")));
+           }
+            if (ventana.skin == 3){
+                
+                fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/urbano2.png")));
+            }
        
         /*
         try {
@@ -105,7 +121,7 @@ public class jp_Reproduccion extends jp_Canciones {
         jlb_tiempo = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        fondo1 = new javax.swing.JLabel();
 
         setOpaque(false);
         addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -389,10 +405,10 @@ public class jp_Reproduccion extends jp_Canciones {
         add(jButton3);
         jButton3.setBounds(20, 290, 40, 40);
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Celeste1.png"))); // NOI18N
-        add(jLabel1);
-        jLabel1.setBounds(0, 0, 300, 336);
+        fondo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Celeste1.png"))); // NOI18N
+        add(fondo1);
+        fondo1.setBounds(0, 0, 300, 336);
     }// </editor-fold>//GEN-END:initComponents
 
     private void karaokeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_karaokeStateChanged
@@ -611,32 +627,67 @@ public class jp_Reproduccion extends jp_Canciones {
             peppermusic.setSize(300, 168);
             Shape forma = new RoundRectangle2D.Double(0,0,peppermusic.getBounds().width,peppermusic.getBounds().height,110,110);
             AWTUtilities.setWindowShape(peppermusic, forma);
-            jLabel1.setIcon(new ImageIcon( getClass().getResource("/Recursos/Fondo_Celeste2.png")));
+              if (ventana.skin == 0){
+            
+              fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/Fondo_Celeste2.png")));
+             
+         }
+          if (ventana.skin == 1){
+             
+               fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/clasica3.png")));
+          }
+           if (ventana.skin == 2){
+              
+                fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/rock3.png")));
+           }
+            if (ventana.skin == 3){
+                
+                fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/urbano3.png")));
+            }
          //   jlb_barras.setVisible(false);
             jp_Letras.setVisible(false);
             jp_Letras.setLocation(300, 170);
             jp_Letras.repaint();
-            jLabel1.setSize(300,168);
-            jLabel1.repaint();
+            fondo1.setSize(300,168);
+            fondo1.repaint();
             super.setEnabled_Lista(false);
             
-            jLabel1.revalidate();
+            fondo1.revalidate();
 
         }else{
 
             peppermusic.setSize(300, 336);
             Shape forma = new RoundRectangle2D.Double(0,0,peppermusic.getBounds().width,peppermusic.getBounds().height,125,125);
             AWTUtilities.setWindowShape(peppermusic, forma);
-            jLabel1.setIcon(new ImageIcon( getClass().getResource("/Recursos/Fondo_Celeste.png")));
-            jLabel1.setLocation(0, 0);
-            jLabel1.setSize(300,336);
-            jLabel1.repaint();
+            
+              if (ventana.skin == 0){
+            
+              fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/Fondo_Celeste.png")));
+             
+         }
+          if (ventana.skin == 1){
+             
+               fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/clasica2.png")));
+          }
+           if (ventana.skin == 2){
+              
+                fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/rock2.png")));
+           }
+            if (ventana.skin == 3){
+                
+                fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/urbano2.png")));
+            }
+            
+            
+            fondo1.setLocation(0, 0);
+            fondo1.setSize(300,336);
+            fondo1.repaint();
             jp_Letras.setVisible(true);
             jp_Letras.setLocation(30, 160);
             jp_Letras.repaint();
 //            jlb_barras.setVisible(true);
             super.setEnabled_Lista(true);
-            jLabel1.revalidate();
+            fondo1.revalidate();
            // jtb_agrandar.setLocation(238,315);
         }
 
@@ -868,11 +919,11 @@ public class jp_Reproduccion extends jp_Canciones {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public peppermusic.CustomButton START;
     private peppermusic.CustomButton customButton1;
+    private javax.swing.JLabel fondo1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JButton jb_add_letras;
     private javax.swing.JButton jb_repetir;

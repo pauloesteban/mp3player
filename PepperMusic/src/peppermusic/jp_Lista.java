@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import peppermusic.AutoComboBox.AutocompleteJComboBox;
 import peppermusic.AutoComboBox.StringSearchable;
 
@@ -55,7 +56,23 @@ public class jp_Lista extends jp_Canciones {
          //////////////////////////////////////
          //////////COMBOBOX BUSCAR AUTOCOMPLETADO
          //////////////////////////////////
-         
+         if (ventana.skin == 0){
+            
+              fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/Fondo_Celeste.png")));
+             
+         }
+          if (ventana.skin == 1){
+             
+               fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/clasica2.png")));
+          }
+           if (ventana.skin == 2){
+              
+                fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/rock2.png")));
+           }
+            if (ventana.skin == 3){
+                
+                fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/urbano2.png")));
+            }
          
 			
     }
@@ -94,7 +111,7 @@ public class jp_Lista extends jp_Canciones {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         lst_tarde = new javax.swing.JList<>();
-        jLabel2 = new javax.swing.JLabel();
+        fondo1 = new javax.swing.JLabel();
 
         popup.setComponentPopupMenu(popup);
         popup.setInvoker(lst_canciones);
@@ -272,10 +289,10 @@ public class jp_Lista extends jp_Canciones {
         add(jTabbedPane1);
         jTabbedPane1.setBounds(30, 60, 240, 240);
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Celeste.png"))); // NOI18N
-        add(jLabel2);
-        jLabel2.setBounds(0, 0, 300, 336);
+        fondo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Celeste.png"))); // NOI18N
+        add(fondo1);
+        fondo1.setBounds(0, 0, 300, 336);
     }// </editor-fold>//GEN-END:initComponents
 MouseEvent evt2;
     private void lst_cancionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lst_cancionesMouseClicked
@@ -483,9 +500,9 @@ public void display(String msg)
     //AutocompleteJComboBox
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizarCanciones;
+    private javax.swing.JLabel fondo1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

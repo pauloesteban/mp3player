@@ -8,6 +8,7 @@ package peppermusic;
 import java.awt.event.MouseEvent;
 import java.util.Iterator;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JList;
 import peppermusic.AutoComboBox.AutocompleteJComboBox;
 
@@ -45,6 +46,23 @@ public class jp_Lista_ALBUM extends jp_Canciones {
         jScrollPane2.setBounds(0, 0, 230, 210);
         
         */
+         if (ventana.skin == 0){
+            
+              fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/Fondo_Celeste.png")));
+             
+         }
+          if (ventana.skin == 1){
+             
+               fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/clasica2.png")));
+          }
+           if (ventana.skin == 2){
+              
+                fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/rock2.png")));
+           }
+            if (ventana.skin == 3){
+                
+                fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/urbano2.png")));
+            }
     }
 
     /**
@@ -77,7 +95,7 @@ public class jp_Lista_ALBUM extends jp_Canciones {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         lst_tarde = new javax.swing.JList<>();
-        jLabel2 = new javax.swing.JLabel();
+        fondo1 = new javax.swing.JLabel();
 
         popup.setComponentPopupMenu(popup);
         popup.setInvoker(lst_canciones);
@@ -229,15 +247,15 @@ public class jp_Lista_ALBUM extends jp_Canciones {
         add(jTabbedPane1);
         jTabbedPane1.setBounds(20, 60, 240, 240);
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Celeste.png"))); // NOI18N
-        jLabel2.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        fondo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Celeste.png"))); // NOI18N
+        fondo1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jLabel2PropertyChange(evt);
+                fondo1PropertyChange(evt);
             }
         });
-        add(jLabel2);
-        jLabel2.setBounds(0, 0, 300, 336);
+        add(fondo1);
+        fondo1.setBounds(0, 0, 300, 336);
     }// </editor-fold>//GEN-END:initComponents
 DefaultListModel modelo = new DefaultListModel();
     private void pop_tardeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pop_tardeActionPerformed
@@ -355,9 +373,9 @@ DefaultListModel modelo = new DefaultListModel();
          
     }//GEN-LAST:event_formVetoableChange
 
-    private void jLabel2PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabel2PropertyChange
+    private void fondo1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fondo1PropertyChange
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel2PropertyChange
+    }//GEN-LAST:event_fondo1PropertyChange
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
@@ -431,7 +449,7 @@ DefaultListModel modelo = new DefaultListModel();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizarCanciones;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel fondo1;
     private javax.swing.JPanel jPanel3;
     public javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;

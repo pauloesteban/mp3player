@@ -5,6 +5,11 @@
  */
 package peppermusic;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author orlando
@@ -15,11 +20,37 @@ public class jp_Configuracion_Total extends jp_Configuracion {
      * Creates new form jp_Configuracion_Total
      */
     PepperMusic_Frame ventana;
+    int frente=1;
     public jp_Configuracion_Total(PepperMusic_Frame venta) {
         super(venta);
        
+       
         initComponents();
          ventana = venta;
+         
+          if(ventana.frente==0)jb_frente.setSelected(true);
+        if(ventana.frente==1)jb_frente.setSelected(false);
+         if (ventana.skin == 0){
+             rd_predeterminado.setSelected(true);
+              lb_previa.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/fondo_principal4.png")));
+              fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/Fondo_Celeste.png")));
+         }
+          if (ventana.skin == 1){
+              rd_clasico.setSelected(true);
+               lb_previa.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/clasica4.png")));
+               fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/clasica2.png")));
+          }
+           if (ventana.skin == 2){
+               rd_rock.setSelected(true);
+                lb_previa.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/rock4.png")));
+                  fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/rock2.png")));
+           }
+            if (ventana.skin == 3){
+                rd_urbano.setSelected(true);
+                lb_previa.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/urbano4.png")));
+                 fondo1.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/urbano2.png")));
+            }
+              
     }
 
     /**
@@ -31,87 +62,179 @@ public class jp_Configuracion_Total extends jp_Configuracion {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jb_Configuracion_G = new javax.swing.JButton();
-        jb_skins = new javax.swing.JButton();
-        jb_ecua = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        grupo1 = new javax.swing.ButtonGroup();
+        jb_frente = new javax.swing.JToggleButton();
+        lb_previa = new javax.swing.JLabel();
+        rd_predeterminado = new javax.swing.JRadioButton();
+        rd_clasico = new javax.swing.JRadioButton();
+        rd_rock = new javax.swing.JRadioButton();
+        rd_urbano = new javax.swing.JRadioButton();
+        jb_guardar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        fondo1 = new javax.swing.JLabel();
 
         setLayout(null);
 
-        jb_Configuracion_G.setText("GENERAL");
-        jb_Configuracion_G.addActionListener(new java.awt.event.ActionListener() {
+        jb_frente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/jtb_on.png"))); // NOI18N
+        jb_frente.setBorder(null);
+        jb_frente.setBorderPainted(false);
+        jb_frente.setContentAreaFilled(false);
+        jb_frente.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/jtb_off.png"))); // NOI18N
+        jb_frente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_Configuracion_GActionPerformed(evt);
+                jb_frenteActionPerformed(evt);
             }
         });
-        add(jb_Configuracion_G);
-        jb_Configuracion_G.setBounds(73, 32, 143, 50);
+        add(jb_frente);
+        jb_frente.setBounds(200, 40, 50, 52);
 
-        jb_skins.setText("SKINS");
-        jb_skins.addActionListener(new java.awt.event.ActionListener() {
+        lb_previa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        add(lb_previa);
+        lb_previa.setBounds(130, 110, 143, 160);
+
+        grupo1.add(rd_predeterminado);
+        rd_predeterminado.setText("Moderno");
+        rd_predeterminado.setOpaque(false);
+        rd_predeterminado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_skinsActionPerformed(evt);
+                rd_predeterminadoActionPerformed(evt);
             }
         });
-        add(jb_skins);
-        jb_skins.setBounds(73, 100, 140, 50);
+        add(rd_predeterminado);
+        rd_predeterminado.setBounds(20, 110, 130, 23);
 
-        jb_ecua.setText("ECUALIZADOR");
-        jb_ecua.addActionListener(new java.awt.event.ActionListener() {
+        grupo1.add(rd_clasico);
+        rd_clasico.setText("Clásico");
+        rd_clasico.setOpaque(false);
+        rd_clasico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_ecuaActionPerformed(evt);
+                rd_clasicoActionPerformed(evt);
             }
         });
-        add(jb_ecua);
-        jb_ecua.setBounds(73, 177, 143, 50);
+        add(rd_clasico);
+        rd_clasico.setBounds(20, 150, 130, 23);
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Celeste1.png"))); // NOI18N
-        add(jLabel1);
-        jLabel1.setBounds(0, 0, 300, 336);
+        grupo1.add(rd_rock);
+        rd_rock.setText("Rock");
+        rd_rock.setOpaque(false);
+        rd_rock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rd_rockActionPerformed(evt);
+            }
+        });
+        add(rd_rock);
+        rd_rock.setBounds(20, 200, 130, 23);
+
+        grupo1.add(rd_urbano);
+        rd_urbano.setText("Urbano");
+        rd_urbano.setOpaque(false);
+        rd_urbano.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rd_urbanoActionPerformed(evt);
+            }
+        });
+        add(rd_urbano);
+        rd_urbano.setBounds(20, 250, 130, 23);
+
+        jb_guardar.setText("Guardar");
+        jb_guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_guardarActionPerformed(evt);
+            }
+        });
+        add(jb_guardar);
+        jb_guardar.setBounds(160, 276, 90, 23);
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel2.setText("Siempre en frente:");
+        add(jLabel2);
+        jLabel2.setBounds(60, 60, 120, 20);
+
+        fondo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Celeste1.png"))); // NOI18N
+        add(fondo1);
+        fondo1.setBounds(0, 0, 300, 336);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jb_skinsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_skinsActionPerformed
+    private void jb_frenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_frenteActionPerformed
         // TODO add your handling code here:
-         ventana.jp_Principal.getComponent(2).setVisible(false); 
-         ventana.jp_Principal.remove(2);
-            jp_Configuracion_Skins p1 = new jp_Configuracion_Skins(ventana);
-            p1.setSize(300, 336);
-            p1.setLocation(0, 0);
-            p1.setVisible(true);
-            ventana.jp_Principal.add(p1);
-           ventana.jp_Principal.revalidate();
-    }//GEN-LAST:event_jb_skinsActionPerformed
-
-    private void jb_Configuracion_GActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_Configuracion_GActionPerformed
-           ventana.jp_Principal.getComponent(2).setVisible(false);        // TODO add your handling code here:
+       if(jb_frente.isSelected()) {
+           ventana.setAlwaysOnTop(false);
+           frente=0;
+       }else{
+           ventana.setAlwaysOnTop(true);
+           frente=1;
+       }
         
-            ventana.jp_Principal.remove(2);
-            jp_Configuracion_Generales p1 = new jp_Configuracion_Generales(ventana);
-            p1.setSize(300, 336);
-            p1.setLocation(0, 0);
-            p1.setVisible(true);
-            ventana.jp_Principal.add(p1);
-           ventana.jp_Principal.revalidate();
-    }//GEN-LAST:event_jb_Configuracion_GActionPerformed
+        //guardar esta configuracion
+    }//GEN-LAST:event_jb_frenteActionPerformed
 
-    private void jb_ecuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_ecuaActionPerformed
+    private void rd_predeterminadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rd_predeterminadoActionPerformed
         // TODO add your handling code here:
-         ventana.jp_Principal.getComponent(2).setVisible(false); 
-         ventana.jp_Principal.remove(2);
-            jp_Ecualizador p1 = new jp_Ecualizador(ventana);
-            p1.setSize(300, 336);
-            p1.setLocation(0, 0);
-            p1.setVisible(true);
-            ventana.jp_Principal.add(p1);
-           ventana.jp_Principal.revalidate();
-    }//GEN-LAST:event_jb_ecuaActionPerformed
+        ventana.skin = 0;
+        
+        //ImageIcon icon = new ImageIcon(ventana.getClass().getResource("/Recursos/fondo_principal4.png"));
+        lb_previa.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/fondo_principal4.png")));
+        
+    }//GEN-LAST:event_rd_predeterminadoActionPerformed
+
+    private void rd_clasicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rd_clasicoActionPerformed
+        // TODO add your handling code here:
+        ventana.skin = 1;
+         lb_previa.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/clasica4.png")));
+    }//GEN-LAST:event_rd_clasicoActionPerformed
+
+    private void rd_rockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rd_rockActionPerformed
+        // TODO add your handling code here:
+        ventana.skin = 2;
+         lb_previa.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/rock4.png")));
+    }//GEN-LAST:event_rd_rockActionPerformed
+
+    private void rd_urbanoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rd_urbanoActionPerformed
+        // TODO add your handling code here:
+        ventana.skin = 3;
+         lb_previa.setIcon(new ImageIcon(ventana.getClass().getResource("/Recursos/urbano4.png")));
+    }//GEN-LAST:event_rd_urbanoActionPerformed
+
+    private void jb_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_guardarActionPerformed
+        // TODO add your handling code here:
+        FileWriter fichero = null;
+        PrintWriter pw = null;
+        try
+        {
+            fichero = new FileWriter("C:\\PepperMusic_Datos\\Configuracion\\Configuracion.txt");
+            pw = new PrintWriter(fichero);
+
+            
+                pw.println(frente );
+                  pw.println(ventana.skin );
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+           try {
+           // Nuevamente aprovechamos el finally para 
+           // asegurarnos que se cierra el fichero.
+           if (null != fichero)
+              fichero.close();
+           } catch (Exception e2) {
+              e2.printStackTrace();
+           }
+        }
+        ventana.Leer_config();
+         JOptionPane.showMessageDialog(this,"Configuracion guardada, para notar los cambios \n Por favor reinicie el programa","PepperMusic:Configuracion Exitoso!",JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jb_guardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton jb_Configuracion_G;
-    private javax.swing.JButton jb_ecua;
-    private javax.swing.JButton jb_skins;
+    private javax.swing.JLabel fondo1;
+    private javax.swing.ButtonGroup grupo1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JToggleButton jb_frente;
+    private javax.swing.JButton jb_guardar;
+    private javax.swing.JLabel lb_previa;
+    private javax.swing.JRadioButton rd_clasico;
+    private javax.swing.JRadioButton rd_predeterminado;
+    private javax.swing.JRadioButton rd_rock;
+    private javax.swing.JRadioButton rd_urbano;
     // End of variables declaration//GEN-END:variables
 }

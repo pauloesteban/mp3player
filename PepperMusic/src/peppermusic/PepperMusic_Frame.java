@@ -11,7 +11,9 @@ import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,14 +47,16 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
      * Creates new form PepperMusic_Frame
      */
    // ListaDeReproduccion[] lista_completa;
-     ArrayList<ListaDeReproduccion> lista_completa=new ArrayList<ListaDeReproduccion>();
-      ArrayList<Contenedor_album> Lista_album=new ArrayList<Contenedor_album>();
-      ArrayList<Contenedor_artista> Lista_artista=new ArrayList<Contenedor_artista>();
-      ArrayList<Contenedor_genero> Lista_genero=new ArrayList<Contenedor_genero>();
+    ArrayList<ListaDeReproduccion> lista_completa = new ArrayList<>();
+    ArrayList<Contenedor_album> Lista_album = new ArrayList<>();
+    ArrayList<Contenedor_artista> Lista_artista = new ArrayList<>();
+    ArrayList<Contenedor_genero> Lista_genero = new ArrayList<>();
     SeekAndDestroy inicial = new SeekAndDestroy(this);
-   public StringSearchable searchable ;
+
+   
     public  boolean EnRepro = false;  //Usada para saber cuando se está reproducciendo una cancion
     public  boolean NoRepro = true;   // idica si se ha salido del jp_Reproduccion (para no dibujar el progreso)
+
     public Clase_Progreso Barra;
     public jp_Reproduccion repro;
     public jp_Inicio inicio;
@@ -70,14 +74,22 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
     public int indice_album;
     public int indice_cancion;
     public int modo;
+    public int frente;
+    public int skin;
          private static Log log = LogFactory.getLog(TagInfoFactory.class);
 	private static TagInfoFactory instance = null;
 	private Class  MpegTagInfoClass = null;
 	private Class  VorbisTagInfoClass = null;
 	private Config conf = null;
     public ListaDeReproduccion cancion_actual;
+ public StringSearchable  searchable;
+        
+   
+
+
     public PepperMusic_Frame() {
        // repro = new jp_Reproduccion();
+
           this.setUndecorated(true);
           
     List<String> songs = new ArrayList<String>();
@@ -88,51 +100,95 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
           //crea las carpetas en el directorio C
           File letras = new File("C:\\PepperMusic_Datos\\Letras");
           File configuracion = new File("C:\\PepperMusic_Datos\\Configuracion");
+
+         
+          //crea las carpetas en el directorio C
+         
+        //crea las carpetas en el directorio C
       
-          if(!letras.exists())letras.mkdirs();
-          if(!configuracion.exists())configuracion.mkdirs();
+      
+        if(!letras.exists())letras.mkdirs();
+        if(!configuracion.exists())configuracion.mkdirs();
           
            
           
-          this.setSize(new Dimension(300, 336));
-          this.setMinimumSize(new Dimension(0, 0));
-          this.setLocationRelativeTo(null);
-          this.setResizable(false); // anula el boton maximizar
+        this.setSize(new Dimension(300, 336));
+        this.setMinimumSize(new Dimension(0, 0));
+        this.setLocationRelativeTo(null);
+        this.setResizable(false); // anula el boton maximizar
         Shape forma = new RoundRectangle2D.Double(0,0,this.getBounds().width,this.getBounds().height,125,125);
         AWTUtilities.setWindowShape(this, forma);
         
-        
         //abrir Jp_Inicio que contiene el menú principal 
-             
-            jp_Principal.removeAll();
+        jp_Principal.removeAll();
             
-            inicio = new jp_Inicio(this);
-           inicio.setSize(300, 336);
-            inicio.setLocation(0, 0);
-            jp_Principal.add(inicio);
+         Leer_config();
             
-            repro = new jp_Reproduccion(this);
-            repro.setSize(300, 336);
-            repro.setLocation(0, 0);
-            repro.setVisible(false);
-            jp_Principal.add(repro);
-            
-            
-            jp_Principal.revalidate();
-            jp_Principal.repaint();
-            
-            inicial.start();
             
    
+            
+   
+    
  
+
+        inicio = new jp_Inicio(this);
+        inicio.setSize(300, 336);
+        inicio.setLocation(0, 0);
+        jp_Principal.add(inicio);
+
+        repro = new jp_Reproduccion(this);
+        repro.setSize(300, 336);
+        repro.setLocation(0, 0);
+        repro.setVisible(false);
+        jp_Principal.add(repro);
+
+
+        jp_Principal.revalidate();
+        jp_Principal.repaint();
+
+        inicial.start();
+
  }
-     
+     public void Leer_config(){
+           File archivo = null;
+      FileReader fr = null;
+      BufferedReader br = null;
+
+      try {
+         // Apertura del fichero y creacion de BufferedReader para poder
+         // hacer una lectura comoda (disponer del metodo readLine()).
+         archivo = new File ("C:\\PepperMusic_Datos\\Configuracion\\Configuracion.txt");
+         fr = new FileReader (archivo);
+         br = new BufferedReader(fr);
+
+         // Lectura del fichero
+         String linea;
+         frente =  Integer.parseInt(br.readLine());
+         skin =  Integer.parseInt(br.readLine());
+        
+      }
+      catch(Exception e){
+         e.printStackTrace();
+      }finally{
+         // En el finally cerramos el fichero, para asegurarnos
+         // que se cierra tanto si todo va bien como si salta 
+         // una excepcion.
+         try{                    
+            if( null != fr ){   
+               fr.close();     
+            }                  
+         }catch (Exception e2){ 
+            e2.printStackTrace();
+         }
+      }
+      System.out.println("frente="+frente+" sknis="+skin);
+     }
 public void Meta_Audio(String ruta,String propiedad){
     //"mp3.id3tag.genre"
     ///////////OBTENER DATOS DE LOS ARCHIVOS MP3     
-File file = new File(ruta);
-AudioFileFormat baseFileFormat = null;
-AudioFormat baseFormat = null;
+    File file = new File(ruta);
+    AudioFileFormat baseFileFormat = null;
+    AudioFormat baseFormat = null;
         try {
             baseFileFormat = AudioSystem.getAudioFileFormat(file);
         } catch (UnsupportedAudioFileException ex) {
@@ -237,21 +293,20 @@ int x,y;
     private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
         // TODO add your handling code here:
         Point p = MouseInfo.getPointerInfo().getLocation();
-          this.setLocation(p.x-x,p.y-y);
+        this.setLocation(p.x-x,p.y-y);
     }//GEN-LAST:event_formMouseDragged
 
     private void jb_CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_CerrarActionPerformed
         // TODO add your handling code here:
-        if(this.EnRepro==true){ try {
-            this.mi_reproductor.Stop();
-
-        } catch (Exception ex) {
-            Logger.getLogger(jp_Canciones.class.getName()).log(Level.SEVERE, null, ex);
-
-        }}else{
+        if(this.EnRepro==true){ 
+            try {
+                this.mi_reproductor.Stop();
+            } catch (Exception ex) {
+                Logger.getLogger(jp_Canciones.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
             // ventana.Barra.resume();
             //ventana.Barra.stop();
-
         }
         this.dispose();
     }//GEN-LAST:event_jb_CerrarActionPerformed
@@ -297,9 +352,9 @@ int x,y;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jb_Cerrar;
-    private javax.swing.JButton jb_Minimizar;
-    private javax.swing.JButton jb_ayuda;
+    public javax.swing.JButton jb_Cerrar;
+    public javax.swing.JButton jb_Minimizar;
+    public javax.swing.JButton jb_ayuda;
     public javax.swing.JPanel jp_Principal;
     // End of variables declaration//GEN-END:variables
 }
