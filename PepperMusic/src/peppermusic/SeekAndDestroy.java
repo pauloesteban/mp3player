@@ -7,8 +7,10 @@ package peppermusic;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,6 +20,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.DefaultListModel;
 import org.tritonus.share.sampled.file.TAudioFileFormat;
+import peppermusic.AutoComboBox.StringSearchable;
 import peppermusic.contenedores.Contenedor_album;
 import peppermusic.contenedores.Contenedor_artista;
 import peppermusic.contenedores.Contenedor_genero;
@@ -210,19 +213,28 @@ public class SeekAndDestroy implements Runnable{
                 Collections.sort(ventana.Lista_album);
                  Collections.sort(ventana.Lista_artista);
                  Collections.sort(ventana.Lista_genero);
+                 
+                 
+                 
                 //imprimeArray(lista_completa);
                    //creamos el iterator para recorrer la lista sin ordenar
                    
         Iterator itListaempleado= ventana.lista_completa.iterator();
         
          DefaultListModel model = new DefaultListModel();
-         
+         List<String> songs = new ArrayList<String>();
         while (itListaempleado.hasNext()) {
             ListaDeReproduccion elemento=(ListaDeReproduccion)itListaempleado.next();
             model.addElement(elemento.nom_cancion);
+            songs.add(elemento.nom_cancion);
             //System.out.println(elemento.nom_cancion+" "+elemento.nom_artista+" "+elemento.nom_album);    
         }
-        
+        ventana.searchable  = new StringSearchable(songs);
+        ventana.inicio.p1.jcm_buscar.Actualizar_busqueda(ventana.searchable);
+        ventana.inicio.p2.jcm_buscar.Actualizar_busqueda(ventana.searchable);
+         ventana.inicio.p3.jcm_buscar.Actualizar_busqueda(ventana.searchable);
+         ventana.inicio.p4.jcm_buscar.Actualizar_busqueda(ventana.searchable);
+       // ventana.inicio.p1.j
         //agrupado por album MOTHERFUCKERSS!!!!!!!!
          ventana.inicio.p1.lst_canciones.removeAll();
          ventana.inicio.p1.lst_canciones.setModel(model);

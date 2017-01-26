@@ -7,11 +7,9 @@ package peppermusic;
 
 import java.awt.event.MouseEvent;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import peppermusic.AutoComboBox.AutocompleteJComboBox;
 
 /**
  *
@@ -30,6 +28,7 @@ public class jp_Lista_ALBUM extends jp_Canciones {
     PepperMusic_Frame ventana;
     public jp_Lista_ALBUM(PepperMusic_Frame venta) {
         super(venta);
+        ventana=venta;
         initComponents();
         ventana=venta;
          
@@ -67,10 +66,10 @@ public class jp_Lista_ALBUM extends jp_Canciones {
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         pop_letras = new javax.swing.JMenuItem();
         pop_Eliminar = new javax.swing.JMenuItem();
+        jb_buscar = new javax.swing.JButton();
         btnActualizarCanciones = new javax.swing.JButton();
+        jcm_buscar = new AutocompleteJComboBox(ventana.searchable);
         jb_Regresar_Album = new javax.swing.JButton();
-        jtx_buscar = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jp_Album = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -127,6 +126,17 @@ public class jp_Lista_ALBUM extends jp_Canciones {
         });
         setLayout(null);
 
+        jb_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Boton 9.png"))); // NOI18N
+        jb_buscar.setToolTipText("Buscar");
+        jb_buscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jb_buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_buscarActionPerformed(evt);
+            }
+        });
+        add(jb_buscar);
+        jb_buscar.setBounds(230, 30, 27, 25);
+
         btnActualizarCanciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_actualizar.png"))); // NOI18N
         btnActualizarCanciones.setBorderPainted(false);
         btnActualizarCanciones.setContentAreaFilled(false);
@@ -140,6 +150,20 @@ public class jp_Lista_ALBUM extends jp_Canciones {
         add(btnActualizarCanciones);
         btnActualizarCanciones.setBounds(245, 55, 30, 30);
 
+        jcm_buscar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jcm_buscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jcm_buscarMouseClicked(evt);
+            }
+        });
+        jcm_buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcm_buscarActionPerformed(evt);
+            }
+        });
+        add(jcm_buscar);
+        jcm_buscar.setBounds(38, 30, 190, 25);
+
         jb_Regresar_Album.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/album_retroceder.png"))); // NOI18N
         jb_Regresar_Album.setBorder(null);
         jb_Regresar_Album.setBorderPainted(false);
@@ -151,16 +175,6 @@ public class jp_Lista_ALBUM extends jp_Canciones {
         });
         add(jb_Regresar_Album);
         jb_Regresar_Album.setBounds(140, 65, 30, 20);
-
-        jtx_buscar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        add(jtx_buscar);
-        jtx_buscar.setBounds(35, 30, 180, 30);
-
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Boton 9.png"))); // NOI18N
-        jButton2.setToolTipText("Buscar");
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        add(jButton2);
-        jButton2.setBounds(220, 30, 30, 30);
 
         jp_Album.setAlignmentX(0.0F);
         jp_Album.setAlignmentY(0.0F);
@@ -242,7 +256,7 @@ DefaultListModel modelo = new DefaultListModel();
  
     private void lst_cancionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lst_cancionesMouseClicked
         // TODO add your handling code here:
-        if (evt.getClickCount() == 2) {
+        if (evt.getClickCount() == 2&&lst_canciones.getSelectedValue()!=null) {
            
             
             
@@ -282,6 +296,7 @@ DefaultListModel modelo = new DefaultListModel();
        
          
          }else{
+             
              
              
                  
@@ -354,11 +369,68 @@ DefaultListModel modelo = new DefaultListModel();
 
         if(!ventana.inicial.buscando)ventana.inicial.start();
     }//GEN-LAST:event_btnActualizarCancionesActionPerformed
+
+    private void jcm_buscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcm_buscarMouseClicked
+        // TODO add your handling code here:
+        //  if(evt.getClickCount()==1){
+            System.out.println(jcm_buscar.getSelectedItem());
+            //}
+
+    }//GEN-LAST:event_jcm_buscarMouseClicked
+
+    private void jcm_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcm_buscarActionPerformed
+        // TODO add your handling code here:
+        //     System.out.println(jcm_buscar.getSelectedItem());
+    }//GEN-LAST:event_jcm_buscarActionPerformed
+ public String buscarRuta(String busca){
+                
+        Iterator itListaempleado= ventana.lista_completa.iterator();
+        
+         
+        
+        while (itListaempleado.hasNext()) {
+            ListaDeReproduccion elemento=(ListaDeReproduccion)itListaempleado.next();
+            if(elemento.nom_cancion.equals(busca)){
+                  ventana.nom_cancion=elemento.nom_cancion;
+                return elemento.ruta;
+          
+            }
+            //System.out.println(elemento.nom_cancion+" "+elemento.nom_artista+" "+elemento.nom_album);    
+        }
+        return "NO EXISTE";
+ }
+    private void jb_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_buscarActionPerformed
+        // TODO add your handling code here:
+
+        if(jcm_buscar.getSelectedItem()!=null){
+
+            String ruta = buscarRuta(jcm_buscar.getSelectedItem().toString());
+            if(!ruta.equals("NO EXISTE")){
+
+                ventana.jp_Principal.getComponent(2).setVisible(false);
+                ventana.NoRepro = false;
+                // ventana.cancion_actual= ventana.lista_completa.get(index);
+                //   ventana.ruta_txt = "C:\\PepperMusic_Datos\\Letras\\"+ventana.lista_completa.get(ventana.indice).nom_cancion+".txt";
+                // ventana.nom_cancion=lst_tarde.getSelectedValue().toString();
+                super.setEnabled_Reproduccion(true);
+                ventana.jp_Principal.getComponent(1).setVisible(true);
+
+                try {
+                    ventana.EnRepro=true;//"/Recursos/You're_My_Best_Friend.mp3"
+
+                    ventana.mi_reproductor.play(ruta);
+
+                } catch (Exception ex) {
+                    System.out.println("Error men: " + ex.getMessage());
+                }
+            }
+        }
+
+    }//GEN-LAST:event_jb_buscarActionPerformed
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizarCanciones;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;
     public javax.swing.JScrollPane jScrollPane2;
@@ -366,8 +438,9 @@ DefaultListModel modelo = new DefaultListModel();
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton jb_Regresar_Album;
+    private javax.swing.JButton jb_buscar;
+    public AutocompleteJComboBox jcm_buscar;
     private javax.swing.JPanel jp_Album;
-    private javax.swing.JTextField jtx_buscar;
     private javax.swing.JMenuItem lista_Alegre;
     private javax.swing.JMenuItem lista_Estudio;
     private javax.swing.JMenuItem lista_bailable;

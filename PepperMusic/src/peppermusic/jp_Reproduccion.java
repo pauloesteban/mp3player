@@ -732,12 +732,14 @@ public void leer_txt(String ruta){
         if(!karaoke.isSelected()){
             js_Letras.setLocation(0, 0);
             js_Letras.setVisible(true);
-            if(ventana.jp_Principal.getComponent(2)==ventana.inicio.p1)leer_txt("C:\\PepperMusic_Datos\\Letras\\"+ventana.lista_completa.get(ventana.indice).nom_cancion+".txt");
+         /*   if(ventana.jp_Principal.getComponent(2)==ventana.inicio.p1)leer_txt("C:\\PepperMusic_Datos\\Letras\\"+ventana.lista_completa.get(ventana.indice).nom_cancion+".txt");
              if(ventana.jp_Principal.getComponent(2)==ventana.inicio.p2)leer_txt("C:\\PepperMusic_Datos\\Letras\\"+ventana.Lista_album.get(ventana.indice_album).items_album().get(ventana.indice_cancion).nom_cancion+".txt");
             if(ventana.jp_Principal.getComponent(2)==ventana.inicio.p3)leer_txt("C:\\PepperMusic_Datos\\Letras\\"+ventana.Lista_artista.get(ventana.indice_album).items_artista().get(ventana.indice_cancion).nom_cancion+".txt");
              if(ventana.jp_Principal.getComponent(2)==ventana.inicio.p4)leer_txt("C:\\PepperMusic_Datos\\Letras\\"+ventana.Lista_genero.get(ventana.indice_album).items_genero().get(ventana.indice_cancion).nom_cancion+".txt");
-             jp_Letras.removeAll();
-            
+             */jp_Letras.removeAll();
+             System.out.println("RUTA="+ventana.ruta_txt);
+           // leer_txt(ventana.ruta_txt);
+           leer_txt("C:\\PepperMusic_Datos\\Letras\\"+ventana.nom_cancion+".txt");
             jp_Letras.add(js_Letras);
            //jp_Letras.revalidate();
            //jp_Letras.repaint();

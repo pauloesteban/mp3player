@@ -14,6 +14,7 @@ import java.awt.geom.RoundRectangle2D;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,6 +27,7 @@ import javazoom.jlgui.player.amp.tag.TagInfoFactory;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.tritonus.share.sampled.file.TAudioFileFormat;
+import peppermusic.AutoComboBox.StringSearchable;
 import peppermusic.contenedores.Contenedor_album;
 import peppermusic.contenedores.Contenedor_artista;
 import peppermusic.contenedores.Contenedor_genero;
@@ -48,7 +50,7 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
       ArrayList<Contenedor_artista> Lista_artista=new ArrayList<Contenedor_artista>();
       ArrayList<Contenedor_genero> Lista_genero=new ArrayList<Contenedor_genero>();
     SeekAndDestroy inicial = new SeekAndDestroy(this);
-   
+   public StringSearchable searchable ;
     public  boolean EnRepro = false;  //Usada para saber cuando se está reproducciendo una cancion
     public  boolean NoRepro = true;   // idica si se ha salido del jp_Reproduccion (para no dibujar el progreso)
     public Clase_Progreso Barra;
@@ -63,6 +65,7 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
     public String nom_cancion;
     public String nom_artista;
     public String nom_album;
+    public String ruta_txt;
     public int  indice;
     public int indice_album;
     public int indice_cancion;
@@ -72,10 +75,15 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
 	private Class  MpegTagInfoClass = null;
 	private Class  VorbisTagInfoClass = null;
 	private Config conf = null;
-    
+    public ListaDeReproduccion cancion_actual;
     public PepperMusic_Frame() {
        // repro = new jp_Reproduccion();
           this.setUndecorated(true);
+          
+    List<String> songs = new ArrayList<String>();
+        songs.clear();
+      searchable = new StringSearchable(songs);
+                                
           initComponents();
           //crea las carpetas en el directorio C
           File letras = new File("C:\\PepperMusic_Datos\\Letras");
@@ -116,7 +124,6 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
             inicial.start();
             
    
-    
  
  }
      
