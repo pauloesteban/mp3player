@@ -74,6 +74,15 @@ public class jp_Inicio extends javax.swing.JPanel {
         btArtista = new javax.swing.JButton();
         fondo1 = new javax.swing.JLabel();
 
+        addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                formAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 formComponentShown(evt);
@@ -198,7 +207,7 @@ jp_Lista_ALBUM p2;
        
         if(ventana.jp_Principal.getComponentCount()==3) ventana.jp_Principal.remove(2);
               
-         
+          System.out.println("ddd="+ventana.EnRepro);
             p2.setSize(300, 336);
             p2.setLocation(0, 0);
             p2.setVisible(true);
@@ -274,6 +283,10 @@ jp_Lista_GENERO p4;
         // TODO add your handling code here:
         
     }//GEN-LAST:event_formComponentShown
+
+    private void formAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_formAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formAncestorAdded
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

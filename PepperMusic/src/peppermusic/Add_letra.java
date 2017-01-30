@@ -12,6 +12,7 @@ import java.awt.Point;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -241,8 +242,11 @@ public class Add_letra extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
            if(!jtxt_letra.getText().isEmpty()){
-            FileWriter guardar = new FileWriter(new File("C:\\PepperMusic_Datos\\Letras\\"+ventana.lista_completa.get(ventana.indice).nom_cancion+".txt"),true);
-          jtxt_letra.write(guardar);
+              //  BufferedWriter bw = new BufferedWriter(new File("C:\\PepperMusic_Datos\\Letras\\"+ventana.lista_completa.get(ventana.indice).nom_cancion+".txt"));
+               
+           FileWriter guardar = new FileWriter(new File("C:\\PepperMusic_Datos\\Letras\\"+ventana.lista_completa.get(ventana.indice).nom_cancion+".txt"));
+          
+           jtxt_letra.write(guardar);
            JOptionPane.showMessageDialog(this,"Se ha guardado exitosamente la letra de "+ventana.nom_cancion+" \nen el cancionero" ,"PepperMusic:Guardado Exitoso!",JOptionPane.INFORMATION_MESSAGE);
             guardar.close();
             ventana.repro.leer_txt("C:\\PepperMusic_Datos\\Letras\\"+ventana.lista_completa.get(ventana.indice).nom_cancion+".txt");

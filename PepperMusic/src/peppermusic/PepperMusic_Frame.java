@@ -24,6 +24,7 @@ import javax.sound.sampled.AudioFileFormat;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.DefaultListModel;
 import javazoom.jlgui.player.amp.tag.TagInfo;
 import javazoom.jlgui.player.amp.tag.TagInfoFactory;
 import org.apache.commons.logging.Log;
@@ -84,9 +85,13 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
     public ListaDeReproduccion cancion_actual;
  public StringSearchable  searchable;
         
-   
-
-
+   /// Indicadores para moverse por la lista
+  public boolean aleatorio=false;  /// false=no aleatorio   
+  public int repetir_lista=0;  /// 0=no repetir lista  1 = repetir cancion actual 2 = repetir lista
+  DefaultListModel lista_actual;
+  public int indice_actual;
+  boolean cerrado=false;
+  
     public PepperMusic_Frame() {
        // repro = new jp_Reproduccion();
 
@@ -100,7 +105,7 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
           //crea las carpetas en el directorio C
           File letras = new File("C:\\PepperMusic_Datos\\Letras");
           File configuracion = new File("C:\\PepperMusic_Datos\\Configuracion");
-
+           File listas = new File("C:\\PepperMusic_Datos\\Listas");
          
           //crea las carpetas en el directorio C
          
@@ -109,7 +114,7 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
       
         if(!letras.exists())letras.mkdirs();
         if(!configuracion.exists())configuracion.mkdirs();
-          
+           if(!listas.exists())listas.mkdirs();
            
           
         this.setSize(new Dimension(300, 336));
@@ -298,9 +303,12 @@ int x,y;
 
     private void jb_CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_CerrarActionPerformed
         // TODO add your handling code here:
+         this.cerrado=true;
         if(this.EnRepro==true){ 
             try {
                 this.mi_reproductor.Stop();
+                this.repro.pn.stop();
+              if(this.espectrometro!=null)  this.espectrometro.closeDSP();
             } catch (Exception ex) {
                 Logger.getLogger(jp_Canciones.class.getName()).log(Level.SEVERE, null, ex);
             }

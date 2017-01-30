@@ -9,16 +9,25 @@ import com.sun.awt.AWTUtilities;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Shape;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.sampled.SourceDataLine;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.ToolTipManager;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
@@ -99,13 +108,15 @@ public class jp_Reproduccion extends jp_Canciones {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jb_Ecualizador = new javax.swing.JButton();
         jtb_agrandar = new javax.swing.JToggleButton();
         karaoke = new javax.swing.JToggleButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jb_avanzar = new javax.swing.JButton();
+        jb_retroceder = new javax.swing.JButton();
         START = new peppermusic.CustomButton();
-        jButton4 = new javax.swing.JButton();
-        customButton1 = new peppermusic.CustomButton();
+        pn = new peppermusic.LetraAnimada.PanelAnimado();
+        jb_reiniciar = new javax.swing.JButton();
+        jb_mute = new peppermusic.CustomButton();
         js_volumen = new javax.swing.JSlider();
         jtb_aleatorio = new peppermusic.CustomButton();
         jb_repetir = new javax.swing.JButton();
@@ -113,14 +124,8 @@ public class jp_Reproduccion extends jp_Canciones {
         jp_Letras = new javax.swing.JPanel();
         js_Letras = new javax.swing.JScrollPane();
         jtxt_letra = new javax.swing.JTextPane();
-        jp_Informacion = new javax.swing.JPanel();
-        jlb_album = new javax.swing.JLabel();
-        jlb_cancion = new javax.swing.JLabel();
-        jlb_artista = new javax.swing.JLabel();
         jb_add_letras = new javax.swing.JButton();
         jlb_tiempo = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
         fondo1 = new javax.swing.JLabel();
 
         setOpaque(false);
@@ -138,6 +143,17 @@ public class jp_Reproduccion extends jp_Canciones {
             }
         });
         setLayout(null);
+
+        jb_Ecualizador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/ecupeq.png"))); // NOI18N
+        jb_Ecualizador.setBorderPainted(false);
+        jb_Ecualizador.setContentAreaFilled(false);
+        jb_Ecualizador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_EcualizadorActionPerformed(evt);
+            }
+        });
+        add(jb_Ecualizador);
+        jb_Ecualizador.setBounds(20, 290, 40, 40);
 
         jtb_agrandar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_pequeño.png"))); // NOI18N
         jtb_agrandar.setBorder(null);
@@ -175,29 +191,29 @@ public class jp_Reproduccion extends jp_Canciones {
         add(karaoke);
         karaoke.setBounds(230, 295, 35, 35);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_avanzar.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_avanzar2.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jb_avanzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_avanzar.png"))); // NOI18N
+        jb_avanzar.setBorderPainted(false);
+        jb_avanzar.setContentAreaFilled(false);
+        jb_avanzar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_avanzar2.png"))); // NOI18N
+        jb_avanzar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jb_avanzarActionPerformed(evt);
             }
         });
-        add(jButton1);
-        jButton1.setBounds(220, 108, 30, 30);
+        add(jb_avanzar);
+        jb_avanzar.setBounds(220, 108, 30, 30);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_retroceder.png"))); // NOI18N
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_retroceder2.png"))); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jb_retroceder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_retroceder.png"))); // NOI18N
+        jb_retroceder.setBorderPainted(false);
+        jb_retroceder.setContentAreaFilled(false);
+        jb_retroceder.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_retroceder2.png"))); // NOI18N
+        jb_retroceder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jb_retrocederActionPerformed(evt);
             }
         });
-        add(jButton2);
-        jButton2.setBounds(150, 108, 30, 30);
+        add(jb_retroceder);
+        jb_retroceder.setBounds(150, 108, 30, 30);
 
         START.setBorder(null);
         START.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_start.png"))); // NOI18N
@@ -213,35 +229,47 @@ public class jp_Reproduccion extends jp_Canciones {
         });
         add(START);
         START.setBounds(172, 47, 56, 56);
+        add(pn);
+        pn.setBounds(30, 40, 120, 68);
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_fin.png"))); // NOI18N
-        jButton4.setBorder(null);
-        jButton4.setBorderPainted(false);
-        jButton4.setContentAreaFilled(false);
-        jButton4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_fin2.png"))); // NOI18N
-        add(jButton4);
-        jButton4.setBounds(182, 116, 36, 36);
+        jb_reiniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_fin.png"))); // NOI18N
+        jb_reiniciar.setBorder(null);
+        jb_reiniciar.setBorderPainted(false);
+        jb_reiniciar.setContentAreaFilled(false);
+        jb_reiniciar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_fin2.png"))); // NOI18N
+        jb_reiniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_reiniciarActionPerformed(evt);
+            }
+        });
+        add(jb_reiniciar);
+        jb_reiniciar.setBounds(182, 116, 36, 36);
 
-        customButton1.setBorder(null);
-        customButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_volumen.png"))); // NOI18N
-        customButton1.setBorderPainted(false);
-        customButton1.setContentAreaFilled(false);
-        customButton1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_volumen_sin.png"))); // NOI18N
-        customButton1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        jb_mute.setBorder(null);
+        jb_mute.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_volumen.png"))); // NOI18N
+        jb_mute.setBorderPainted(false);
+        jb_mute.setContentAreaFilled(false);
+        jb_mute.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_volumen_sin.png"))); // NOI18N
+        jb_mute.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                customButton1MouseDragged(evt);
+                jb_muteMouseDragged(evt);
             }
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                customButton1MouseMoved(evt);
+                jb_muteMouseMoved(evt);
             }
         });
-        customButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jb_mute.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                customButton1MouseExited(evt);
+                jb_muteMouseExited(evt);
             }
         });
-        add(customButton1);
-        customButton1.setBounds(250, 125, 25, 25);
+        jb_mute.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_muteActionPerformed(evt);
+            }
+        });
+        add(jb_mute);
+        jb_mute.setBounds(250, 125, 25, 25);
 
         js_volumen.setOrientation(javax.swing.JSlider.VERTICAL);
         js_volumen.setPaintLabels(true);
@@ -277,6 +305,11 @@ public class jp_Reproduccion extends jp_Canciones {
         jtb_aleatorio.setBorderPainted(false);
         jtb_aleatorio.setContentAreaFilled(false);
         jtb_aleatorio.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_aleatorio_on.png"))); // NOI18N
+        jtb_aleatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtb_aleatorioActionPerformed(evt);
+            }
+        });
         add(jtb_aleatorio);
         jtb_aleatorio.setBounds(30, 112, 20, 20);
 
@@ -292,10 +325,19 @@ public class jp_Reproduccion extends jp_Canciones {
         add(jb_repetir);
         jb_repetir.setBounds(130, 112, 20, 20);
 
+        jp_Progreso.setToolTipText("hola");
         jp_Progreso.setOpaque(false);
+        jp_Progreso.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jp_ProgresoMouseMoved(evt);
+            }
+        });
         jp_Progreso.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jp_ProgresoMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jp_ProgresoMouseExited(evt);
             }
         });
         jp_Progreso.setLayout(null);
@@ -330,6 +372,11 @@ public class jp_Reproduccion extends jp_Canciones {
         jtxt_letra.setEditable(false);
         jtxt_letra.setBackground(new java.awt.Color(153, 255, 255));
         jtxt_letra.setOpaque(false);
+        jtxt_letra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtxt_letraMouseClicked(evt);
+            }
+        });
         jtxt_letra.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 jtxt_letraComponentShown(evt);
@@ -342,33 +389,6 @@ public class jp_Reproduccion extends jp_Canciones {
 
         add(jp_Letras);
         jp_Letras.setBounds(25, 155, 248, 138);
-
-        jp_Informacion.setOpaque(false);
-        jp_Informacion.setLayout(null);
-
-        jlb_album.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jlb_album.setForeground(new java.awt.Color(255, 255, 255));
-        jlb_album.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlb_album.setText("TOOOOOOOOOOODOS");
-        jp_Informacion.add(jlb_album);
-        jlb_album.setBounds(5, 40, 115, 20);
-
-        jlb_cancion.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        jlb_cancion.setForeground(new java.awt.Color(255, 255, 255));
-        jlb_cancion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlb_cancion.setText("COMO ESTAAAAAAAAN");
-        jp_Informacion.add(jlb_cancion);
-        jlb_cancion.setBounds(5, 22, 115, 20);
-
-        jlb_artista.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jlb_artista.setForeground(new java.awt.Color(255, 255, 255));
-        jlb_artista.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlb_artista.setText("HOLAAAAAAAAAAAAA");
-        jp_Informacion.add(jlb_artista);
-        jlb_artista.setBounds(5, 8, 115, 15);
-
-        add(jp_Informacion);
-        jp_Informacion.setBounds(30, 40, 120, 68);
 
         jb_add_letras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/boton_agregar_letras.png"))); // NOI18N
         jb_add_letras.setText("jButton3");
@@ -389,21 +409,6 @@ public class jp_Reproduccion extends jp_Canciones {
         jlb_tiempo.setText("00:27 - 04:58");
         add(jlb_tiempo);
         jlb_tiempo.setBounds(30, 110, 120, 20);
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/repro_nombre.png"))); // NOI18N
-        add(jLabel5);
-        jLabel5.setBounds(30, 40, 125, 68);
-
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/ecupeq.png"))); // NOI18N
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        add(jButton3);
-        jButton3.setBounds(20, 290, 40, 40);
 
         fondo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Celeste1.png"))); // NOI18N
@@ -516,9 +521,60 @@ public class jp_Reproduccion extends jp_Canciones {
         }
         return viscolor;
     }
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jb_retrocederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_retrocederActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        if(ventana.lista_actual==null){
+                    
+            ///////////siginifica que trabaja con la lista principal
+            if(ventana.repetir_lista!=0){
+             System.out.println("actual cancion="+ventana.indice);
+             if(ventana.repetir_lista!=1){
+            ventana.indice--;
+              if(ventana.indice==-1){
+                ventana.indice=ventana.lista_completa.size()-1;
+                }
+             }
+             System.out.println("siguiente cancion="+ventana.indice);
+             
+             ventana.EnRepro=true;//"/Recursos/You're_My_Best_Friend.mp3"
+                  
+                    
+            
+           
+                      
+                     ventana.lista_actual=null;  //se trabaja con la lista completa
+                     ventana.mi_reproductor.saltando=true;
+                     ventana.mi_reproductor.play(ventana.lista_completa.get(ventana.indice).ruta);
+                      if(ventana.repro.isVisible()) ventana.jp_Principal.getComponent(1).setVisible(false);{
+                       ventana.jp_Principal.getComponent(1).setVisible(true);
+                      ventana.mi_reproductor.saltando=false;
+             }
+             
+            //comprobar el estado
+             
+            }
+        
+        }else{
+                    
+              if(ventana.repetir_lista!=0){
+            ///////esta trabajando con una lista mas pequeña
+            System.out.println("Lista pequeña="+ventana.indice_actual);
+            if(ventana.repetir_lista!=1){
+             ventana.indice_actual = (ventana.aleatorio) ? (int) (rnd.nextDouble() * ventana.lista_actual.getSize()):ventana.indice_actual+1;
+            if(ventana.indice_actual>=ventana.lista_actual.getSize())ventana.indice_actual=0;
+            }
+              ventana.mi_reproductor.saltando=true;
+            ventana.mi_reproductor.play(buscarRuta(ventana.lista_actual.getElementAt(ventana.indice_actual).toString()));
+              ventana.mi_reproductor.saltando=false;
+             if(ventana.repro.isVisible()) ventana.jp_Principal.getComponent(1).setVisible(false);{
+                       ventana.jp_Principal.getComponent(1).setVisible(true);
+        }
+            
+        }
+        }
+        
+        
+    }//GEN-LAST:event_jb_retrocederActionPerformed
 
     private void STARTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_STARTActionPerformed
         // TODO add your handling code here:
@@ -544,29 +600,101 @@ public class jp_Reproduccion extends jp_Canciones {
       
     }//GEN-LAST:event_STARTActionPerformed
 
- 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+  Random rnd = new Random();
+    private void jb_avanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_avanzarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void customButton1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customButton1MouseDragged
+                if(ventana.lista_actual==null){
+                    
+            ///////////siginifica que trabaja con la lista principal
+            if(ventana.repetir_lista!=0){
+             System.out.println("actual cancion="+ventana.indice);
+             if(ventana.repetir_lista!=1){
+            ventana.indice = (ventana.aleatorio) ? (int) (rnd.nextDouble() * ventana.lista_completa.size()):ventana.indice+1;
+              if(ventana.indice==ventana.lista_completa.size()){
+                ventana.indice=0;
+                }
+             }
+             System.out.println("siguiente cancion="+ventana.indice);
+             
+             ventana.EnRepro=true;//"/Recursos/You're_My_Best_Friend.mp3"
+                  
+                    
+            
+           
+                      
+                     ventana.lista_actual=null;  //se trabaja con la lista completa
+                     ventana.mi_reproductor.saltando=true;
+                     ventana.mi_reproductor.play(ventana.lista_completa.get(ventana.indice).ruta);
+                      if(ventana.repro.isVisible()) ventana.jp_Principal.getComponent(1).setVisible(false);{
+                       ventana.jp_Principal.getComponent(1).setVisible(true);
+                      ventana.mi_reproductor.saltando=false;
+             }
+             
+            //comprobar el estado
+             
+            }
+        
+        }else{
+                    
+              if(ventana.repetir_lista!=0){
+            ///////esta trabajando con una lista mas pequeña
+            System.out.println("Lista pequeña="+ventana.indice_actual);
+            if(ventana.repetir_lista!=1){
+             ventana.indice_actual = (ventana.aleatorio) ? (int) (rnd.nextDouble() * ventana.lista_actual.getSize()):ventana.indice_actual+1;
+            if(ventana.indice_actual>=ventana.lista_actual.getSize())ventana.indice_actual=0;
+            }
+              ventana.mi_reproductor.saltando=true;
+            ventana.mi_reproductor.play(buscarRuta(ventana.lista_actual.getElementAt(ventana.indice_actual).toString()));
+              ventana.mi_reproductor.saltando=false;
+             if(ventana.repro.isVisible()) ventana.jp_Principal.getComponent(1).setVisible(false);{
+                       ventana.jp_Principal.getComponent(1).setVisible(true);
+        }
+            
+        }
+        }
+        
+        
+        
+    }//GEN-LAST:event_jb_avanzarActionPerformed
+ public String buscarRuta(String busca){
+                
+        Iterator itListaempleado= ventana.lista_completa.iterator();
+        
+         
+        int h=0;
+        while (itListaempleado.hasNext()) {
+            ListaDeReproduccion elemento=(ListaDeReproduccion)itListaempleado.next();
+            if(elemento.nom_cancion.equals(busca)){
+                  ventana.nom_cancion=elemento.nom_cancion;
+                
+                
+               
+                return elemento.ruta;
+          
+            }
+            h++;
+            //System.out.println(elemento.nom_cancion+" "+elemento.nom_artista+" "+elemento.nom_album);    
+        }
+        return "NO EXISTE";
+ }
+    private void jb_muteMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_muteMouseDragged
         // TODO add your handling code here:
        
-    }//GEN-LAST:event_customButton1MouseDragged
+    }//GEN-LAST:event_jb_muteMouseDragged
 
-    private void customButton1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customButton1MouseMoved
+    private void jb_muteMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_muteMouseMoved
         // TODO add your handling code here:
          try{ Thread.sleep(175); } catch(InterruptedException e ) { System.out.println("Thread Interrupted"); }
          js_volumen.setVisible(true);
         js_volumen.validate();
-    }//GEN-LAST:event_customButton1MouseMoved
+    }//GEN-LAST:event_jb_muteMouseMoved
 
-    private void customButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customButton1MouseExited
+    private void jb_muteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_muteMouseExited
         // TODO add your handling code here:
          try{ Thread.sleep(250); } catch(InterruptedException e ) { System.out.println("Thread Interrupted"); }
         js_volumen.setVisible(false);
         js_volumen.validate();
-    }//GEN-LAST:event_customButton1MouseExited
+    }//GEN-LAST:event_jb_muteMouseExited
 
     private void js_volumenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_js_volumenMouseMoved
         // TODO add your handling code here:
@@ -599,19 +727,21 @@ public class jp_Reproduccion extends jp_Canciones {
             jb_repetir.setIcon(new ImageIcon( getClass().getResource("/Recursos/repro_rep_1.png")));
             jb_repetir.setToolTipText("REPETIR CANCIÓN");
             repetir++;
-                       
+               ventana.repetir_lista=repetir;        
             return;
         }
         if(repetir==1){
             jb_repetir.setIcon(new ImageIcon( getClass().getResource("/Recursos/repro_rep_todo.png")));
             jb_repetir.setToolTipText("REPETIR TODAS LAS CANCIÓNES");
             repetir++;
+            ventana.repetir_lista=repetir;
             return;
         }
         if(repetir==2){
             jb_repetir.setIcon(new ImageIcon( getClass().getResource("/Recursos/repro_rep_off.png")));
             jb_repetir.setToolTipText("REPETICIÓN DESACTIVADA");
             repetir=0;
+            ventana.repetir_lista=repetir;
             
         }
         
@@ -689,6 +819,7 @@ public class jp_Reproduccion extends jp_Canciones {
             super.setEnabled_Lista(true);
             fondo1.revalidate();
            // jtb_agrandar.setLocation(238,315);
+           
         }
 
     }//GEN-LAST:event_jtb_agrandarActionPerformed
@@ -703,34 +834,39 @@ public class jp_Reproduccion extends jp_Canciones {
       if(x==40)return;//reiniciar cancion
          
          valor = Math.toDegrees( Math.atan(((double)y-40)/((double)x-40)));
-         int z;
+         double z;
           
          if(x>40)
          { 
-             z = (int)Math.floor((valor+90)/3.6);
+             z = Math.floor((valor+90)/3.6);
             
          }else{
              
-             z = (int)Math.floor((valor+270)/3.6);
+             z = Math.floor((valor+270)/3.6);
          }
+       
          
        //  System.out.println("cambio; "+(ventana.bits_total*z/100));
          
         try {
-            peppermusic.mi_reproductor.seeked( ventana.bits_total*z/100);
+            peppermusic.mi_reproductor.seeked((long)(ventana.bits_total*z/100));
             // JOptionPane.showMessageDialog(canc,valor);
             //jp_Progreso.ActualizarProgreso(z);
             //     canc.venta.Barra.n=z;
         } catch (BasicPlayerException ex) {
             Logger.getLogger(jp_Reproduccion.class.getName()).log(Level.SEVERE, null, ex);
         }
+      
          
     }//GEN-LAST:event_jp_ProgresoMouseClicked
-
+ double ganancia=1;
+    
     private void js_volumenStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_js_volumenStateChanged
         // TODO add your handling code here:
            try { 
-            peppermusic.mi_reproductor.control.setGain((double)js_volumen.getValue()/100); 
+               if(jb_mute.isSelected()) jb_mute.setSelected(false);
+               ganancia=(double)js_volumen.getValue()/100;
+            peppermusic.mi_reproductor.control.setGain(ganancia); 
         } catch (BasicPlayerException ex) { 
             Logger.getLogger(Reproductor.class.getName()).log(Level.SEVERE, null, ex); 
         } 
@@ -748,7 +884,7 @@ public class jp_Reproduccion extends jp_Canciones {
         // TODO add your handling code here:
         
                    jp_Letras.removeAll();
-                   
+                   pn.stop();
                    
         
     }//GEN-LAST:event_formComponentHidden
@@ -792,6 +928,8 @@ public class jp_Reproduccion extends jp_Canciones {
  }
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
+        
+        System.out.println("MOSTRAAAAAAAAAAAADO ");
         if(!karaoke.isSelected()){
             js_Letras.setLocation(0, 0);
             js_Letras.setVisible(true);
@@ -807,9 +945,11 @@ public class jp_Reproduccion extends jp_Canciones {
            //jp_Letras.revalidate();
            //jp_Letras.repaint();
            
-            jlb_artista.setText(ventana.nom_artista);
+/*            jlb_artista.setText(ventana.nom_artista);
            jlb_cancion.setText(ventana.nom_cancion);
-            jlb_album.setText(ventana.nom_album);
+            jlb_album.setText(ventana.nom_album);*/
+            
+             
              Clase_Progreso cal =new  Clase_Progreso(ventana);
              cal.start();
             // js_Letras.getVerticalScrollBar().setValue(0); 
@@ -866,14 +1006,20 @@ public class jp_Reproduccion extends jp_Canciones {
                 }
             }
         
-            
+             
         }
-        jlb_cancion.setText(ventana.nom_cancion);
+        
+        
+             pn.removeAll();
+             pn.NuevaLetra(new JLabel(ventana.nom_artista,SwingConstants.CENTER),new JLabel(ventana.nom_cancion,SwingConstants.CENTER), new JLabel(ventana.nom_album,SwingConstants.CENTER));
+             pn.revalidate();
+             pn.repaint();
+      /*  jlb_cancion.setText(ventana.nom_cancion);
         jlb_artista.setText(ventana.nom_artista);
-        jlb_album.setText(ventana.nom_album);
-        js_Letras.getVerticalScrollBar().setValue(0);
+        jlb_album.setText(ventana.nom_album);*/
+       
 
-        js_Letras.getVerticalScrollBar().setValue(0);
+        
     }//GEN-LAST:event_formComponentShown
 
     private void jb_add_letrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_add_letrasActionPerformed
@@ -900,7 +1046,7 @@ public class jp_Reproduccion extends jp_Canciones {
         
     }//GEN-LAST:event_jp_LetrasComponentShown
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jb_EcualizadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_EcualizadorActionPerformed
         // TODO add your handling code here:
         try {
             VistaEcualizador ecu = new VistaEcualizador(peppermusic);
@@ -913,25 +1059,97 @@ public class jp_Reproduccion extends jp_Canciones {
             JOptionPane.showMessageDialog(ventana, "Error al abrir ecualizador. Contactar al desarrollador 0996408107"+e.getMessage());
         }
         
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jb_EcualizadorActionPerformed
+
+    private void jp_ProgresoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_ProgresoMouseExited
+        // TODO add your handling code here:
+       
+         
+    }//GEN-LAST:event_jp_ProgresoMouseExited
+
+    private void jp_ProgresoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_ProgresoMouseMoved
+        // TODO add your handling code here:
+          int x = evt.getX();
+      int y = evt.getY();
+     // JOptionPane.showMessageDialog(canc,x + "+"+y+"="+(x + y)); 
+       
+      if(x==40)return;//reiniciar cancion
+         
+         valor = (double)Math.toDegrees( Math.atan(((double)y-40)/((double)x-40)));
+         double z;
+          
+         if(x>40)
+         { 
+             z = (double)(valor+90)/3.6;
+            
+         }else{
+             
+             z =(double)(valor+270)/3.6;
+         }
+       
+         
+        
+         double tiempo = ((double)(ventana.duracion/1000000));
+         double minuto =(tiempo*z/6000);
+         int segundos = (int)Math.floor(((double)(minuto-(int)minuto)*60));
+         jp_Progreso.setToolTipText(""+((minuto<10)?"0":"")+(int)minuto+":"+((segundos<10)?"0":"")+segundos);
+    }//GEN-LAST:event_jp_ProgresoMouseMoved
+
+    private void jtxt_letraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtxt_letraMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jtxt_letraMouseClicked
+
+    private void jtb_aleatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtb_aleatorioActionPerformed
+        // TODO add your handling code here:
+        if(jtb_aleatorio.isSelected()) ventana.aleatorio=true;
+        else ventana.aleatorio=false;
+                
+    }//GEN-LAST:event_jtb_aleatorioActionPerformed
+
+    private void jb_reiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_reiniciarActionPerformed
+        try {
+            // TODO add your handling code here:
+            ventana.mi_reproductor.seeked(0);
+            
+            ventana.repro.START.setSelected(false);
+            ventana.mi_reproductor.Pausa();
+        } catch (Exception ex) {
+            Logger.getLogger(jp_Reproduccion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jb_reiniciarActionPerformed
+
+    private void jb_muteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_muteActionPerformed
+        // TODO add your handling code here:
+        if(jb_mute.isSelected()){
+          try { 
+               
+            peppermusic.mi_reproductor.control.setGain(0); 
+          } catch (BasicPlayerException ex) { 
+            Logger.getLogger(Reproductor.class.getName()).log(Level.SEVERE, null, ex); 
+          } 
+        }else{
+              try { 
+               
+            peppermusic.mi_reproductor.control.setGain(ganancia); 
+        } catch (BasicPlayerException ex) { 
+            Logger.getLogger(Reproductor.class.getName()).log(Level.SEVERE, null, ex); 
+        } 
+        }
+    }//GEN-LAST:event_jb_muteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public peppermusic.CustomButton START;
-    private peppermusic.CustomButton customButton1;
     private javax.swing.JLabel fondo1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JButton jb_Ecualizador;
     private javax.swing.JButton jb_add_letras;
+    private javax.swing.JButton jb_avanzar;
+    private peppermusic.CustomButton jb_mute;
+    private javax.swing.JButton jb_reiniciar;
     private javax.swing.JButton jb_repetir;
-    private javax.swing.JLabel jlb_album;
-    private javax.swing.JLabel jlb_artista;
-    private javax.swing.JLabel jlb_cancion;
+    private javax.swing.JButton jb_retroceder;
     public javax.swing.JLabel jlb_tiempo;
-    private javax.swing.JPanel jp_Informacion;
     private javax.swing.JPanel jp_Letras;
     public peppermusic.CustomPanel jp_Progreso;
     public javax.swing.JScrollPane js_Letras;
@@ -940,5 +1158,6 @@ public class jp_Reproduccion extends jp_Canciones {
     private peppermusic.CustomButton jtb_aleatorio;
     private javax.swing.JTextPane jtxt_letra;
     private javax.swing.JToggleButton karaoke;
+    public peppermusic.LetraAnimada.PanelAnimado pn;
     // End of variables declaration//GEN-END:variables
 }

@@ -147,8 +147,10 @@ public class jp_Configuracion_Total extends jp_Configuracion {
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setText("Siempre en frente:");
+        jLabel2.setMaximumSize(new java.awt.Dimension(3000, 17));
+        jLabel2.setName(""); // NOI18N
         add(jLabel2);
-        jLabel2.setBounds(60, 60, 120, 20);
+        jLabel2.setBounds(60, 60, 130, 20);
 
         fondo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Celeste1.png"))); // NOI18N
