@@ -9,6 +9,7 @@ import static java.awt.Frame.ICONIFIED;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import peppermusic.idiomas.Idioma;
 
 /**
  *
@@ -25,8 +26,18 @@ public class jp_Inicio extends javax.swing.JPanel {
     PepperMusic_Frame ventana;
     public jp_Inicio(PepperMusic_Frame venta ) {
         initComponents();
+        
+        
+            
         ventana = venta;
-       
+        Idioma  idioma=new Idioma(ventana.Idiomas);   
+        btCanciones.setToolTipText(idioma.getProperty("etiqueta_canciones"));
+        btAlbum.setToolTipText(idioma.getProperty("etiqueta_album"));
+        btGenero.setToolTipText(idioma.getProperty("etiqueta_genero"));
+        btArtista.setToolTipText(idioma.getProperty("etiqueta_artista"));
+        btConfi.setToolTipText(idioma.getProperty("etiqueta_configuracion"));
+        
+        
         p1= new jp_Lista(ventana);
         p2 = new jp_Lista_ALBUM(ventana);
         p3= new jp_Lista_ARTISTA(ventana);

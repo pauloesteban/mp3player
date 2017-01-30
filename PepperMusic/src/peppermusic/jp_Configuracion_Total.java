@@ -65,6 +65,7 @@ public class jp_Configuracion_Total extends jp_Configuracion {
         grupo1 = new javax.swing.ButtonGroup();
         jb_frente = new javax.swing.JToggleButton();
         lb_previa = new javax.swing.JLabel();
+        cmbIdiomas = new javax.swing.JComboBox();
         rd_predeterminado = new javax.swing.JRadioButton();
         rd_clasico = new javax.swing.JRadioButton();
         rd_rock = new javax.swing.JRadioButton();
@@ -86,11 +87,20 @@ public class jp_Configuracion_Total extends jp_Configuracion {
             }
         });
         add(jb_frente);
-        jb_frente.setBounds(200, 40, 50, 52);
+        jb_frente.setBounds(200, 50, 50, 52);
 
         lb_previa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         add(lb_previa);
         lb_previa.setBounds(130, 110, 143, 160);
+
+        cmbIdiomas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Español", "Ingles", "Frances" }));
+        cmbIdiomas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbIdiomasActionPerformed(evt);
+            }
+        });
+        add(cmbIdiomas);
+        cmbIdiomas.setBounds(60, 40, 90, 20);
 
         grupo1.add(rd_predeterminado);
         rd_predeterminado.setText("Moderno");
@@ -150,7 +160,7 @@ public class jp_Configuracion_Total extends jp_Configuracion {
         jLabel2.setMaximumSize(new java.awt.Dimension(3000, 17));
         jLabel2.setName(""); // NOI18N
         add(jLabel2);
-        jLabel2.setBounds(60, 60, 130, 20);
+        jLabel2.setBounds(60, 70, 130, 20);
 
         fondo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fondo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondo_Celeste1.png"))); // NOI18N
@@ -206,10 +216,12 @@ public class jp_Configuracion_Total extends jp_Configuracion {
         {
             fichero = new FileWriter("C:\\PepperMusic_Datos\\Configuracion\\Configuracion.txt");
             pw = new PrintWriter(fichero);
-
+           
             
                 pw.println(frente );
                   pw.println(ventana.skin );
+                  pw.println(cmbIdiomas.getSelectedItem());
+                  System.out.println(cmbIdiomas.getSelectedItem());
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -226,8 +238,13 @@ public class jp_Configuracion_Total extends jp_Configuracion {
          JOptionPane.showMessageDialog(this,"Configuracion guardada, para notar los cambios \n Por favor reinicie el programa","PepperMusic:Configuracion Exitoso!",JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jb_guardarActionPerformed
 
+    private void cmbIdiomasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbIdiomasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbIdiomasActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox cmbIdiomas;
     private javax.swing.JLabel fondo1;
     private javax.swing.ButtonGroup grupo1;
     private javax.swing.JLabel jLabel2;

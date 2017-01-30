@@ -15,11 +15,14 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.help.HelpBroker;
+import javax.help.HelpSet;
 import javax.sound.sampled.AudioFileFormat;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
@@ -34,6 +37,7 @@ import peppermusic.AutoComboBox.StringSearchable;
 import peppermusic.contenedores.Contenedor_album;
 import peppermusic.contenedores.Contenedor_artista;
 import peppermusic.contenedores.Contenedor_genero;
+import peppermusic.idiomas.Idioma;
 import sun.security.krb5.Config;
 
 /**
@@ -102,6 +106,7 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
       searchable = new StringSearchable(songs);
                                 
           initComponents();
+          Funcion_JavaHelp();
           //crea las carpetas en el directorio C
           File letras = new File("C:\\PepperMusic_Datos\\Letras");
           File configuracion = new File("C:\\PepperMusic_Datos\\Configuracion");
@@ -129,8 +134,8 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
             
          Leer_config();
             
-            
-   
+      
+         
             
    
     
@@ -152,8 +157,11 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
         jp_Principal.repaint();
 
         inicial.start();
+        
+        //inicio.
 
  }
+    public String Idiomas;
      public void Leer_config(){
            File archivo = null;
       FileReader fr = null;
@@ -163,14 +171,20 @@ public class PepperMusic_Frame extends javax.swing.JFrame {
          // Apertura del fichero y creacion de BufferedReader para poder
          // hacer una lectura comoda (disponer del metodo readLine()).
          archivo = new File ("C:\\PepperMusic_Datos\\Configuracion\\Configuracion.txt");
+         if(!archivo.exists()){
+             frente = 1;
+             skin = 0;
+             Idiomas="Español";
+             return;
+         }
          fr = new FileReader (archivo);
          br = new BufferedReader(fr);
-
+         
          // Lectura del fichero
          String linea;
          frente =  Integer.parseInt(br.readLine());
          skin =  Integer.parseInt(br.readLine());
-        
+         Idiomas=br.readLine();
       }
       catch(Exception e){
          e.printStackTrace();
@@ -214,6 +228,25 @@ if (baseFileFormat instanceof TAudioFileFormat)
    
 }
 }
+ private void Funcion_JavaHelp(){
+         File archivo = new File("help/help_set.hs");
+        URL hsURL;
+        try{
+            hsURL = archivo.toURI().toURL();
+            HelpSet helpset = new HelpSet(getClass().getClassLoader(), hsURL);
+            HelpBroker helpbroker = helpset.createHelpBroker();
+           
+            //Se añade ayuda a botones
+            //helpbroker.enableHelp
+            helpbroker.enableHelpOnButton(jb_ayuda, "aplication", helpset);
+            helpbroker.enableHelpKey(getContentPane(), "aplication", helpset);
+            
+           
+        } catch (Exception ex){
+            Logger.getLogger(Ventana_Ayuda.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -316,6 +349,7 @@ int x,y;
             // ventana.Barra.resume();
             //ventana.Barra.stop();
         }
+        
         this.dispose();
     }//GEN-LAST:event_jb_CerrarActionPerformed
 
